@@ -33,7 +33,7 @@ th {
   height: 25px;
 }
 
-th::before {
+.secondary-header::before {
   content: "|";
   @apply text-gray-300;
   @apply mr-1
