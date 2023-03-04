@@ -11,7 +11,6 @@ tr {
 th, td {
   min-width: 150px;
   max-width: 500px;
-  @apply space-x-1;
   @apply flex-grow;
 }
 
@@ -22,7 +21,7 @@ td {
   text-overflow: ellipsis;
   height: 45px;
   @apply mr-4;
-  @apply pl-2;
+  @apply px-2;
 }
 
 th {

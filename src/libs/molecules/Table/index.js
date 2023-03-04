@@ -1,13 +1,21 @@
+import useMobileScreen from "@/hooks/useMobileScreen";
+import clsx from "clsx";
 import React from "react";
 
 const Table = ({ data, headers }) => {
+  const isMobile = useMobileScreen();
   return (
     <div className="flex items-start flex-2 mr-20">
       <table>
         <tbody>
           <tr>
             <th>
-              <div className="flex items-center ml-14 mr-4">
+              <div
+                className={clsx(
+                  "flex items-center mr-4",
+                  isMobile ? "ml-3" : "ml-14"
+                )}
+              >
                 <div className="w-4 h-4 border rounded-sm mr-2"></div>
                 {headers[0]}
               </div>
@@ -16,7 +24,12 @@ const Table = ({ data, headers }) => {
           {data.map((dataItem) => (
             <tr key={dataItem[0]}>
               <td>
-                <div className="flex items-center ml-12 mr-4">
+                <div
+                  className={clsx(
+                    "flex items-center mr-4",
+                    isMobile ? "ml-1" : "ml-12"
+                  )}
+                >
                   <div className="w-4 h-4 border rounded-sm mr-2"></div>
                   {dataItem[0]}
                 </div>
@@ -38,11 +51,10 @@ const Table = ({ data, headers }) => {
                   )
               )}
             </tr>
-            {data.map((dataItem) => (
+            {data.map((dataItem, index) => (
               <tr key={dataItem[1]}>
-                {dataItem.map(
-                  (item, idx) => idx > 0 && <td key={item}>{item}</td>
-                )}
+                {/* eslint-disable-next-line react/jsx-key */}
+                {dataItem.map((item, idx) => idx > 0 && <td>{item}</td>)}
               </tr>
             ))}
           </tbody>
