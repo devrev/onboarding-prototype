@@ -1,0 +1,47 @@
+table {
+  table-layout: auto;
+}
+
+tr {
+  @apply mt-2;
+  @apply border-b;
+  @apply cursor-pointer;
+}
+
+th, td {
+  min-width: 150px;
+  max-width: 500px;
+  @apply space-x-1;
+  @apply flex-grow;
+}
+
+td {
+  @apply text-default;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 45px;
+  @apply mr-4;
+  @apply pl-2;
+}
+
+th {
+  @apply text-small;
+  @apply font-normal;
+  @apply text-gray-500;
+  @apply text-left;
+  height: 25px;
+}
+
+th::before {
+  content: "|";
+  @apply text-gray-300;
+  @apply mr-1
+}
+
+.ellipsis-break {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+

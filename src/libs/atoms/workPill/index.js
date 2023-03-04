@@ -1,15 +1,17 @@
 import React from "react";
-import { BiUserVoice, BiClipboard } from "react-icons/bi";
+import { BiUserVoice, BiClipboard, BiConversation } from "react-icons/bi";
 import clsx from "clsx";
 
 const IconMap = {
   issue: BiClipboard,
   ticket: BiUserVoice,
+  conv: BiConversation,
 };
 
 const classMap = {
   issue: "bg-issue text-color-issue",
   ticket: "bg-ticket text-color-ticket",
+  conv: "bg-conversation text-color-conversation",
 };
 
 const WorkPill = ({ display, type = "issue" }) => {

@@ -14,7 +14,7 @@ const ProfilePicture = ({ name, size = "xs", color }) => {
       className={clsx(
         sizeClass,
         color,
-        "flex justify-center items-center rounded-md text-white"
+        "flex flex-shrink-0 justify-center items-center rounded-md text-white"
       )}
     >
       {name}

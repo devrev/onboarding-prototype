@@ -1,9 +1,9 @@
 import React from "react";
 import Head from "next/head";
 import SideNav from "@/libs/components/SideNav";
-import UpdatesDesk from "@/libs/desks/updates";
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
+import ConversationDesk from "@/libs/desks/conversations";
 
 export default function Playground() {
   const isMobile = useMobileScreen();
@@ -15,7 +15,7 @@ export default function Playground() {
       <main>
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          <UpdatesDesk />
+          <ConversationDesk />
         </div>
       </main>
     </>
