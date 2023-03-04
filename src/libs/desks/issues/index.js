@@ -12,8 +12,9 @@ const IssueDesk = () => {
       </div>
       <div className="px-page-gutter">
         <Filters
+          showSelf={true}
           filters={[
-            { name: "Status", value: "Unread" },
+            { name: "Stage", value: "In Review +4" },
             { name: "Date", value: "Yesterday" },
           ]}
           sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
