@@ -5,6 +5,8 @@ import { BiChevronDown } from "react-icons/bi";
 import { GoMention } from "react-icons/go";
 import { FiBarChart } from "react-icons/fi";
 import { RxCounterClockwiseClock } from "react-icons/rx";
+import useMobileScreen from "@/hooks/useMobileScreen";
+import clsx from "clsx";
 
 const FilterField = ({ name, value }) => {
   return (
@@ -31,21 +33,24 @@ const SortField = ({ name }) => {
   );
 };
 
-const Filter = ({ filters, sort, showSelf }) => {
+const Filter = ({ filters, sort, showSelf = false }) => {
+  const isMobile = useMobileScreen();
   return (
     <div className="flex items-center justify-between">
-      <div className="flex">
-        <div className="flex items-center mr-2">
-          <FilterFieldIcon>
-            <GoMention />
-          </FilterFieldIcon>
-          <FilterFieldIcon>
-            <FiBarChart />
-          </FilterFieldIcon>
-          <FilterFieldIcon>
-            <RxCounterClockwiseClock />
-          </FilterFieldIcon>
-        </div>
+      <div className={clsx("flex", isMobile && "flex-col")}>
+        {showSelf && (
+          <div className="flex items-center mr-2">
+            <FilterFieldIcon>
+              <GoMention />
+            </FilterFieldIcon>
+            <FilterFieldIcon>
+              <FiBarChart />
+            </FilterFieldIcon>
+            <FilterFieldIcon>
+              <RxCounterClockwiseClock />
+            </FilterFieldIcon>
+          </div>
+        )}
         <div className="flex items-center flex-wrap">
           {filters.map(({ name, value }) => (
             <FilterField key={name} name={name} value={value} />

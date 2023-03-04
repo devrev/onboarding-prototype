@@ -14,7 +14,7 @@ const IssueDesk = () => {
         <Filters
           showSelf={true}
           filters={[
-            { name: "Stage", value: "In Review +4" },
+            { name: "Stage", value: "In Review" },
             { name: "Date", value: "Yesterday" },
           ]}
           sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
