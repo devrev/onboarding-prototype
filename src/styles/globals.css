@@ -2,79 +2,363 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --max-width: 1100px;
-  --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+:root{
+  --color-black: 0, 0%, 0%;
+  --color-white: 0, 0%, 100%;
 
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --color-gray-950: 0, 0%, 6%;
+  --color-gray-910: 0, 0%, 11%;
+  --color-gray-900: 0, 0%, 13%;
+  --color-gray-800: 0, 0%, 16%;
+  --color-gray-700: 0, 0%, 23%;
+  --color-gray-600: 0, 0%, 34%;
+  --color-gray-500: 0, 0%, 43%;
+  --color-gray-400: 0, 0%, 64%;
+  --color-gray-300: 0, 0%, 83%;
+  --color-gray-200: 0, 0%, 89%;
+  --color-gray-100: 0, 0%, 94%;
+  --color-gray-50: 0, 0%, 99%;
 
-  --primary-glow: conic-gradient(
-    from 180deg at 50% 50%,
-    #16abff33 0deg,
-    #0885ff33 55deg,
-    #54d6ff33 120deg,
-    #0071ff33 160deg,
-    transparent 360deg
-  );
-  --secondary-glow: radial-gradient(
-    rgba(255, 255, 255, 1),
-    rgba(255, 255, 255, 0)
-  );
+  --color-red-dark: 343, 86%, 39%;
+  --color-red-medium: 346, 91%, 48%;
+  --color-red-light: 350, 97%, 66%;
 
-  --tile-start-rgb: 239, 245, 249;
-  --tile-end-rgb: 228, 232, 233;
-  --tile-border: conic-gradient(
-    #00000080,
-    #00000040,
-    #00000030,
-    #00000020,
-    #00000010,
-    #00000010,
-    #00000080
-  );
+  --color-orange-dark: 31, 84%, 30%;
+  --color-orange-medium: 36, 100%, 24%;
+  --color-orange-light: 31, 79%, 47%;
 
-  --callout-rgb: 238, 240, 241;
-  --callout-border-rgb: 172, 175, 176;
-  --card-rgb: 180, 185, 188;
-  --card-border-rgb: 131, 134, 135;
-}
+  --color-yellow-dark: 42, 55%, 29%;
+  --color-yellow-medium: 48, 76%, 60%;
+  --color-yellow-light: 43, 61%, 43%;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  --color-green-dark: 141, 60%, 26%;
+  --color-green-medium: 153, 100%, 27%;
+  --color-green-light: 140, 50%, 43%;
 
-    --primary-glow: radial-gradient(rgba(1, 65, 255, 0.4), rgba(1, 65, 255, 0));
-    --secondary-glow: linear-gradient(
-      to bottom right,
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0),
-      rgba(1, 65, 255, 0.3)
-    );
+  --color-teal-dark: 172, 49%, 27%;
+  --color-teal-medium: 175, 100%, 26%;
+  --color-teal-light: 172, 55%, 41%;
 
-    --tile-start-rgb: 2, 13, 46;
-    --tile-end-rgb: 2, 5, 19;
-    --tile-border: conic-gradient(
-      #ffffff80,
-      #ffffff40,
-      #ffffff30,
-      #ffffff20,
-      #ffffff10,
-      #ffffff10,
-      #ffffff80
-    );
+  --color-sky-blue-dark: 191, 52%, 30%;
+  --color-sky-blue-medium: 190, 100%, 30%;
+  --color-sky-blue-light: 191, 57%, 45%;
 
-    --callout-rgb: 20, 20, 20;
-    --callout-border-rgb: 108, 108, 108;
-    --card-rgb: 100, 100, 100;
-    --card-border-rgb: 200, 200, 200;
-  }
+  --color-blue-dark: 214, 81%, 40%;
+  --color-blue-medium: 221, 100%, 58%;
+  --color-blue-light: 220, 95%, 66%;
+
+  --color-purple-dark: 290, 80%, 40%;
+  --color-purple-medium: 240, 100%, 60%;
+  --color-purple-light: 265, 100%, 60%;
+
+  /* The start of derived colors */
+
+  --color-core-accent--h: 240;
+  --color-core-accent--s: 100%;
+  --color-core-accent--l: 60%;
+
+  --color-core-error--h: 343;
+  --color-core-error--s: 86%;
+  --color-core-error--l: 39%;
+
+  --color-core-success--h: 141;
+  --color-core-success--s: 60%;
+  --color-core-success--l: 26%;
+
+  --color-core-warning--h: 45;
+  --color-core-warning--s: 63%;
+  --color-core-warning--l: 31%;
+
+  --background-layer-saturation: 10%;
+
+  /* Background -> Layers */
+  --color-background-layer-sunk: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 98%);
+  --color-background-layer-base: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 100%);
+  --color-background-layer-01: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 96%);
+  --color-background-layer-02: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 94%);
+  --color-background-layer-03: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 88%);
+  --color-background-layer-04: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 86%);
+  --color-background-layer-05: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 82%);
+
+  /* Background -> Interactive */
+  --color-background-interactive-primary: hsl(var(--color-core-accent--h),
+      var(--color-core-accent--s),
+      var(--color-core-accent--l));
+  --color-background-interactive-primary-hovered: hsl(var(--color-core-accent--h),
+      calc(var(--color-core-accent--s) - 2%),
+      calc(var(--color-core-accent--l) + 5%));
+  --color-background-interactive-primary-selected: hsl(var(--color-core-accent--h),
+      calc(var(--color-core-accent--s) - 4%),
+      calc(var(--color-core-accent--l) + 10%));
+  --color-background-interactive-primary-focused: hsl(var(--color-core-accent--h),
+      calc(var(--color-core-accent--s) - 4%),
+      calc(var(--color-core-accent--l) + 10%));
+  --color-background-interactive-primary-disabled: hsla(var(--color-core-accent--h),
+      calc(var(--color-core-accent--s) - 2%),
+      calc(var(--color-core-accent--l) + 5%, 0.2));
+
+  --color-background-interactive-secondary: hsl(var(--color-core-accent--h), 32%, 100%);
+  --color-background-interactive-secondary-hovered: hsl(var(--color-core-accent--h),
+      32%,
+      98%);
+  --color-background-interactive-secondary-selected: hsl(var(--color-core-accent--h),
+      32%,
+      94%);
+  --color-background-interactive-secondary-focused: hsl(var(--color-core-accent--h),
+      32%,
+      94%);
+  --color-background-interactive-secondary-disabled: hsla(var(--color-core-accent--h),
+      32%,
+      100%.0.2);
+
+  --color-background-interactive-tertiary: hsl(var(--color-core-accent--h), 10%, 92%);
+  --color-background-interactive-tertiary-hovered: hsl(var(--color-core-accent--h),
+      10%,
+      88%);
+  --color-background-interactive-tertiary-selected: hsl(var(--color-core-accent--h),
+      32%,
+      88%);
+  --color-background-interactive-tertiary-focused: hsl(var(--color-core-accent--h),
+      32%,
+      92%);
+  --color-background-interactive-tertiary-disabled: hsla(var(--color-core-accent--h),
+      32%,
+      90%,
+      0.2);
+
+  --color-background-interactive-flat: hsla(var(--color-core-accent--h), var(--background-layer-saturation), 70%, 0);
+  --color-background-interactive-flat-hovered: hsl(var(--color-core-accent--h),
+      var(--background-layer-saturation),
+      93%);
+  --color-background-interactive-flat-selected: hsl(var(--color-core-accent--h),
+      var(--background-layer-saturation),
+      90%);
+  --color-background-interactive-flat-focused: hsl(var(--color-core-accent--h),
+      var(--background-layer-saturation),
+      92%);
+  --color-background-interactive-flat-disabled: hsla(var(--color-core-accent--h),
+      var(--background-layer-saturation),
+      16%,
+      0);
+
+  --color-background-interactive-destructive: hsl(var(--color-core-error--h),
+      var(--color-core-error--s),
+      var(--color-core-error--l));
+  --color-background-interactive-destructive-hovered: hsl(var(--color-core-error--h),
+      calc(var(--color-core-error--s) - 2%),
+      calc(var(--color-core-error--l) + 5%));
+  --color-background-interactive-destructive-selected: hsl(var(--color-core-error--h),
+      calc(var(--color-core-error--s) - 4%),
+      calc(var(--color-core-error--l) + 10%));
+  --color-background-interactive-destructive-focused: hsl(var(--color-core-error--h),
+      calc(var(--color-core-error--s) - 4%),
+      calc(var(--color-core-error--l) + 10%));
+  --color-background-interactive-destructive-disabled: hsla(var(--color-core-error--h),
+      calc(var(--color-core-error--s) - 2%),
+      calc(var(--color-core-error--l) + 5%, 0.2));
+
+  /* Background -> Acents */
+  --color-background-accent: hsl(var(--color-core-accent--h), var(--color-core-accent--s), var(--color-core-accent--l));
+  --color-background-accent-issue: hsla(240, 100%, 60%, 0.1);
+  --color-background-accent-ticket: hsla(40, 100%, 40%, 0.1);
+  --color-background-accent-conversation: hsla(25, 100%, 60%, 0.1);
+
+  /* Background -> feedback */
+
+  --color-background-feedback-danger: hsla(var(--color-core-error--h),
+      var(--color-core-error--s),
+      var(--color-core-error--l),
+      0.2);
+  --color-background-feedback-warning: hsla(var(--color-core-warning--h),
+      var(--color-core-warning--s),
+      var(--color-core-warning--l),
+      0.2);
+  --color-background-feedback-success: hsla(var(--color-core-success--h),
+      var(--color-core-success--s),
+      var(--color-core-success--l),
+      0.2);
+  --color-background-feedback-smart: hsla(294, 100%, 44%, 0.2);
+  --color-background-feedback-neutral: hsla(var(--color-core-accent--h), var(--background-layer-saturation), 98%, 0.1);
+  --color-background-feedback-informative: hsla(175, 100%, 26%, 0.2);
+
+  /* Background -> Input */
+
+  --color-background-input-empty: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 100%);
+  --color-background-input-filled: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 20%);
+  --color-background-input-focused: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 20%);
+  --color-background-input-error: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 20%);
+  --color-background-input-suggested: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 20%);
+  --color-background-input-disabled: hsla(var(--color-core-accent--h), var(--background-layer-saturation), 10%, 0.2);
+  --color-background-input-toggle: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 80%);
+
+  /* Border -> default */
+  --border-default: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 90%);
+  --border-default-hovered: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 84%);
+  --border-default-selected: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 78%);
+  --border-default-focused: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 72%);
+
+  /* Border -> Input */
+
+  --border-input-empty: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 90%);
+  --border-input-hovered: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 84%);
+  --border-input-filled: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 78%);
+  --border-input-focused: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 72%);
+  --border-input-checkbox: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 72%);
+  --border-input-error: hsl(var(--color-core-error--h), var(--color-core-error--s), var(--color-core-error--l));
+  --border-input-suggested: hsla(294, 100, 44, 0.6);
+  --border-input-disabled: hsl(var(--color-core-accent--h), var(--background-layer-saturation), 72%, 0.4);
+
+  /* Content -> Default */
+  --color-content-default-highlight: hsl(var(--color-core-accent--h), 0%, 0%);
+  --color-content-default-primary: hsl(var(--color-core-accent--h), 4%, 15%);
+  --color-content-default-secondary: hsl(var(--color-core-accent--h), 4%, 30%);
+  --color-content-default-tertiary: hsl(var(--color-core-accent--h), 4%, 45%);
+  --color-content-default-disabled: hsl(var(--color-core-accent--h), 4%, 75%);
+
+  /* Content -> Feedback */
+  --color-content-feedback-warning: hsla(var(--color-core-warning--h),
+      var(--color-core-warning--s),
+      var(--color-core-warning--l));
+  --color-content-feedback-danger: hsl(var(--color-core-error--h),
+      var(--color-core-error--s),
+      var(--color-core-error--l));
+  --color-content-feedback-success: hsl(var(--color-core-success--h),
+      var(--color-core-success--s),
+      var(--color-core-success--l));
+  --color-content-feedback-smart: hsl(294, 100%, 44%);
+  --color-content-feedback-informative: hsl(175, 100%, 26%);
+  --color-content-feedback-link: hsl(238, 89%, 35%);
+
+  /* Content -> Accent */
+
+  --color-content-accent-issue: hsl(240, 100%, 60%);
+  --color-content-accent-ticket: hsl(40, 100%, 40%);
+  --color-content-accent-conversation: hsl(26, 100%, 49%);
+  --color-content-accent-customer: hsl(140, 100%, 30%);
+
+  --color-content-accent-product: 260, 100%, 50%;
+  --color-content-accent-feature: 190, 100%, 35%;
+  --color-content-accent-capability: 210, 100%, 44%;
+  --color-content-accent-runnable: 45, 63%, 31%;
+  --color-content-accent-linkable: 39, 79%, 47%;
+  --color-content-accent-microservice: 39, 79%, 47%;
+  --color-content-accent-component: 39, 79%, 47%;
+  --color-content-accent-enhancement: 155, 88%, 35%;
+
+  /* The end of derived colors */
+
+  --bg-button-brand: var(--color-background-interactive-primary);
+  --bg-button-brand-hovered: var(--color-background-interactive-primary-hovered);
+
+  --bg-sunk-area: var(--color-background-layer-sunk);
+  --bg-base: var(--color-background-layer-base);
+  --bg-overlay: var(--color-background-layer-base);
+  --bg-pill: var(--color-background-layer-02);
+  --bg-pill-hovered: var(--color-background-layer-03);
+  --bg-pill-selected: var(--color-background-layer-04);
+  --bg-lifted-area: var(--color-background-layer-base);
+  --bg-lifted-area-hovered: var(--color-background-layer-01);
+
+  --text-color-highlight: var(--color-content-default-highlight);
+  --text-color-primary: var(--color-content-default-primary);
+  --text-color-secondary: var(--color-content-default-secondary);
+  --text-color-tertiary: var(--color-content-default-tertiary);
+  --text-color-disabled: var(--color-content-default-disabled);
+
+  --border-hovered: var(--border-default-hovered);
+  --border-selected: var(--border-default-selected);
+  --border-selected-hovered: var(--border-default-selected);
+  --border-input: var(--border-input-empty);
+
+  --border-checkbox: var(--border-input-checkbox);
+  --border-checkbox-disabled: var(--border-input-disabled);
+  --border-separator: var(--border-default);
+
+  --text-color-success: var(--color-content-feedback-success);
+  --text-color-alert: var(--color-content-feedback-danger);
+  --text-color-warning: var(--color-content-feedback-warning);
+  --text-color-link: var(--color-content-feedback-link);
+
+  --text-color-issue: var(--color-content-accent-issue);
+  --text-color-ticket: var(--color-content-accent-ticket);
+  --text-color-enhancement: var(--color-content-accent-enhancement);
+  --text-color-bug: var(--color-red-light);
+  --text-color-request: var(--color-yellow-light);
+  --text-color-problem: var(--color-orange-light);
+  --text-color-conversation: var(--color-content-accent-conversation);
+  --text-color-dev-user: var(--color-content-feedback-link);
+  --text-color-rev-user: var(--color-content-accent-rev-user);
+
+  --bg-badge: var(--background-feedback-neutral);
+  --bg-badge-hovered: var(--background-feedback-neutral);
+
+  --bg-menu: var(--color-background-interactive-flat);
+  --bg-menu-hovered: var(--color-background-interactive-flat-hovered);
+  --bg-menu-selected: var(--color-background-interactive-flat-selected);
+  --bg-menu-selected-hovered: var(--color-background-interactive-flat-selected);
+
+  --bg-area: var(--color-background-layer-01);
+  --bg-area-hovered: var(--color-background-layer-02);
+  --bg-area-selected: var(--color-background-layer-02);
+
+  --bg-button-primary: var(--color-background-interactive-secondary);
+  --bg-button-primary-hovered: var(--color-background-interactive-secondary-hovered);
+  --bg-button-secondary: var(--color-background-interactive-tertiary);
+  --bg-button-secondary-hovered: var(--color-background-interactive-tertiary-hovered);
+  --bg-button-tertiary: var(--color-background-interactive-flat);
+  --bg-button-tertiary-hovered: var(--color-background-interactive-flat-hovered);
+  --bg-button-muted: var(--color-background-interactive-flat);
+  --bg-button-muted-hovered: var(--color-background-interactive-flat-hovered);
+  --bg-button-destructive: var(--color-background-interactive-destructive);
+  --bg-button-destructive-hovered: var(--color-background-interactive-destructive-hovered);
+
+  --bg-toggle: var(--color-background-input-toggle);
+  --bg-toggle-active: var(--color-background-accent);
+  --bg-toggle-disabled: var(--color-background-input-disabled);
+  --bg-input: var(--color-background-input-empty);
+  --bg-nav-search: var(--color-background-input-empty);
+  --bg-menu-search: var(--color-background-input-empty);
+
+  --bg-dotted-loader: var(--color-black), 0.5;
+  --bg-scrollbar: var(--color-black), 0.2;
+  --bg-scrollbar-hovered: var(--color-black), 0.5;
+  --bg-media-overlay: var(--color-black), 0.3;
+
+  --bg-success: var(--color-background-feedback-success);
+  --bg-failure: var(--color-background-feedback-danger);
+  --bg-warning: var(--color-background-feedback-warning);
+
+  --bg-chart-tooltip: var(--color-background-layer-base);
+  --bg-chart-medium: hsla(240, 70%, 72%, 1);
+  --bg-chart-light: hsla(240, 71%, 88%, 1);
+  --border-chart-grid: var(--border-input);
+  --color-content-chart: var(--color-content-default-tertiary);
+
+  --shadow-tiny: 0px 0px 0px 1px hsla(var(--color-black), 0.05), 0px 2px 4px hsla(var(--color-black), 0.05);
+  --shadow-popover: 0px 0px 0px 1px hsla(var(--color-black), 0.05), 0px 6px 12px -3px hsla(var(--color-black), 0.2);
+  --shadow-modal: 0px 0px 0px 1px hsla(var(--color-black), 0.05), 0px 12px 36px hsla(var(--color-black), 0.2);
+  --shadow-plug: 0px 0px 0px 1px hsla(var(--color-black), 0.05), 0px 10px 15px -3px hsla(var(--color-black), 0.02),
+    0px 4px 6px -2px hsla(var(--color-black), 0.02);
+  --shadow-slide-in: 0px 0px 0px 1px hsla(var(--color-black), 0.05), 0px 0px 64px hsla(var(--color-black), 0.15);
+
+  --shadow-pill: 0px 0px 0px 1px hsla(var(--color-black), 0.1);
+  --shadow-pill-hovered: 0px 0px 0px 1px hsla(var(--color-black), 0.1), 0px 2px 4px hsla(var(--color-black), 0.05);
+  --shadow-lifted-area: 0px 0px 0px 1px hsla(var(--color-black), 0.1), 0px 4px 8px -4px hsla(var(--color-black), 0.05);
+
+  --color-trails-product: var(--color-content-accent-product);
+  --color-trails-feature: var(--color-content-accent-feature);
+  --color-trails-capability: var(--color-content-accent-capability);
+  --color-trails-runnable: var(--color-content-accent-runnable);
+  --color-trails-enhancement: var(--color-content-accent-enhancement);
+  --color-trails-linkable: var(--color-content-accent-linkable);
+  --color-trails-customPart: var(--color-content-accent-enhancement);
+  --color-trails-microservice: var(--color-content-accent-microservice);
+  --color-trails-component: var(--color-content-accent-component);
+
+  --color-support-vistas: var(--color-content-accent-ticket);
+  --color-product-vistas: var(--color-content-accent-product);
+  --color-build-vistas: var(--color-content-accent-issue);
+  --color-customer-vistas: var(--color-content-accent-customer);
 }
 
 * {
@@ -87,16 +371,7 @@ html,
 body {
   max-width: 100vw;
   overflow-x: hidden;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'ui-sans-serif', 'system-ui';
 }
 
 a {
@@ -104,8 +379,3 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
