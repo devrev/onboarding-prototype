@@ -7,7 +7,7 @@ const SideNavBarMobile = ({ onToggleNav }) => {
   return (
     <div
       onClick={onToggleNav}
-      className="w-8 h-8 absolute right-0 mt-2 cursor-pointer"
+      className="w-8 h-8 absolute right-0 mt-2 cursor-pointer z-20"
     >
       <RxHamburgerMenu className="text-gray-500 text-h1" />
     </div>

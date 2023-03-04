@@ -12,7 +12,6 @@ import {
   FaHeadphonesAlt,
   FaDollarSign,
 } from "react-icons/fa";
-import { TbCurrencyDollar } from "react-icons/tb";
 import { RiVipDiamondLine, RiCodeSSlashLine } from "react-icons/ri";
 import Button from "@/libs/atoms/button";
 import clsx from "clsx";
@@ -37,14 +36,17 @@ const SideNavItem = ({
 };
 
 const SideNavBar = ({ isMobile = false }) => {
-  const widthClasses = isMobile ? "pt-8 w-full" : "w-72";
+  const widthClasses = isMobile ? "pt-10 w-full" : "w-72";
   return (
     <div
-      className={clsx(widthClasses, "px-4 py-2 h-screen border-r bg-sunk-area")}
+      className={clsx(
+        widthClasses,
+        "px-4 py-2 h-screen border-r bg-sunk-area absolute left-0 z-10"
+      )}
     >
       <div className="flex justify-between">
         <div className="flex items-center">
-          <ProfilePicture name="MS" color="#d3d3d3" />
+          <ProfilePicture name="MS" color="bg-purple-light" />
           <AiOutlineSetting className="ml-2 text-h2 text-gray-400 cursor-pointer hover:text-gray-500" />
         </div>
         <div>
