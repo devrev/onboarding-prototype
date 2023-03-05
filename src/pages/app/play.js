@@ -17,7 +17,7 @@ export default function Playground() {
       <main>
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          <ConversationDesk />
+          <IssueDesk />
           {/* <CreateTicketPane /> */}
         </div>
       </main>
