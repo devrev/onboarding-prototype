@@ -1,7 +1,7 @@
 import React from "react";
-import WorkPill from "@/libs/atoms/workPill";
+import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
-import StagePill from "@/libs/atoms/stagePill";
+import StagePill from "@/libs/molecules/stagePill";
 import Tag from "@/libs/atoms/tag";
 
 const convertToIssueTableRow = (issue) => {

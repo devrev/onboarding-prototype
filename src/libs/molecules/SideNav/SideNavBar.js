@@ -41,7 +41,7 @@ const SideNavBar = ({ isMobile = false }) => {
     <div
       className={clsx(
         widthClasses,
-        "px-4 py-2 h-screen border-r bg-sunk-area absolute left-0 z-10"
+        "px-4 py-2 h-screen border-r bg-sunk-area absolute left-0 z-40"
       )}
     >
       <div className="flex justify-between">

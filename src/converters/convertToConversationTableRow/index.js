@@ -1,7 +1,7 @@
 import React from "react";
-import WorkPill from "@/libs/atoms/workPill";
+import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
-import SourcePill from "@/libs/atoms/sourcePill";
+import SourcePill from "@/libs/molecules/sourcePill";
 
 const convertToConversationTableRow = (conv) => {
   return [

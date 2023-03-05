@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import React from "react";
-import Pill from "../pill";
+import Pill from "@/libs/atoms/pill";
 
 const colors = [
   "bg-gray-500",
@@ -11,7 +11,7 @@ const colors = [
   "bg-red-light",
 ];
 
-const Tag = ({ name, color }) => {
+const RevOrgPill = ({ name, color }) => {
   if (!color) {
     const colorIdx = Math.floor(Math.random() * colors.length);
     color = colors[colorIdx];
@@ -19,10 +19,17 @@ const Tag = ({ name, color }) => {
 
   return (
     <Pill>
-      <div className={clsx("w-2 h-2 rounded", color)}></div>
+      <div
+        className={clsx(
+          "w-4 h-4 rounded-4xl text-tiny flex items-center justify-center text-white font-semibold",
+          color
+        )}
+      >
+        {name[0]}
+      </div>
       <div className="ml-1 text-small">{name}</div>
     </Pill>
   );
 };
 
-export default Tag;
+export default RevOrgPill;

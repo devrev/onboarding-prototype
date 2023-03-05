@@ -1,5 +1,5 @@
 import React from "react";
-import WorkPill from "@/libs/atoms/workPill";
+import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
 import Filters from "@/libs/components/Filters";
 
