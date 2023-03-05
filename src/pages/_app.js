@@ -1,5 +1,11 @@
 import "@/styles/globals.css";
 import "@/styles/tables.css";
+import { StoreProvider } from "@/mobx/providers";
+
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />;
+  return (
+    <StoreProvider {...pageProps}>
+      <Component {...pageProps} />
+    </StoreProvider>
+  );
 }
