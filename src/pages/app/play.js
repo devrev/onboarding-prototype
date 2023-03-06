@@ -55,11 +55,17 @@ export default function Playground() {
         <title>DevRev</title>
       </Head>
       <main>
+        <button onClick={() => store.configs.panes.createTicketPane.open()}>
+          1
+        </button>
+        <button onClick={() => store.configs.panes.conversationPane.open()}>
+          2
+        </button>
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
           <IssueDesk />
           {/* <ConversationDesk /> */}
-          {/* <CreateTicketPane /> */}
+          <CreateTicketPane />
           <ConversationPane />
         </div>
       </main>

@@ -15,8 +15,11 @@ const CreateTicketPane = observer(() => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    store.showTicket && (
-      <Pane isOpen={isOpen}>
+    store.configs.panes.createTicketPane.isOpen && (
+      <Pane
+        isOpen={isOpen}
+        position={store.configs.panes.createTicketPane.position}
+      >
         <div className="px-4 py-6">
           <div className="flex items-center justify-between">
             <WorkPill type="ticket" display="New Ticket" isCreate={true} />

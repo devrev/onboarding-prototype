@@ -14,6 +14,7 @@ export const DESKS = {
   UPDATE_DESK: "update_desk",
 };
 
-export const PANES = {
-  CREATE_WORK_PANE: "create_work_pane",
+export const POSITION = {
+  RIGHT: "right",
+  MIDDLE: "middle",
 };
