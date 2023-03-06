@@ -9,6 +9,8 @@ import RevUserProfile from "@/libs/molecules/revUserProfile";
 import Filter from "@/libs/components/Filters";
 import ProfilePicture from "@/libs/atoms/profile";
 import Chat from "@/libs/components/Chat";
+import Links from "@/libs/components/Links";
+import TextBox from "@/libs/components/TextBox";
 
 const ConversationPane = () => {
   const isOpen = true;
@@ -42,22 +44,16 @@ const ConversationPane = () => {
             ]}
             showCreate={false}
           />
-          <hr className="mt-4" />
+          <hr className="mt-5" />
         </div>
-        <div className="mt-5 flex items-center justify-between">
-          <div className="bg-pill flex items-center text-small font-medium w-fit px-2 py-1.5 rounded-full cursor-pointer">
-            Tickets
-            <p className="text-small text-gray-500 ml-1">3</p>
-          </div>
-          <div>
-            <div className="text-small text-gray-700 flex items-center">
-              <AiOutlinePlus className="mr-1" />
-              Link Tickets
-            </div>
-          </div>
+        <div className="mt-5">
+          <Links headers={["tickets", "issues"]} />
+          <hr className="mt-10" />
         </div>
-        <hr className="mt-5" />
-        <Chat />
+        <div>
+          <Chat />
+          <TextBox />
+        </div>
       </div>
     </Pane>
   );

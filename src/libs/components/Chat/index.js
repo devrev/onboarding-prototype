@@ -32,7 +32,7 @@ const ChatItemRev = ({ name, revOrg, text }) => {
 
 const Chat = () => {
   return (
-    <div className="overflow-x-scroll max-h-[30rem]">
+    <div className="overflow-x-scroll max-h-[24rem]">
       <ChatItemDev name="Manan Sharma" text="Text-1" />
       <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
       <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />

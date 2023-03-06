@@ -3,9 +3,9 @@ import clsx from "clsx";
 import { bgColors } from "@/constants";
 
 const sizeMap = {
-  xs: "w-5 h-5 text-small",
-  sm: "w-7 h-7 text-default",
-  md: "w-9 h-9 text-lg",
+  xs: "w-5 h-5 text-small rounded-md",
+  sm: "w-7 h-7 text-default rounded-lg",
+  md: "w-9 h-9 text-lg rounded-lg",
 };
 
 const smallSizeMap = {
@@ -41,7 +41,7 @@ const RevUserProfile = ({ name, size = "xs", color, revOrg }) => {
       className={clsx(
         sizeClass,
         color,
-        "flex flex-shrink-0 justify-center items-center rounded-lg text-white relative"
+        "flex flex-shrink-0 justify-center items-center text-white relative"
       )}
     >
       {name}
@@ -49,7 +49,7 @@ const RevUserProfile = ({ name, size = "xs", color, revOrg }) => {
         className={clsx(
           smallClass,
           colorRevorg,
-          "p-1.5 border-2 border-white absolute right-0 bottom-0 rounded-2xl translate-x-1 translate-y-1 flex items-center justify-center font-semibold"
+          "p-1.5 border-2 border-white absolute right-0 bottom-0 rounded-full translate-x-1 translate-y-1 flex items-center justify-center font-semibold"
         )}
       >
         {revOrg[0]}
