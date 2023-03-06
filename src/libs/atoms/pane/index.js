@@ -1,4 +1,3 @@
-import useMobileScreen from "@/hooks/useMobileScreen";
 import React from "react";
 import { POSITION } from "@/constants";
 import clsx from "clsx";
