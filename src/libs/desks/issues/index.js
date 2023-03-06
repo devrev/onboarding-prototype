@@ -2,8 +2,11 @@ import React from "react";
 import Filters from "@/libs/components/Filters";
 import Table from "@/libs/molecules/Table";
 import convertToIssueTableRow from "@/converters/convertToIssueTableRow";
+import { useStore } from "@/mobx/providers";
+import { observer } from "mobx-react-lite";
 
-const IssueDesk = () => {
+const IssueDesk = observer(() => {
+  const store = useStore();
   return (
     <div>
       <div className="py-5 px-page-gutter flex">
@@ -25,63 +28,13 @@ const IssueDesk = () => {
       <div className="mt-6">
         <Table
           headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-          data={[
-            convertToIssueTableRow({
-              displayId: "ISS-1318",
-              title: "User documentation for new product onboarding workflows",
-              owner: {
-                name: "Deepak Gupta",
-              },
-              priority: "P1",
-              stage: "review",
-              tags: [
-                {
-                  name: "Revenue",
-                },
-                {
-                  name: "+2",
-                },
-              ],
-            }),
-            convertToIssueTableRow({
-              displayId: "ISS-1318",
-              title: "User documentation for new product onboarding workflows",
-              owner: {
-                name: "Deepak Gupta",
-              },
-              priority: "P1",
-              stage: "review",
-              tags: [
-                {
-                  name: "Revenue",
-                },
-                {
-                  name: "+2",
-                },
-              ],
-            }),
-            convertToIssueTableRow({
-              displayId: "ISS-1318",
-              title: "User documentation for new product onboarding workflows",
-              owner: {
-                name: "Deepak Gupta",
-              },
-              priority: "P1",
-              stage: "review",
-              tags: [
-                {
-                  name: "Revenue",
-                },
-                {
-                  name: "+2",
-                },
-              ],
-            }),
-          ]}
+          data={store.lists.issues.map((issue) =>
+            convertToIssueTableRow(issue)
+          )}
         />
       </div>
     </div>
   );
-};
+});
 
 export default IssueDesk;

@@ -40,11 +40,11 @@ export default function Playground() {
         <button onClick={() => store.configs.panes.conversationPane.open()}>
           2
         </button>
-        {isLoad && <Tour />}
+        {/* {isLoad && <Tour />} */}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          {/* <IssueDesk /> */}
-          <ConversationDesk />
+          <IssueDesk />
+          {/* <ConversationDesk /> */}
           <CreateTicketPane />
           <ConversationPane />
         </div>
