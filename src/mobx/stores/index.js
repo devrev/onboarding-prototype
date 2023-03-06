@@ -6,6 +6,7 @@ import {
   makeObservable,
 } from "mobx";
 import { enableStaticRendering } from "mobx-react-lite";
+import { ConfigStore } from "./config";
 
 enableStaticRendering(typeof window === "undefined");
 
@@ -15,6 +16,7 @@ export class Store {
   showTicket = false;
 
   constructor() {
+    this.configs = new ConfigStore();
     makeObservable(this, {
       lastUpdate: observable,
       light: observable,

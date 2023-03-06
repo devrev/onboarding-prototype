@@ -1,11 +1,15 @@
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
-import React from "react";
+import React, { useState } from "react";
 
 const Table = ({ data, headers }) => {
   const isMobile = useMobileScreen();
+  const [activeRow, setActiveRow] = useState(-1);
   return (
-    <div className="flex items-start flex-2 mr-20">
+    <div
+      className="flex items-start flex-2 mr-20"
+      onMouseLeave={() => setActiveRow(-1)}
+    >
       <table>
         <tbody>
           <tr>
@@ -21,8 +25,12 @@ const Table = ({ data, headers }) => {
               </div>
             </th>
           </tr>
-          {data.map((dataItem) => (
-            <tr key={dataItem[0]}>
+          {data.map((dataItem, index) => (
+            <tr
+              key={dataItem[0]}
+              className={clsx(activeRow === index && "bg-menu-hovered")}
+              onMouseOver={() => setActiveRow(index)}
+            >
               <td>
                 <div
                   className={clsx(
@@ -38,6 +46,7 @@ const Table = ({ data, headers }) => {
           ))}
         </tbody>
       </table>
+
       <div className="w-full h-full">
         <table className="min-w-full overflow-x-scroll block pr-20">
           <tbody>
@@ -52,7 +61,11 @@ const Table = ({ data, headers }) => {
               )}
             </tr>
             {data.map((dataItem, index) => (
-              <tr key={dataItem[1]}>
+              <tr
+                key={dataItem[1]}
+                className={clsx(activeRow === index && "bg-menu-hovered")}
+                onMouseOver={() => setActiveRow(index)}
+              >
                 {/* eslint-disable-next-line react/jsx-key */}
                 {dataItem.map((item, idx) => idx > 0 && <td>{item}</td>)}
               </tr>
