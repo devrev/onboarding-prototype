@@ -26,14 +26,14 @@ const CreateTicketPane = observer(() => {
             </div>
           </div>
           <div className="mt-6">
-            <Input text="Add Title" />
+            <Input id="createTicketPane__title" text="Add Title" />
             <p className="text-small text-gray-700 mt-4 ml-2">
               We found 3 potential similar work items
             </p>
             <hr className="mt-3" />
           </div>
           <div className="mt-4">
-            <Input text="Add Description" />
+            <Input id="createTicketPane__description" text="Add Description" />
             <AiOutlinePaperClip className="mt-2 text-h2 ml-1" />
             <hr className="mt-4" />
           </div>

@@ -2,8 +2,10 @@ import React from "react";
 import Filters from "@/libs/components/Filters";
 import Table from "@/libs/molecules/Table";
 import convertToConversationTableRow from "@/converters/convertToConversationTableRow";
+import { observer } from "mobx-react-lite";
+import { useStore } from "@/mobx/providers";
 
-const ConversationDesk = () => {
+const ConversationDesk = observer(() => {
   return (
     <div>
       <div className="py-5 px-page-gutter flex">
@@ -77,6 +79,6 @@ const ConversationDesk = () => {
       </div>
     </div>
   );
-};
+});
 
 export default ConversationDesk;
