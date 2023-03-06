@@ -46,6 +46,7 @@ const ConversationDesk = observer(() => {
               },
               ticket: "TKT-1216",
               updated: "yesterday",
+              id: "conv_1318",
             }),
             convertToConversationTableRow({
               displayId: "CONV-1446",

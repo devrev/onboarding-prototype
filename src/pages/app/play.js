@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Head from "next/head";
 import SideNav from "@/libs/molecules/SideNav";
 import useMobileScreen from "@/hooks/useMobileScreen";
@@ -8,6 +8,7 @@ import CreateTicketPane from "@/libs/panes/createTicket";
 import ConversationDesk from "@/libs/desks/conversations";
 import { useStore } from "@/mobx/providers";
 import ConversationPane from "@/libs/panes/conversation";
+import Tour from "@/libs/tours";
 
 const typeWriter = (elem, text, index, speed) => {
   if (index < text.length) {
@@ -22,32 +23,10 @@ const typeWriter = (elem, text, index, speed) => {
 export default function Playground() {
   const isMobile = useMobileScreen();
   const store = useStore();
+  const [isLoad, setIsLoad] = useState(false);
+
   useEffect(() => {
-    console.log("effect called");
-    setTimeout(() => {
-      store.showTicket = true;
-    }, 3000);
-
-    let word = "This is a sample title shown in a text format.";
-    setTimeout(() => {
-      const elem = document.getElementById("createTicketPane__title");
-      if (elem) {
-        console.log("calling type");
-        elem.innerHTML = "";
-        typeWriter(elem, word, 0, 30);
-      }
-    }, 6000);
-
-    let word2 =
-      "This is a long description of the body, Monday Tuesday Wednesday Thursday Friday Saturday Sunday";
-    setTimeout(() => {
-      const elem = document.getElementById("createTicketPane__description");
-      if (elem) {
-        console.log("calling type");
-        elem.innerHTML = "";
-        typeWriter(elem, word2, 0, 30);
-      }
-    }, 8000);
+    setIsLoad(true);
   }, []);
   return (
     <>
@@ -61,10 +40,11 @@ export default function Playground() {
         <button onClick={() => store.configs.panes.conversationPane.open()}>
           2
         </button>
+        {isLoad && <Tour />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          <IssueDesk />
-          {/* <ConversationDesk /> */}
+          {/* <IssueDesk /> */}
+          <ConversationDesk />
           <CreateTicketPane />
           <ConversationPane />
         </div>

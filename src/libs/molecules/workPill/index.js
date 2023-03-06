@@ -19,7 +19,7 @@ const classMap = {
   conv: "bg-conversation text-color-conversation",
 };
 
-const WorkPill = ({ display, type = "issue", isCreate = false }) => {
+const WorkPill = ({ display, type = "issue", isCreate = false, ...props }) => {
   const Icon = isCreate ? BiEditAlt : IconMap[type];
   const colorClasses = classMap[type];
   return (
@@ -28,6 +28,7 @@ const WorkPill = ({ display, type = "issue", isCreate = false }) => {
         colorClasses,
         "flex items-center text-small font-medium rounded-md py-1 px-2 w-fit h-fit max-w-[7rem] cursor-pointer"
       )}
+      {...props}
     >
       <Icon className="text-h2" />
       <div className="ml-1">{display}</div>

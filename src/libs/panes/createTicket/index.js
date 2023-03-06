@@ -41,13 +41,16 @@ const CreateTicketPane = observer(() => {
             <hr className="mt-4" />
           </div>
           <div className="mt-4">
-            <p className="text-tiny text-gray-500 mb-4">
+            <p
+              className="text-tiny text-gray-500 mb-4"
+              id="createTicketPane__part_selector"
+            >
               Which part is this work item about?
             </p>
-            <PartSelector />
+            <PartSelector id="part_selector" />
             <hr className="mt-4" />
           </div>
-          <div className="mt-5">
+          <div className="mt-5" id="createTicketPane__attributes">
             <Attributes
               attrs={[
                 {
@@ -71,7 +74,9 @@ const CreateTicketPane = observer(() => {
               <AiOutlinePlus className="mr-1" />
               Link Issues
             </div>
-            <Button type="action">Create</Button>
+            <Button id="createTicketPane__create_btn" type="action">
+              Create
+            </Button>
           </div>
         </div>
       </Pane>

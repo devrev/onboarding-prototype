@@ -7,7 +7,9 @@ const IssueDesk = () => {
   return (
     <div>
       <div className="py-5 px-page-gutter flex">
-        <h2 className="text-gray-600">Build /</h2>
+        <h2 className="text-gray-600" id="build_app_heading">
+          Build /
+        </h2>
         <h2 className="ml-1">Issues</h2>
       </div>
       <div className="px-page-gutter">

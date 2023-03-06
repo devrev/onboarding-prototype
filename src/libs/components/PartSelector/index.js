@@ -37,7 +37,7 @@ const classMap = {
   capability: "text-trails-capability",
 };
 
-const PartItem = ({ type, name, onClick }) => {
+const PartItem = ({ type, name, onClick, ...props }) => {
   const Icon = IconMap[type];
   const colorClass = classMap[type];
 
@@ -48,6 +48,7 @@ const PartItem = ({ type, name, onClick }) => {
         "flex items-center text-default hover:bg-menu-hovered p-2 rounded-lg cursor-pointer",
         colorClass
       )}
+      {...props}
     >
       <Icon className="mr-1" />
       {name}
@@ -57,7 +58,7 @@ const PartItem = ({ type, name, onClick }) => {
   return ItemToShow;
 };
 
-const PartSelector = () => {
+const PartSelector = ({ ...props }) => {
   const currItem = (
     <p className="bg-menu-selected p-2 rounded-lg text-gray-500 text-default">
       Select Part (Required)
@@ -72,7 +73,7 @@ const PartSelector = () => {
   };
 
   return (
-    <div>
+    <div {...props}>
       <div onClick={() => setShowOpts(true)} className="w-full cursor-pointer">
         {Shown}
       </div>
@@ -85,6 +86,7 @@ const PartSelector = () => {
                 key={part.name}
                 name={part.name}
                 type={part.type}
+                id="part_selector__part_item"
               />
             ))}
           </div>

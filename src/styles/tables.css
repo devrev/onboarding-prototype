@@ -8,7 +8,8 @@ tr {
   @apply cursor-pointer;
 }
 
-th, td {
+th,
+td {
   min-width: 150px;
   max-width: 500px;
   @apply flex-grow;
@@ -35,7 +36,7 @@ th {
 .secondary-header::before {
   content: "|";
   @apply text-gray-300;
-  @apply mr-1
+  @apply mr-1;
 }
 
 .ellipsis-break {
@@ -43,4 +44,3 @@ th {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-

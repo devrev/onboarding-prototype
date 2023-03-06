@@ -5,7 +5,12 @@ import SourcePill from "@/libs/molecules/sourcePill";
 
 const convertToConversationTableRow = (conv) => {
   return [
-    <WorkPill key={conv.displayId} type="conv" display={conv.displayId} />,
+    <WorkPill
+      key={conv.displayId}
+      type="conv"
+      display={conv.displayId}
+      id={conv?.id}
+    />,
     "CourseHero",
     <div key="members" className="flex items-center">
       <ProfilePicture

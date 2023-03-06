@@ -19,7 +19,9 @@
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-icons": "^4.8.0"
+    "react-icons": "^4.8.0",
+    "react-joyride": "^2.5.3",
+    "react-shepherd": "^4.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",

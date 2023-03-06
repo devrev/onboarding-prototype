@@ -17,12 +17,14 @@ const Button = ({
   children,
   type = "secondary",
   className,
+  ...props
 }) => {
   const buttonClass = buttonStyleMap[type];
   return (
     <button
       className={clsx(buttonClass, "rounded-lg cursor-pointer", className)}
       disabled={disabled}
+      {...props}
     >
       {children}
     </button>

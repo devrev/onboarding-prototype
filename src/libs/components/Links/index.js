@@ -60,7 +60,10 @@ const Links = ({ headers, links }) => {
             </div>
           ))}
         </div>
-        <div className="text-small text-gray-600 flex items-center">
+        <div
+          className="text-small text-gray-600 flex items-center cursor-pointer"
+          id={`link_${selected}`}
+        >
           <AiOutlinePlus className="mr-1" />
           Link {selected}
         </div>
