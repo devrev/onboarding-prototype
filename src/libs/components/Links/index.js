@@ -14,22 +14,20 @@ const EmptyMessage = ({ text }) => {
 
 const LinkItem = ({ item }) => {
   return (
-    <div className="h-20 shadow-popover p-3 rounded-lg">
+    <div className="h-20 shadow-popover p-3 rounded-lg cursor-pointer">
       <div className="flex items-center">
-        <WorkPill type="ticket" display="TKT-1216" />
-        <div className="ml-2 ellipsis-break text-default">
-          Show created & modified dates by default
-        </div>
+        <WorkPill type={item.type} display={item.display} />
+        <div className="ml-2 ellipsis-break text-default">{item.title}</div>
       </div>
       <div className="flex items-center mt-1.5 text-default">
         <div className="flex items-center text-small bg-pill rounded-full px-2 py-0.5">
           <AiOutlineLink className="mr-1" />
           Related
         </div>
-        <div className="ml-4">Awaiting Product Assist</div>
-        <div className="ml-4">Medium</div>
+        <div className="ml-4">{item.f1}</div>
+        <div className="ml-4">{item.f2}</div>
         <div className="ml-4">
-          <ProfilePicture name="Manan Sharma" />
+          <ProfilePicture name={item.owner} />
         </div>
       </div>
     </div>
@@ -45,7 +43,7 @@ const Links = ({ headers, links }) => {
           {headers.map((header) => (
             <div
               className={clsx(
-                "w-fit mr-1 cursor-pointer px-2 py-1.5 rounded-full",
+                "w-fit mr-1 cursor-pointer px-2 py-1.5 rounded-full flex items-center",
                 selected === header && "bg-pill"
               )}
               onClick={() => setSelected(header)}
@@ -72,7 +70,9 @@ const Links = ({ headers, links }) => {
         {links &&
         links.hasOwnProperty(`${selected}`) &&
         links[`${selected}`].length ? (
-          <LinkItem />
+          links[`${selected}`].map((link) => (
+            <LinkItem key={link.title} item={link} />
+          ))
         ) : (
           <EmptyMessage text={selected} />
         )}

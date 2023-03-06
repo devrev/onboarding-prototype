@@ -6,27 +6,23 @@ import {
   makeObservable,
 } from "mobx";
 import { enableStaticRendering } from "mobx-react-lite";
-import { ConfigStore } from "./config";
-import { DataStore } from "./data";
+import { ListStore } from "./lists";
+import { PaneStore } from "./panes";
 
 enableStaticRendering(typeof window === "undefined");
 
-export class Store {
+export class DataStore {
   constructor() {
-    this.configs = new ConfigStore();
-    this.data = new DataStore();
+    this.lists = new ListStore();
+    this.panes = new PaneStore();
 
     makeObservable(this, {
       hydrate: action,
-      init: action,
     });
   }
 
   hydrate = () => {
-    this.data.hydrate();
-  };
-
-  init = () => {
-    this.data.hydrate();
+    this.lists.hydrate();
+    this.panes.hydrate();
   };
 }

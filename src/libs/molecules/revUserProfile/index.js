@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { bgColors } from "@/constants";
 
 const sizeMap = {
-  xs: "w-5 h-5 text-small rounded-md",
+  xs: "w-6 h-6 text-small rounded-lg",
   sm: "w-7 h-7 text-default rounded-lg",
   md: "w-9 h-9 text-lg rounded-lg",
 };

@@ -8,6 +8,7 @@ export const conversations = [
     source: "email",
     msg: {
       name: "Manan Sharma",
+      revOrg: "Google",
       text: "Thank you for writing in, we will respond as soon as possible.While you wait, please add any additional information that may help us with your inquiry.",
     },
     ticket: "TKT-1216",

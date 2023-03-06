@@ -33,7 +33,7 @@ const ConversationDesk = observer(() => {
             "Tickets",
             "Last Updated",
           ]}
-          data={store.lists.conversations.map((conv) =>
+          data={store.data.lists.conversations.map((conv) =>
             convertToConversationTableRow(conv)
           )}
         />

@@ -2,6 +2,7 @@ import React from "react";
 import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
 import SourcePill from "@/libs/molecules/sourcePill";
+import RevUserProfile from "@/libs/molecules/revUserProfile";
 
 const convertToConversationTableRow = (conv) => {
   return [
@@ -23,7 +24,20 @@ const convertToConversationTableRow = (conv) => {
     </div>,
     <SourcePill key="source" name={conv.source} />,
     <div key="last_msg" className="flex items-center">
-      <ProfilePicture size="xs" name={conv.msg.name} color={conv.msg?.color} />
+      {conv.msg?.revOrg ? (
+        <RevUserProfile
+          size="xs"
+          name={conv.msg.name}
+          color={conv.msg?.color}
+          revOrg={conv.msg.revOrg}
+        />
+      ) : (
+        <ProfilePicture
+          size="xs"
+          name={conv.msg.name}
+          color={conv.msg?.color}
+        />
+      )}
       <p className="ml-1 ellipsis-break">{conv.msg.text}</p>
     </div>,
     conv.ticket ? (

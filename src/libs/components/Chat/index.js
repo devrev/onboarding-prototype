@@ -30,27 +30,27 @@ const ChatItemRev = ({ name, revOrg, text }) => {
   );
 };
 
-const Chat = () => {
+const componentMap = {
+  rev: ChatItemRev,
+  dev: ChatItemDev,
+};
+
+const Chat = ({ chat }) => {
   return (
-    <div className="overflow-x-scroll max-h-[24rem]">
-      <ChatItemDev name="Manan Sharma" text="Text-1" />
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-
-      <ChatItemRev
-        name="Manan Sharma"
-        text="If you need to use a one-off border-color value that doesn’t make sense to include in your theme, use square brackets to generate a property on the fly using any arbitrary value."
-        revOrg="Routing"
-      />
-
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
-
-      <ChatItemRev name="Manan Sharma" text="Text-1" revOrg="Routing" />
+    <div className="overflow-x-scroll min-h-[24rem] max-h-[24rem]">
+      {chat &&
+        chat.length &&
+        chat.map((chat) => {
+          return chat.type === "rev" ? (
+            <ChatItemRev
+              name={chat.name}
+              text={chat.text}
+              revOrg={chat.revOrg}
+            />
+          ) : (
+            <ChatItemDev name={chat.name} text={chat.text} />
+          );
+        })}
     </div>
   );
 };

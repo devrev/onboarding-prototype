@@ -28,7 +28,7 @@ const IssueDesk = observer(() => {
       <div className="mt-6">
         <Table
           headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-          data={store.lists.issues.map((issue) =>
+          data={store.data.lists.issues.map((issue) =>
             convertToIssueTableRow(issue)
           )}
         />

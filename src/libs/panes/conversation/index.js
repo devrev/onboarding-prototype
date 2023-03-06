@@ -14,6 +14,8 @@ import { useStore } from "@/mobx/providers";
 
 const ConversationPane = observer(() => {
   const store = useStore();
+  const data = store.data.panes.conversation;
+
   return (
     store.configs.panes.conversationPane.isOpen && (
       <Pane
@@ -30,32 +32,28 @@ const ConversationPane = observer(() => {
           </div>
           <div className="flex items-center text-small mt-5">
             <div className="flex items-center bg-pill rounded-full px-2 py-1">
-              <RevUserProfile name="Manan Sharma" revOrg="Routing" />
-              <p className="ml-2 text-small">Manan Sharma</p>
+              <RevUserProfile
+                name={data.revUser.name}
+                revOrg={data.revUser.revOrg}
+              />
+              <p className="ml-2 text-small">{data.revUser.name}</p>
             </div>
             <p className="mx-1">from</p>
             <RevOrgPill name="Routing" />
           </div>
           <div className="mt-5">
-            <Input text="Add Title" />
+            <Input text={data.title} />
           </div>
           <div className="mt-4">
-            <Filter
-              filters={[
-                { name: "Stage", value: "New" },
-                { name: "Members", value: "1" },
-                { name: "Tags", value: "2" },
-              ]}
-              showCreate={false}
-            />
+            <Filter filters={data.filters} showCreate={false} />
             <hr className="mt-5" />
           </div>
           <div className="mt-5">
-            <Links headers={["tickets", "issues"]} />
+            <Links headers={["tickets"]} links={data.links} />
             <hr className="mt-10" />
           </div>
           <div>
-            <Chat />
+            <Chat chat={data.chat} />
             <TextBox />
           </div>
         </div>
