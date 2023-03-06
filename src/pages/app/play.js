@@ -7,6 +7,7 @@ import IssueDesk from "@/libs/desks/issues";
 import CreateTicketPane from "@/libs/panes/createTicket";
 import ConversationDesk from "@/libs/desks/conversations";
 import { useStore } from "@/mobx/providers";
+import ConversationPane from "@/libs/panes/conversation";
 
 const typeWriter = (elem, text, index, speed) => {
   if (index < text.length) {
@@ -58,7 +59,8 @@ export default function Playground() {
         <div className={clsx(!isMobile && "ml-72")}>
           <IssueDesk />
           {/* <ConversationDesk /> */}
-          <CreateTicketPane />
+          {/* <CreateTicketPane /> */}
+          <ConversationPane />
         </div>
       </main>
     </>

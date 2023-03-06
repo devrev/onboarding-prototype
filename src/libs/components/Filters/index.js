@@ -33,7 +33,7 @@ const SortField = ({ name }) => {
   );
 };
 
-const Filter = ({ filters, sort, showSelf = false }) => {
+const Filter = ({ filters, sort, showSelf = false, showCreate = true }) => {
   const isMobile = useMobileScreen();
   return (
     <div className="flex items-center justify-between">
@@ -55,15 +55,15 @@ const Filter = ({ filters, sort, showSelf = false }) => {
           {filters.map(({ name, value }) => (
             <FilterField key={name} name={name} value={value} />
           ))}
-          <Button type="filter" className="mt-1">
-            <AiOutlinePlus className="text-h2" />
-          </Button>
+          {showCreate && (
+            <Button type="filter" className="mt-1">
+              <AiOutlinePlus className="text-h2" />
+            </Button>
+          )}
         </div>
       </div>
       <div className="flex items-center flex-wrap">
-        {sort.map(({ name }) => (
-          <SortField key={name} name={name} />
-        ))}
+        {sort && sort.map(({ name }) => <SortField key={name} name={name} />)}
       </div>
     </div>
   );
