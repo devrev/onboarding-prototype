@@ -35,6 +35,8 @@ const RevUserProfile = ({ name, size = "xs", color, revOrg }) => {
     colorRevorg = bgColors[revOrgColorIdx];
   }
   const smallClass = smallSizeMap[size];
+  color = bgColors[0];
+  colorRevorg = bgColors[2];
 
   return (
     <div

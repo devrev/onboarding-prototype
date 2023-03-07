@@ -24,6 +24,8 @@ const ProfilePicture = ({ name, size = "xs", color }) => {
     color = bgColors[colorIdx];
   }
 
+  color = bgColors[1];
+
   return (
     <div
       className={clsx(

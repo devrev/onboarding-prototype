@@ -25,10 +25,14 @@ export const conversationTourSteps = [
   },
   {
     type: "point",
-    target: "#side_nav__inbox",
+    target: "#conv_1318__conv-source",
     content: "Customer conversations from all sources show up here.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "right",
+  },
+  {
+    type: "wait",
+    delay: "4000",
   },
   {
     type: "exec",
@@ -50,7 +54,6 @@ export const conversationTourSteps = [
         id: "conv_1317",
       });
     },
-    delay: 2000,
   },
   {
     type: "point",

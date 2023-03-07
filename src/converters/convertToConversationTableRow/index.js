@@ -22,7 +22,11 @@ const convertToConversationTableRow = (conv) => {
       <p className="ml-1">{conv.member.name}</p>
       <p className="ml-2 text-tiny text-gray-400">+{conv.member.extra}</p>
     </div>,
-    <SourcePill key="source" name={conv.source} />,
+    <SourcePill
+      key="source"
+      name={conv.source}
+      id={conv?.id && `${conv.id}__conv-source`}
+    />,
     <div key="last_msg" className="flex items-center">
       {conv.msg?.revOrg ? (
         <RevUserProfile
