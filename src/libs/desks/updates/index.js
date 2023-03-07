@@ -2,6 +2,9 @@ import React from "react";
 import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
 import Filters from "@/libs/components/Filters";
+import { observer } from "mobx-react-lite";
+import { useStore } from "@/mobx/providers";
+import { DESKS } from "@/constants";
 
 const UpdateRow = () => {
   return (
@@ -28,28 +31,33 @@ const UpdateRow = () => {
   );
 };
 
-const UpdatesDesk = () => {
+const UpdatesDesk = observer(() => {
+  const store = useStore();
+  const isOpen = store.configs.desks.deskOpen === DESKS.UPDATE_DESK;
+
   return (
-    <div>
-      <div className="py-5 px-page-gutter">
-        <h2>Updates</h2>
+    isOpen && (
+      <div>
+        <div className="py-5 px-page-gutter">
+          <h2>Updates</h2>
+        </div>
+        <div className="px-page-gutter">
+          <Filters
+            filters={[
+              { name: "Status", value: "Unread" },
+              { name: "Date", value: "Yesterday" },
+            ]}
+            sort={[{ name: "Sort" }, { name: "Customize" }]}
+          />
+        </div>
+        <div className="mt-5">
+          <UpdateRow />
+          <UpdateRow />
+          <UpdateRow />
+        </div>
       </div>
-      <div className="px-page-gutter">
-        <Filters
-          filters={[
-            { name: "Status", value: "Unread" },
-            { name: "Date", value: "Yesterday" },
-          ]}
-          sort={[{ name: "Sort" }, { name: "Customize" }]}
-        />
-      </div>
-      <div className="mt-5">
-        <UpdateRow />
-        <UpdateRow />
-        <UpdateRow />
-      </div>
-    </div>
+    )
   );
-};
+});
 
 export default UpdatesDesk;

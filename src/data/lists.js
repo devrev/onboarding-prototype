@@ -21,7 +21,7 @@ export const conversations = [
       name: "Deepak Gupta",
       extra: 2,
     },
-    source: "email",
+    source: "slack",
     msg: {
       name: "Manan Sharma",
       text: "Thank you for writing in, we will respond as soon as possible.While you wait, please add any additional information that may help us with your inquiry.",
@@ -36,7 +36,7 @@ export const conversations = [
       name: "Deepak Gupta",
       extra: 2,
     },
-    source: "email",
+    source: "plug",
     msg: {
       name: "Manan Sharma",
       text: "Thank you for writing in, we will respond as soon as possible.While you wait, please add any additional information that may help us with your inquiry.",

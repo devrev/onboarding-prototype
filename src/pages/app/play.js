@@ -10,6 +10,7 @@ import { useStore } from "@/mobx/providers";
 import ConversationPane from "@/libs/panes/conversation";
 import Tour from "@/libs/tours";
 import { conversationTourSteps } from "@/tours/conversation";
+import UpdatesDesk from "@/libs/desks/updates";
 
 const typeWriter = (elem, text, index, speed) => {
   if (index < text.length) {
@@ -38,7 +39,8 @@ export default function Playground() {
         {isLoad && <Tour tourSteps={conversationTourSteps} />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          {/* <IssueDesk /> */}
+          <IssueDesk />
+          <UpdatesDesk />
           <ConversationDesk />
           <CreateTicketPane />
           <ConversationPane />

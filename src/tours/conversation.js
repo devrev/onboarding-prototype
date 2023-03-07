@@ -1,3 +1,4 @@
+import { DESKS } from "@/constants";
 const devUser = {
   name: "Jon Snow",
 };
@@ -18,7 +19,16 @@ export const conversationTourSteps = [
   {
     type: "click",
     target: "#side_nav__inbox",
-    func: () => {},
+    func: (store) => {
+      store.configs.desks.deskOpen = DESKS.CONVERSATION_DESK;
+    },
+  },
+  {
+    type: "point",
+    target: "#side_nav__inbox",
+    content: "Customer conversations from all sources show up here.",
+    disableBeacon: true,
+    placement: "auto",
   },
   {
     type: "exec",
@@ -33,13 +43,14 @@ export const conversationTourSteps = [
         msg: {
           name: revUser.name,
           revOrg: revUser.revOrg,
-          text: "Thank you for writing in, we will respond as soon as possible.While you wait, please add any additional information that may help us with your inquiry.",
+          text: "Hey, The Payments API is continuously giving 403 errors. How can I fix it?",
         },
         ticket: "TKT-1216",
         updated: "yesterday",
         id: "conv_1317",
       });
     },
+    delay: 2000,
   },
   {
     type: "point",
