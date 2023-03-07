@@ -1,6 +1,7 @@
 import ProfilePicture from "@/libs/atoms/profile";
 import WorkPill from "@/libs/molecules/workPill";
 import clsx from "clsx";
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
 
@@ -34,10 +35,10 @@ const LinkItem = ({ item }) => {
   );
 };
 
-const Links = ({ headers, links }) => {
+const Links = observer(({ headers, links }) => {
   const [selected, setSelected] = useState(headers[0]);
   return (
-    <div>
+    <div id="links__items">
       <div className="flex items-center justify-between">
         <div className="flex items-center text-small capitalize font-medium">
           {headers.map((header) => (
@@ -53,6 +54,7 @@ const Links = ({ headers, links }) => {
               <div className="text-small text-gray-500 ml-1">
                 {links &&
                   links.hasOwnProperty(`${header}`) &&
+                  links[`${header}`].length > 0 &&
                   links[`${header}`].length}
               </div>
             </div>
@@ -79,6 +81,6 @@ const Links = ({ headers, links }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Links;

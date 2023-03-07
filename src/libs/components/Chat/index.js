@@ -1,6 +1,7 @@
 import React from "react";
 import ProfilePicture from "@/libs/atoms/profile";
 import RevUserProfile from "@/libs/molecules/revUserProfile";
+import { observer } from "mobx-react-lite";
 
 const ChatItemDev = ({ name, text }) => {
   return (
@@ -30,14 +31,12 @@ const ChatItemRev = ({ name, revOrg, text }) => {
   );
 };
 
-const componentMap = {
-  rev: ChatItemRev,
-  dev: ChatItemDev,
-};
-
-const Chat = ({ chat }) => {
+const Chat = observer(({ chat }) => {
   return (
-    <div className="overflow-x-scroll min-h-[24rem] max-h-[24rem]">
+    <div
+      id="chatBox__messages"
+      className="overflow-x-scroll min-h-[24rem] max-h-[24rem]"
+    >
       {chat &&
         chat.length &&
         chat.map((chat) => {
@@ -53,6 +52,6 @@ const Chat = ({ chat }) => {
         })}
     </div>
   );
-};
+});
 
 export default Chat;

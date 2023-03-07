@@ -9,6 +9,7 @@ import ConversationDesk from "@/libs/desks/conversations";
 import { useStore } from "@/mobx/providers";
 import ConversationPane from "@/libs/panes/conversation";
 import Tour from "@/libs/tours";
+import { conversationTourSteps } from "@/tours/conversation";
 
 const typeWriter = (elem, text, index, speed) => {
   if (index < text.length) {
@@ -34,13 +35,7 @@ export default function Playground() {
         <title>DevRev</title>
       </Head>
       <main>
-        <button onClick={() => store.configs.panes.createTicketPane.open()}>
-          1
-        </button>
-        <button onClick={() => store.configs.panes.conversationPane.open()}>
-          2
-        </button>
-        {/* {isLoad && <Tour />} */}
+        {isLoad && <Tour tourSteps={conversationTourSteps} />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
           {/* <IssueDesk /> */}

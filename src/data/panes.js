@@ -1,7 +1,7 @@
 export const conversation = {
   revUser: {
     revOrg: "Routing",
-    name: "Manan Sharma",
+    name: "Guest 4315",
   },
   revOrg: "Routing",
   title: "Payments Issue",
@@ -20,16 +20,7 @@ export const conversation = {
     },
   ],
   links: {
-    tickets: [
-      {
-        type: "ticket",
-        display: "TKT-1216",
-        title: "Payments API failing",
-        f1: "Awaiting Product Assist",
-        f2: "Medium",
-        owner: "Akanksha Deswal",
-      },
-    ],
+    tickets: [],
   },
   chat: [
     {

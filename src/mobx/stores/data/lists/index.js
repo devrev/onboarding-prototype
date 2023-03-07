@@ -2,12 +2,15 @@ import { observable, autorun, makeObservable, action } from "mobx";
 import { conversations, issues } from "@/data/lists";
 
 export class ListStore {
-  conversations = observable.array([], { deep: false });
-  updates = observable.array([], { deep: false });
-  issues = observable.array([], { deep: false });
+  conversations = [];
+  updates = [];
+  issues = [];
 
   constructor() {
     makeObservable(this, {
+      conversations: observable,
+      updates: observable,
+      issues: observable,
       hydrate: action,
     });
   }

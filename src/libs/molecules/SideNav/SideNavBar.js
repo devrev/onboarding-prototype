@@ -21,6 +21,7 @@ const SideNavItem = ({
   name,
   iconSize = "text-h2",
   iconColor = "text-gray-700",
+  ...props
 }) => {
   return (
     <div
@@ -28,6 +29,7 @@ const SideNavItem = ({
         !Icon && "text-gray-600 ml-7",
         "flex items-center mt-1 px-2 py-1 text-h1 text-gray-700 hover:bg-menu-hovered cursor-pointer rounded-lg"
       )}
+      {...props}
     >
       {Icon && <Icon className={clsx("mr-3", iconSize, iconColor)} />}
       <p>{name}</p>
@@ -76,7 +78,7 @@ const SideNavBar = ({ isMobile = false }) => {
           Icon={FaHeadphonesAlt}
           iconColor="text-color-support-vistas"
         />
-        <SideNavItem name="Inbox" />
+        <SideNavItem name="Inbox" id="side_nav__inbox" />
         <SideNavItem name="Insights" />
         <SideNavItem name="Tickets" />
         <SideNavItem name="Team Activity" />

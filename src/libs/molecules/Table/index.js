@@ -1,8 +1,9 @@
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
+import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
 
-const Table = ({ data, headers }) => {
+const Table = observer(({ data, headers, len }) => {
   const isMobile = useMobileScreen();
   const [activeRow, setActiveRow] = useState(-1);
   return (
@@ -75,6 +76,6 @@ const Table = ({ data, headers }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Table;

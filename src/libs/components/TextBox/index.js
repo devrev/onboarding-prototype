@@ -25,7 +25,10 @@ const TextBox = () => {
   ];
   return (
     <div className="w-full min-h-20 border rounded-lg py-2 px-2">
-      <div className="min-h-[2.5rem] text-default break-all"></div>
+      <div
+        id="textBox__textarea"
+        className="min-h-[2.5rem] text-default break-all"
+      ></div>
       <div className="flex items-center justify-between">
         <div className="text-h2 flex items-center text-gray-600">
           {icons.map((Icon, idx) => (
@@ -38,7 +41,7 @@ const TextBox = () => {
           ))}
         </div>
         <div>
-          <Button type="primary">
+          <Button id="textBox__send-btn" type="primary">
             <AiOutlineSend />
           </Button>
         </div>
