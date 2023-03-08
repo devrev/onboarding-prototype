@@ -2,6 +2,7 @@ import React from "react";
 import ProfilePicture from "@/libs/atoms/profile";
 import RevUserProfile from "@/libs/molecules/revUserProfile";
 import { observer } from "mobx-react-lite";
+import clsx from "clsx";
 
 const ChatItemDev = ({ name, text }) => {
   return (
@@ -31,11 +32,12 @@ const ChatItemRev = ({ name, revOrg, text }) => {
   );
 };
 
-const Chat = observer(({ chat }) => {
+const Chat = observer(({ chat, className, ...props }) => {
   return (
     <div
       id="chatBox__messages"
-      className="overflow-x-scroll min-h-[24rem] max-h-[24rem]"
+      className={clsx("overflow-y-auto min-h-0", className)}
+      {...props}
     >
       {chat &&
         chat.length &&
@@ -45,9 +47,10 @@ const Chat = observer(({ chat }) => {
               name={chat.name}
               text={chat.text}
               revOrg={chat.revOrg}
+              key={chat.text}
             />
           ) : (
-            <ChatItemDev name={chat.name} text={chat.text} />
+            <ChatItemDev key={chat.text} name={chat.name} text={chat.text} />
           );
         })}
     </div>
