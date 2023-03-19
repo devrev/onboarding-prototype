@@ -17,5 +17,7 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 Currently all pages exist at `src/pages/app`
+
 Visit `http://localhost:3000/app/play` for conversation to ticket convergence journey
+
 The prefix to the src directory is `@`

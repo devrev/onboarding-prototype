@@ -18,3 +18,17 @@ export const POSITION = {
   RIGHT: "right",
   MIDDLE: "middle",
 };
+
+export const STAGES = {
+  DEVELOPMENT: "in development",
+  NOW: "now",
+  REVIEW: "in review",
+  TEST: "in testing",
+  DEPLOY: "in deployment",
+};
+
+export const NNL = {
+  NOW: "now",
+  NEXT: "next",
+  LATER: "later",
+};
