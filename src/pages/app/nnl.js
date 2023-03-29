@@ -4,7 +4,9 @@ import SideNav from "@/libs/molecules/SideNav";
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
 import { useStore } from "@/mobx/providers";
-import NNLDesk from "@/libs/desks/nnl";
+import ClusteringDesk from "@/libs/desks/clustering";
+import CreateEnhPane from "@/libs/panes/createEnhancement";
+import ViewEnhPane from "@/libs/panes/viewEnhancement";
 
 export default function Playground() {
   const isMobile = useMobileScreen();
@@ -22,7 +24,8 @@ export default function Playground() {
       <main>
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          <NNLDesk />
+          <ClusteringDesk />
+          <ViewEnhPane />
         </div>
       </main>
     </>

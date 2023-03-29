@@ -1,5 +1,5 @@
 import Button from "@/libs/atoms/button";
-import React from "react";
+import React, { useState } from "react";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BiChevronDown } from "react-icons/bi";
 import { GoMention } from "react-icons/go";
@@ -7,6 +7,7 @@ import { FiBarChart } from "react-icons/fi";
 import { RxCounterClockwiseClock } from "react-icons/rx";
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
+import DropDown from "@/libs/atoms/dropdown";
 
 const FilterField = ({ name, value }) => {
   return (
@@ -25,11 +26,44 @@ const FilterFieldIcon = ({ children }) => {
   );
 };
 
-const SortField = ({ name }) => {
+const SortFields = ({ sort }) => {
+  const [showOpts, setShowOpts] = useState("");
+
   return (
-    <div className="p-1 rounded-md text-small text-gray-600 font-medium flex items-center cursor-pointer hover:bg-area-hovered mr-1">
-      <div>{name}</div> <BiChevronDown className="text-default" />
+    <div className="flex items-center flex-wrap">
+      {sort &&
+        sort.map(({ name }) => (
+          <SortField
+            onClick={() => setShowOpts(name)}
+            key={name}
+            name={name}
+            currOpt={showOpts}
+            onSelect={() => setShowOpts("")}
+          />
+        ))}
     </div>
+  );
+};
+
+const SortField = ({ name, onClick, currOpt, onSelect }) => {
+  return (
+    <DropDown
+      items={[
+        { title: "Manan", id: "Manan" },
+        { title: "Manan", id: "Manan" },
+        { title: "Manan", id: "Manan" },
+        { title: "Manan", id: "Manan" },
+      ]}
+      showOpts={currOpt === name}
+      onSelect={onSelect}
+    >
+      <div
+        onClick={onClick}
+        className="p-1 rounded-md text-small text-gray-600 font-medium flex items-center cursor-pointer hover:bg-area-hovered mr-1"
+      >
+        <div>{name}</div> <BiChevronDown className="text-default" />
+      </div>
+    </DropDown>
   );
 };
 
@@ -62,9 +96,7 @@ const Filter = ({ filters, sort, showSelf = false, showCreate = true }) => {
           )}
         </div>
       </div>
-      <div className="flex items-center flex-wrap">
-        {sort && sort.map(({ name }) => <SortField key={name} name={name} />)}
-      </div>
+      <SortFields sort={sort} />
     </div>
   );
 };

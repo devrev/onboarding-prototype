@@ -2,10 +2,31 @@ import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
+import { BsCheck } from "react-icons/bs";
 
-const Table = observer(({ data, headers, len }) => {
+const TableCheckBox = ({
+  onClick,
+  isParent = false,
+  allowSelect,
+  isSelectAll,
+}) => {
+  return (
+    <div
+      onClick={() => isParent && onClick()}
+      className={clsx(
+        "w-4 h-4 border rounded-sm mr-2 flex items-center justify-center text-white",
+        isSelectAll && allowSelect && "bg-accent"
+      )}
+    >
+      {isSelectAll && allowSelect && <BsCheck className="text-default" />}
+    </div>
+  );
+};
+
+const Table = observer(({ data, headers, len, allowSelect = false }) => {
   const isMobile = useMobileScreen();
   const [activeRow, setActiveRow] = useState(-1);
+  const [isSelectAll, setIsSelectAll] = useState(false);
   return (
     <div
       className="flex items-start flex-2 mr-20"
@@ -21,7 +42,12 @@ const Table = observer(({ data, headers, len }) => {
                   isMobile ? "ml-3" : "ml-14"
                 )}
               >
-                <div className="w-4 h-4 border rounded-sm mr-2"></div>
+                <TableCheckBox
+                  isParent={true}
+                  onClick={() => setIsSelectAll(!isSelectAll)}
+                  allowSelect={allowSelect}
+                  isSelectAll={isSelectAll}
+                />
                 {headers[0]}
               </div>
             </th>
@@ -39,7 +65,10 @@ const Table = observer(({ data, headers, len }) => {
                     isMobile ? "ml-1" : "ml-12"
                   )}
                 >
-                  <div className="w-4 h-4 border rounded-sm mr-2"></div>
+                  <TableCheckBox
+                    allowSelect={allowSelect}
+                    isSelectAll={isSelectAll}
+                  />
                   {dataItem[0]}
                 </div>
               </td>

@@ -100,3 +100,60 @@ export const issues = [
     ],
   },
 ];
+
+export const ticketClustering = [
+  {
+    displayId: "TKT-1318",
+    title: "User documentation for new product onboarding workflows",
+    owner: {
+      name: "Deepak Gupta",
+    },
+    priority: "P1",
+    stage: "review",
+    tags: [
+      {
+        name: "Revenue",
+      },
+      {
+        name: "+2",
+      },
+    ],
+    cluster: "Payment Failure",
+  },
+  {
+    displayId: "TKT-1318",
+    title: "User documentation for new product onboarding workflows",
+    owner: {
+      name: "Deepak Gupta",
+    },
+    priority: "P1",
+    stage: "review",
+    tags: [
+      {
+        name: "Revenue",
+      },
+      {
+        name: "+2",
+      },
+    ],
+    cluster: "Payments API",
+  },
+  {
+    displayId: "TKT-1318",
+    title: "User documentation for new product onboarding workflows",
+    owner: {
+      name: "Deepak Gupta",
+    },
+    priority: "P1",
+    stage: "review",
+    tags: [
+      {
+        name: "Revenue",
+      },
+      {
+        name: "+2",
+      },
+    ],
+    cluster: "Payment Failure",
+  },
+];

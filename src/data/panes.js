@@ -20,7 +20,44 @@ export const conversation = {
     },
   ],
   links: {
-    tickets: [],
+    tickets: [
+      {
+        type: "ticket",
+        display: "TKT-1216",
+        title: "Payments API failing with 403",
+        f1: "Awaiting Product Assist",
+        f2: "High",
+        owner: "Deepak Gupta",
+      },
+      {
+        type: "ticket",
+        display: "TKT-1216",
+        title: "Payments API failing with 403",
+        f1: "Awaiting Product Assist",
+        f2: "High",
+        owner: "Deepak Gupta",
+      },
+      {
+        type: "ticket",
+        display: "TKT-1216",
+        title: "Payments API failing with 403",
+        f1: "Awaiting Product Assist",
+        f2: "High",
+        owner: "Deepak Gupta",
+      },
+    ],
+    docs: [
+      {
+        type: "doc",
+        title: "PRD",
+        value: "PRD Payments Infra",
+      },
+      {
+        type: "doc",
+        title: "Design",
+        value: "Payments Design",
+      },
+    ],
   },
   chat: [
     {

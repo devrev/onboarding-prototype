@@ -1,9 +1,10 @@
+import Input from "@/libs/atoms/input";
 import ProfilePicture from "@/libs/atoms/profile";
 import WorkPill from "@/libs/molecules/workPill";
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
 import React, { useState } from "react";
-import { AiOutlinePlus, AiOutlineLink } from "react-icons/ai";
+import { AiOutlinePlus, AiOutlineLink, AiOutlineGlobal } from "react-icons/ai";
 
 const EmptyMessage = ({ text }) => {
   return (
@@ -13,9 +14,25 @@ const EmptyMessage = ({ text }) => {
   );
 };
 
-const LinkItem = ({ item }) => {
-  return (
-    <div className="h-20 shadow-popover p-3 rounded-lg cursor-pointer">
+const LinkItem = ({ item, type }) => {
+  return item.type === "doc" ? (
+    <div className="flex mt-4 text-default cursor-pointer items-center">
+      <div className="min-w-[6rem]">{item.title}</div>
+      <div className="ml-5 flex items-center border w-full p-2 rounded-lg">
+        <div className="mr-2 text-gray-500" style={{ fontSize: "32px" }}>
+          <AiOutlineGlobal />
+        </div>
+        {item.value}
+      </div>
+    </div>
+  ) : (
+    <div
+      className={clsx(
+        "h-20 p-3 rounded-lg cursor-pointer",
+        type === "work" && "shadow-popover",
+        type === "enh" && "border mt-2"
+      )}
+    >
       <div className="flex items-center">
         <WorkPill type={item.type} display={item.display} />
         <div className="ml-2 ellipsis-break text-default">{item.title}</div>
@@ -35,17 +52,25 @@ const LinkItem = ({ item }) => {
   );
 };
 
-const Links = observer(({ headers, links }) => {
+const Links = observer(({ headers, links, type = "work" }) => {
   const [selected, setSelected] = useState(headers[0]);
   return (
     <div id="links__items">
       <div className="flex items-center justify-between">
-        <div className="flex items-center text-small capitalize font-medium">
+        <div
+          className={clsx(
+            "flex items-center text-small capitalize font-medium",
+            type === "enh" && "bg-pill rounded-md"
+          )}
+        >
           {headers.map((header) => (
             <div
               className={clsx(
-                "w-fit mr-1 cursor-pointer px-2 py-1.5 rounded-full flex items-center",
-                selected === header && "bg-pill"
+                "w-fit cursor-pointer",
+                type === "work" &&
+                  "mr-1 px-2 py-1.5 rounded-full flex items-center",
+                type === "enh" && "px-2 py-1.5 rounded-md flex items-center",
+                selected === header && "bg-pill-hovered"
               )}
               onClick={() => setSelected(header)}
               key={header}
@@ -53,31 +78,33 @@ const Links = observer(({ headers, links }) => {
               {header}
               <div className="text-small text-gray-500 ml-1">
                 {links &&
-                  links.hasOwnProperty(`${header}`) &&
-                  links[`${header}`].length > 0 &&
-                  links[`${header}`].length}
+                  links.hasOwnProperty(header) &&
+                  links[header].length > 0 &&
+                  links[header].length}
               </div>
             </div>
           ))}
         </div>
-        <div
-          className="text-small text-gray-600 flex items-center cursor-pointer"
-          id={`link_${selected}`}
-        >
-          <AiOutlinePlus className="mr-1" />
-          Link {selected}
-        </div>
+        {type === "work" && (
+          <div
+            className="text-small text-gray-600 flex items-center cursor-pointer"
+            id={`link_${selected}`}
+          >
+            <AiOutlinePlus className="mr-1" />
+            Link {selected}
+          </div>
+        )}
       </div>
       <div className="mt-4">
-        {links &&
-        links.hasOwnProperty(`${selected}`) &&
-        links[`${selected}`].length ? (
-          links[`${selected}`].map((link) => (
-            <LinkItem key={link.title} item={link} />
-          ))
-        ) : (
-          <EmptyMessage text={selected} />
-        )}
+        {links && links.hasOwnProperty(selected) && links[selected].length
+          ? links[selected].map((link, index) => (
+              <LinkItem
+                key={`${link.title}_${index}`}
+                item={link}
+                type={type}
+              />
+            ))
+          : type === "work" && <EmptyMessage text={selected} />}
       </div>
     </div>
   );
