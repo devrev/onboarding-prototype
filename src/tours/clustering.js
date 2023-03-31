@@ -103,8 +103,7 @@ export const clusteringTourSteps = [
   {
     type: "point",
     target: "#createEnhPane__title",
-    content:
-      "Create an enhancement to work on all the tickets related to payment issues here",
+    content: "Fill all the details to create an enhancement.",
     disableBeacon: true,
     placement: "left",
   },
