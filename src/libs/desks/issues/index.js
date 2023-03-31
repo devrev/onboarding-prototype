@@ -23,8 +23,8 @@ const IssueDesk = observer(() => {
           <Filters
             showSelf={true}
             filters={[
+              { name: "type", value: "ticket" },
               { name: "Stage", value: "In Review" },
-              { name: "Date", value: "Yesterday" },
             ]}
             sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
           />
@@ -32,7 +32,7 @@ const IssueDesk = observer(() => {
         <div className="mt-6">
           <Table
             headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-            data={store.data.lists.issues.map((issue) =>
+            data={store.data.lists.tickets.map((issue) =>
               convertToIssueTableRow(issue)
             )}
           />

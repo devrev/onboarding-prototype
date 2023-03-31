@@ -12,6 +12,7 @@ export const DESKS = {
   ISSUE_DESK: "issue_desk",
   CONVERSATION_DESK: "conversation_desk",
   UPDATE_DESK: "update_desk",
+  CLUSTERING_DESK: "clustering_desk",
 };
 
 export const POSITION = {
