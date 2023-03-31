@@ -80,7 +80,7 @@ const SideNavBar = ({ isMobile = false }) => {
         />
         <SideNavItem name="Inbox" id="side_nav__inbox" />
         <SideNavItem name="Insights" />
-        <SideNavItem name="Tickets" />
+        <SideNavItem name="Tickets" id="side_nav__tickets" />
         <SideNavItem name="Team Activity" />
         <SideNavItem name="Active Ticket Tracker" />
         <SideNavItem name="Product Assist Tracker" />

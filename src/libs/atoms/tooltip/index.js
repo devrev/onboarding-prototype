@@ -13,7 +13,7 @@ const Tooltip = ({
 }) => {
   return (
     <div
-      className="w-fit-content bg-white py-4 px-2.5 rounded-lg shadow-popover"
+      className="w-fit-content max-w-[30rem] bg-white py-4 px-2.5 rounded-lg shadow-popover"
       {...tooltipProps}
     >
       {step.title && <div>{step.title}</div>}

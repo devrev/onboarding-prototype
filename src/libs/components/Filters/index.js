@@ -35,38 +35,35 @@ const FilterFieldIcon = ({ children }) => {
 
 const SortFields = ({ sort }) => {
   const [showOpts, setShowOpts] = useState("");
+  console.log(sort);
 
   return (
     <div className="flex items-center flex-wrap">
       {sort &&
-        sort.map(({ name }) => (
-          <SortField
-            onClick={() => setShowOpts(name)}
-            key={name}
-            name={name}
-            currOpt={showOpts}
-            onSelect={() => setShowOpts("")}
-          />
-        ))}
+        sort.map(({ name, items, correct }) => {
+          const itemsList = items || [];
+          return (
+            <SortField
+              onClick={() => itemsList.length && setShowOpts(name)}
+              key={name}
+              name={name}
+              currOpt={showOpts}
+              onSelect={() => correct && setShowOpts("")}
+              items={itemsList}
+            />
+          );
+        })}
     </div>
   );
 };
 
-const SortField = ({ name, onClick, currOpt, onSelect }) => {
+const SortField = ({ name, onClick, currOpt, onSelect, items }) => {
   return (
-    <DropDown
-      items={[
-        { title: "Manan", id: "Manan" },
-        { title: "Manan", id: "Manan" },
-        { title: "Manan", id: "Manan" },
-        { title: "Manan", id: "Manan" },
-      ]}
-      showOpts={currOpt === name}
-      onSelect={onSelect}
-    >
+    <DropDown items={items} showOpts={currOpt === name} onSelect={onSelect}>
       <div
         onClick={onClick}
         className="p-1 rounded-md text-small text-gray-600 font-semibold leading-loose tracking-tight flex items-center cursor-pointer hover:bg-area-hovered mr-1"
+        id={`sort_field-${name}`}
       >
         <div>{name}</div> <BiChevronDown className="text-default" />
       </div>

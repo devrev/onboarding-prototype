@@ -22,7 +22,6 @@ const fillHandler = (step, store, resolve, setStepIndex) => {
 };
 
 const pointHandler = (step, store, resolve, setStepIndex) => {
-  console.log("Index", index);
   setTimeout(() => {
     index++;
     setStepIndex(index);

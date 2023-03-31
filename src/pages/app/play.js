@@ -12,19 +12,8 @@ import Tour from "@/libs/tours";
 import { conversationTourSteps } from "@/tours/conversation";
 import UpdatesDesk from "@/libs/desks/updates";
 
-const typeWriter = (elem, text, index, speed) => {
-  if (index < text.length) {
-    elem.innerHTML += text.charAt(index);
-    index++;
-    setTimeout(() => {
-      typeWriter(elem, text, index, speed);
-    }, speed);
-  }
-};
-
 export default function Playground() {
   const isMobile = useMobileScreen();
-  const store = useStore();
   const [isLoad, setIsLoad] = useState(false);
 
   useEffect(() => {

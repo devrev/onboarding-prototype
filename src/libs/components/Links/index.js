@@ -52,8 +52,8 @@ const LinkItem = ({ item, type }) => {
   );
 };
 
-const Links = observer(({ headers, links, type = "work" }) => {
-  const [selected, setSelected] = useState(headers[0]);
+const Links = observer(({ headers, links, type = "work", start }) => {
+  const [selected, setSelected] = useState(start || headers[0]);
   return (
     <div id="links__items">
       <div className="flex items-center justify-between">
@@ -74,6 +74,7 @@ const Links = observer(({ headers, links, type = "work" }) => {
               )}
               onClick={() => setSelected(header)}
               key={header}
+              id={`links_header-${header}`}
             >
               {header}
               <div className="text-small text-gray-500 ml-1">

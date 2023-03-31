@@ -8,6 +8,7 @@ import ClusteringSideMenu from "./sideMenu";
 import StageBadge from "@/libs/molecules/stageBadge";
 import Filters from "@/libs/components/Filters";
 import BulkActions from "@/libs/molecules/BulkActions";
+import { makeID } from "@/utils";
 
 const ClusteringDesk = observer(() => {
   const store = useStore();
@@ -34,8 +35,15 @@ const ClusteringDesk = observer(() => {
               { name: "Date", value: "Today" },
               { name: "Stage", value: "Current" },
             ]}
-            sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
+            sort={[
+              { name: "Sort" },
+              {
+                name: "Group",
+              },
+              { name: "Customize" },
+            ]}
             showSelf={true}
+            allowSort={true}
           />
         </div>
         <div className="flex items-start border-t h-full mt-5">
@@ -43,13 +51,14 @@ const ClusteringDesk = observer(() => {
             <ClusteringSideMenu data={clusterSummary} />
           </div>
           <div className="flex-1 border-l relative h-full overflow-x-hidden overflow-y-auto pb-64">
-            {Object.keys(cluster).map((key) => {
+            {Object.keys(cluster).map((key, index) => {
               return (
                 <div key={key}>
                   <StageBadge
                     className="my-4 ml-12"
                     stage={key}
                     useIcon={false}
+                    id={`badge-${makeID(key)}`}
                   />
                   <Table
                     headers={[
@@ -63,6 +72,8 @@ const ClusteringDesk = observer(() => {
                     data={cluster[key].map((issue) =>
                       convertToIssueTableRow(issue)
                     )}
+                    allowSelect={index === 0}
+                    id={`table-${makeID(key)}`}
                   />
                 </div>
               );

@@ -13,48 +13,53 @@ import Links from "@/libs/components/Links";
 
 const CreateEnhPane = observer(() => {
   const store = useStore();
-  const [isOpen, setIsOpen] = useState(true);
-  const data = store.data.panes.conversation;
+  const data = store.data.panes.enhancement;
+  const isOpen = store.configs.panes.createEnhancementPane.isOpen;
 
   return (
     true && (
       <Pane
         isOpen={isOpen}
-        position={store.configs.panes.createTicketPane.position}
+        position={store.configs.panes.createEnhancementPane.position}
       >
         <div className="px-4 py-6">
           <div className="flex items-center justify-between">
-            <WorkPill type="enh" display="New Enhancement" isCreate={true} />
+            <WorkPill
+              type="enh"
+              display="New Enhancement"
+              isCreate={true}
+              useBg={false}
+            />
             <div className="flex items-center text-gray-500">
               <p className="text-small font-medium">Reset</p>
               <MdOutlineClose className="text-h1 ml-4" />
             </div>
           </div>
           <div className="mt-6">
-            <Input id="createTicketPane__title" text="Add Title" />
+            <Input id="createEnhPane__title" text="Add Title" />
             <hr className="mt-3" />
           </div>
           <div className="mt-4">
-            <Input id="createTicketPane__description" text="Add Description" />
+            <Input id="createEnhPane__description" text="Add Description" />
             <AiOutlinePaperClip className="mt-2 text-h2 ml-1" />
             <hr className="mt-4" />
           </div>
           <div className="mt-4">
             <p
               className="text-tiny text-gray-500 mb-4"
-              id="createTicketPane__part_selector"
+              id="createEnhPane__part_selector"
             >
               Select Part
             </p>
             <PartSelector id="part_selector" />
             <hr className="mt-4" />
           </div>
-          <div className="mt-5" id="createTicketPane__attributes">
+          <div className="mt-5" id="createEnhPane__attributes">
             <Attributes
               attrs={[
                 {
                   name: "owner",
-                  value: "Manan Sharma",
+                  value: "Susan John",
                 },
               ]}
             />
@@ -66,11 +71,12 @@ const CreateEnhPane = observer(() => {
                 headers={["docs", "issues", "tickets"]}
                 links={data.links}
                 type="enh"
+                start="tickets"
               />
             </div>
           </div>
           <div className="flex items-center justify-between mt-4 float-right">
-            <Button id="createTicketPane__create_btn" type="action">
+            <Button id="createEnhPane__create_btn" type="action">
               Create
             </Button>
           </div>

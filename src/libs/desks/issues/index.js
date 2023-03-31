@@ -26,7 +26,31 @@ const IssueDesk = observer(() => {
               { name: "type", value: "ticket" },
               { name: "Stage", value: "In Review" },
             ]}
-            sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
+            sort={[
+              { name: "Sort" },
+              {
+                name: "Group",
+                items: [
+                  {
+                    title: "Created Date",
+                  },
+                  {
+                    title: "Owner",
+                  },
+                  {
+                    title: "Similarity",
+                    correct: true,
+                  },
+                  {
+                    title: "Stage",
+                  },
+                  {
+                    title: "Modified Date",
+                  },
+                ],
+              },
+              { name: "Customize" },
+            ]}
           />
         </div>
         <div className="mt-6">

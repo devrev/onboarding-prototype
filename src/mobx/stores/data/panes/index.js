@@ -5,14 +5,16 @@ import {
   action,
   extendObservable,
 } from "mobx";
-import { conversation } from "@/data/panes";
+import { conversation, enhancement } from "@/data/panes";
 
 export class PaneStore {
   conversation = {};
+  enhancement = {};
 
   constructor() {
     makeObservable(this, {
       conversation: observable,
+      enhancement: observable,
       hydrate: action,
     });
     extendObservable(this.conversation, {
@@ -23,5 +25,6 @@ export class PaneStore {
 
   hydrate = () => {
     this.conversation = conversation;
+    this.enhancement = enhancement;
   };
 }
