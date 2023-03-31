@@ -5,14 +5,14 @@ import {
   AiOutlineTags,
   AiOutlineUserAdd,
 } from "react-icons/ai";
-import { FiBarChart, FiFlag } from "react-icons/fi";
 import { BsBoundingBoxCircles } from "react-icons/bs";
+import { EnhancementIcon, FlagIcon, BarChartIcon } from "@/libs/icons";
 
 const BulkAction = ({ children, id }) => {
   return (
     <div
       id={id}
-      className="p-1 rounded-full mx-0.5 hover:bg-pill-hovered cursor-pointer text-sm"
+      className="p-1 rounded-full mx-0.5 hover:bg-pill-hovered cursor-pointer"
     >
       {children}
     </div>
@@ -32,16 +32,19 @@ const BulkActions = ({ items = 3 }) => {
             <AiOutlineUserAdd />
           </BulkAction>
           <BulkAction>
-            <FiBarChart />
+            <BarChartIcon className="w-4 h-4" />
           </BulkAction>
           <BulkAction>
-            <FiFlag />
+            <FlagIcon className="w-4 h-4" />
           </BulkAction>
           <BulkAction>
             <AiOutlineTags />
           </BulkAction>
           <BulkAction>
             <AiOutlineDelete />
+          </BulkAction>
+          <BulkAction>
+            <EnhancementIcon className="w-4 h-4" />
           </BulkAction>
           <BulkAction>
             <BsBoundingBoxCircles />

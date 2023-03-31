@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { bgColors } from "@/constants";
 
 const sizeMap = {
+  xxs: "w-5 h-5 text-tiny rounded-md",
   xs: "w-6 h-6 text-small",
   sm: "w-7 h-7 text-default",
   md: "w-9 h-9 text-lg",
@@ -29,9 +30,9 @@ const ProfilePicture = ({ name, size = "xs", color }) => {
   return (
     <div
       className={clsx(
-        sizeClass,
         color,
-        "flex flex-shrink-0 justify-center items-center rounded-lg text-white"
+        "flex flex-shrink-0 justify-center items-center rounded-lg text-white",
+        sizeClass
       )}
     >
       {name}

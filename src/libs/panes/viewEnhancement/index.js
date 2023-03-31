@@ -8,13 +8,14 @@ import Filter from "@/libs/components/Filters";
 import { IconMap } from "@/libs/molecules/workPill";
 import { BiFile } from "react-icons/bi";
 import { FiUsers } from "react-icons/fi";
+import TimelineWidget from "@/libs/components/timelineWidget";
 
 const PartItem = ({ icon, text }) => {
   const Icon = icon;
   return (
-    <div className="flex items-center">
+    <div className="flex items-center mt-6">
       <div
-        className="bg-pill p-2 rounded-full text-gray-400 items-center justify-center mt-4"
+        className="bg-pill p-2 rounded-full text-gray-400 flex items-center justify-center"
         style={{ fontSize: "25px" }}
       >
         <Icon className="stroke-[-1]" />
@@ -35,7 +36,7 @@ const ViewEnhPane = observer(() => {
         isOpen={isOpen}
         position={store.configs.panes.createTicketPane.position}
       >
-        <div className="px-4 py-6">
+        <div className="px-4 py-6 flex flex-col min-h-full">
           <div className="float-right items-center justify-between">
             <div className="flex items-center text-gray-500">
               <MdOutlineClose className="text-h1 ml-4" />
@@ -49,10 +50,10 @@ const ViewEnhPane = observer(() => {
             <Input id="createTicketPane__description" text="Some Description" />
             <hr className="mt-4" />
           </div>
-          <div>
-            <p>Related</p>
+          <div className="px-4 py-4">
+            <p className="text-sm text-gray-500">Related</p>
             <div className="flex">
-              <div className="flex-1">
+              <div className="min-w-[14rem]">
                 <PartItem icon={IconMap.ticket} text={"Tickets"} />
                 <PartItem icon={IconMap.issue} text={"Issues"} />
                 <PartItem icon={BiFile} text={"Docs"} />
@@ -63,6 +64,8 @@ const ViewEnhPane = observer(() => {
               </div>
             </div>
           </div>
+          <hr />
+          <TimelineWidget className="flex-1" />
         </div>
       </Pane>
     )

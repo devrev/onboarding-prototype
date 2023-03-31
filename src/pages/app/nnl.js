@@ -25,7 +25,6 @@ export default function Playground() {
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
           <ClusteringDesk />
-          <ViewEnhPane />
         </div>
       </main>
     </>
