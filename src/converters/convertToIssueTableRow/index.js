@@ -4,24 +4,24 @@ import ProfilePicture from "@/libs/atoms/profile";
 import StagePill from "@/libs/molecules/stagePill";
 import Tag from "@/libs/atoms/tag";
 
-const convertToIssueTableRow = (issue) => {
+const convertToIssueTableRow = (item) => {
   return [
-    <WorkPill key={issue.displayId} type="issue" display={issue.displayId} />,
-    issue.title,
+    <WorkPill key={item.displayId} type={item.type} display={item.displayId} />,
+    item.title,
     <ProfilePicture
       key="owner_pfp"
       size="xs"
-      name={issue.owner.name}
-      color={issue.owner?.color}
+      name={item.owner.name}
+      color={item.owner?.color}
     />,
-    <StagePill key="stage" stage={issue.stage} />,
+    <StagePill key="stage" stage={item.stage} />,
     <div key="tags" className="flex items-center">
-      {issue.tags.map((tag) => (
+      {item.tags.map((tag) => (
         <Tag key={tag.name} name={tag.name} />
       ))}
     </div>,
     <p className="text-default font-medium text-gray-600" key="update">
-      {issue.priority}
+      {item.priority}
     </p>,
   ];
 };

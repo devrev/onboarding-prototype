@@ -9,7 +9,7 @@ export const stageIconMap = {
   [STAGES.REVIEW]: BiRightArrowCircle,
 };
 
-const StageBadge = ({ stage, className }) => {
+const StageBadge = ({ stage, className, useIcon = true }) => {
   const Icon = stageIconMap[stage] || stageIconMap[STAGES.REVIEW];
   return (
     <div
@@ -18,7 +18,7 @@ const StageBadge = ({ stage, className }) => {
         className
       )}
     >
-      <Icon className="text-h2" />
+      {useIcon && <Icon className="text-h2" />}
       <p className="capitalize ml-1 text-small">{stage}</p>
     </div>
   );

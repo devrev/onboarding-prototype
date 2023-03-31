@@ -275,6 +275,21 @@ module.exports = {
         "lifted-area": "var(--shadow-lifted-area)",
         "slide-in": "var(--shadow-slide-in)",
       },
+      fontFamily: {
+        base: [
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "Noto Sans",
+          "sans-serif",
+          "Apple Color Emoji",
+          "Segoe UI Emoji",
+          "Segoe UI Symbol",
+          "Noto Color Emoji",
+        ],
+      },
       height: {
         1.3: "0.313rem",
         22: "5.5rem",

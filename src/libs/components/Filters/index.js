@@ -8,12 +8,19 @@ import { RxCounterClockwiseClock } from "react-icons/rx";
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
 import DropDown from "@/libs/atoms/dropdown";
+import WorkPill from "@/libs/molecules/workPill";
 
 const FilterField = ({ name, value }) => {
   return (
-    <div className="flex mt-1 text-small border w-fit px-2 py-1 rounded-md cursor-pointer hover:border-gray-400 mr-1">
-      <div className="text-gray-500">{name}</div>
-      {value && <div className="ml-1">{value}</div>}
+    <div className="flex mt-1 text-small border w-fit rounded-md cursor-pointer hover:border-gray-400 mr-1 capitalize">
+      <div className="px-2 py-1 border-r">{name}</div>
+      {value && name === "type" ? (
+        <div>
+          <WorkPill display={value} type={value} useBg={false} />
+        </div>
+      ) : (
+        <div className="px-2 py-1">{value}</div>
+      )}
     </div>
   );
 };
@@ -59,7 +66,7 @@ const SortField = ({ name, onClick, currOpt, onSelect }) => {
     >
       <div
         onClick={onClick}
-        className="p-1 rounded-md text-small text-gray-600 font-medium flex items-center cursor-pointer hover:bg-area-hovered mr-1"
+        className="p-1 rounded-md text-small text-gray-600 font-semibold leading-loose tracking-tight flex items-center cursor-pointer hover:bg-area-hovered mr-1"
       >
         <div>{name}</div> <BiChevronDown className="text-default" />
       </div>

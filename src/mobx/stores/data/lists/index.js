@@ -1,16 +1,18 @@
-import { observable, autorun, makeObservable, action } from "mobx";
-import { conversations, issues } from "@/data/lists";
+import { observable, autorun, makeObservable, action, computed } from "mobx";
+import { conversations, issues, tickets } from "@/data/lists";
 
 export class ListStore {
   conversations = [];
   updates = [];
   issues = [];
+  tickets = [];
 
   constructor() {
     makeObservable(this, {
       conversations: observable,
       updates: observable,
       issues: observable,
+      tickets: observable,
       hydrate: action,
     });
   }
@@ -27,8 +29,21 @@ export class ListStore {
     this.issues.push({ item });
   };
 
+  clusterTickets = () => {
+    let cluster = {};
+    tickets.forEach((tkt) => {
+      if (!cluster.hasOwnProperty(tkt.cluster)) {
+        cluster[tkt.cluster] = [];
+      }
+
+      cluster[tkt.cluster].push(tkt);
+    });
+    return cluster;
+  };
+
   hydrate = () => {
     this.conversations = conversations;
     this.issues = issues;
+    this.tickets = tickets;
   };
 }

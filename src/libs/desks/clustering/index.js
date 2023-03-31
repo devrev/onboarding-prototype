@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Table from "@/libs/molecules/Table";
 import convertToIssueTableRow from "@/converters/convertToIssueTableRow";
 import { useStore } from "@/mobx/providers";
@@ -11,6 +11,12 @@ import BulkActions from "@/libs/molecules/BulkActions";
 
 const ClusteringDesk = observer(() => {
   const store = useStore();
+  const cluster = store.data.lists.clusterTickets();
+
+  let clusterSummary = [];
+  Object.keys(cluster).forEach((key) => {
+    clusterSummary.push({ name: key, count: cluster[key].length });
+  });
 
   return (
     <div className="h-screen overflow-hidden relative">
@@ -22,7 +28,7 @@ const ClusteringDesk = observer(() => {
       <div className="px-page-gutter">
         <Filters
           filters={[
-            { name: "Status", value: "Unread" },
+            { name: "type", value: "ticket" },
             { name: "Date", value: "Yesterday" },
           ]}
           sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
@@ -31,30 +37,33 @@ const ClusteringDesk = observer(() => {
       </div>
       <div className="flex items-start border-t h-full mt-5">
         <div>
-          <ClusteringSideMenu />
+          <ClusteringSideMenu data={clusterSummary} />
         </div>
         <div className="flex-1 border-l relative h-full overflow-x-hidden overflow-y-auto pb-64">
-          <StageBadge className="my-4 ml-12" stage={STAGES.DEVELOPMENT} />
-          <Table
-            headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-            data={store.data.lists.issues.map((issue) =>
-              convertToIssueTableRow(issue)
-            )}
-          />
-          <StageBadge className="my-4 ml-12" stage={STAGES.NOW} />
-          <Table
-            headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-            data={store.data.lists.issues.map((issue) =>
-              convertToIssueTableRow(issue)
-            )}
-          />
-          <StageBadge className="my-4 ml-12" stage={STAGES.REVIEW} />
-          <Table
-            headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-            data={store.data.lists.issues.map((issue) =>
-              convertToIssueTableRow(issue)
-            )}
-          />
+          {Object.keys(cluster).map((key) => {
+            return (
+              <div key={key}>
+                <StageBadge
+                  className="my-4 ml-12"
+                  stage={key}
+                  useIcon={false}
+                />
+                <Table
+                  headers={[
+                    "Items",
+                    "Title",
+                    "Owner",
+                    "Stage",
+                    "Tags",
+                    "Priority",
+                  ]}
+                  data={cluster[key].map((issue) =>
+                    convertToIssueTableRow(issue)
+                  )}
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

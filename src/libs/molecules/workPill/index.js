@@ -6,32 +6,47 @@ import {
   BiEditAlt,
 } from "react-icons/bi";
 import clsx from "clsx";
+import { EnhancementIcon } from "@/libs/icons";
 
 export const IconMap = {
   issue: BiClipboard,
   ticket: BiUserVoice,
   conv: BiConversation,
+  enh: EnhancementIcon,
+};
+
+const classMapBg = {
+  issue: "bg-issue",
+  ticket: "bg-ticket",
+  conv: "bg-conversation",
+  enh: "bg-trails-enhancement",
 };
 
 const classMap = {
-  issue: "bg-issue text-color-issue",
-  ticket: "bg-ticket text-color-ticket",
-  conv: "bg-conversation text-color-conversation",
-  enh: "bg-pill text-gray-700",
+  issue: "text-color-issue",
+  ticket: "text-color-ticket",
+  conv: "text-color-conversation",
+  enh: "text-trails-enhancement",
 };
 
-const WorkPill = ({ display, type = "issue", isCreate = false, ...props }) => {
+const WorkPill = ({
+  display,
+  type = "issue",
+  isCreate = false,
+  useBg = true,
+  ...props
+}) => {
   const Icon = isCreate ? BiEditAlt : IconMap[type];
-  const colorClasses = classMap[type];
+  const colorClasses = clsx(classMap[type], useBg && classMapBg[type]);
   return (
     <div
       className={clsx(
         colorClasses,
-        "flex items-center text-small font-medium rounded-md py-1 px-2 w-fit h-fit max-w-[8rem] cursor-pointer"
+        "flex items-center text-small font-medium rounded-md py-1 px-2 w-fit h-fit max-w-[8rem] cursor-pointer capitalize"
       )}
       {...props}
     >
-      {type != "enh" && <Icon className="text-h2" />}
+      <Icon className="text-h2 w-4 h-4" />
       <div className="ml-1">{display}</div>
     </div>
   );

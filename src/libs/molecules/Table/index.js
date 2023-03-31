@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
 import { observer } from "mobx-react-lite";
@@ -96,8 +97,18 @@ const Table = observer(({ data, headers, len, allowSelect = false }) => {
                 className={clsx(activeRow === index && "bg-menu-hovered")}
                 onMouseOver={() => setActiveRow(index)}
               >
-                {/* eslint-disable-next-line react/jsx-key */}
-                {dataItem.map((item, idx) => idx > 0 && <td>{item}</td>)}
+                {dataItem.map(
+                  (item, idx) =>
+                    idx > 0 && (
+                      <td
+                        className={clsx(
+                          idx == 1 && "min-w-[30rem] max-w-[30rem]"
+                        )}
+                      >
+                        {item}
+                      </td>
+                    )
+                )}
               </tr>
             ))}
           </tbody>
