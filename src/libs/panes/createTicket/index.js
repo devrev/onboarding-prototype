@@ -13,6 +13,7 @@ import { useStore } from "@/mobx/providers";
 const CreateTicketPane = observer(() => {
   const store = useStore();
   const [isOpen, setIsOpen] = useState(true);
+  const type = store.configs.panes.createTicketPane.type
 
   return (
     store.configs.panes.createTicketPane.isOpen && (
@@ -22,7 +23,7 @@ const CreateTicketPane = observer(() => {
       >
         <div className="px-4 py-6">
           <div className="flex items-center justify-between">
-            <WorkPill type="ticket" display="New Ticket" isCreate={true} />
+            <WorkPill type={type} display={`New ${type}`} isCreate={true} />
             <div className="flex items-center text-gray-500">
               <p className="text-small font-medium">Reset</p>
               <MdOutlineClose className="text-h1 ml-4" />

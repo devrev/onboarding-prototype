@@ -2,14 +2,13 @@ import React, { useState } from "react";
 import Filters from "@/libs/components/Filters";
 import { useStore } from "@/mobx/providers";
 import { observer } from "mobx-react-lite";
-import Sprint1Desk from "./sprintIssue.js";
 import Button from "@/libs/atoms/button";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
-import { TbTilde } from "react-icons/tb";
 import { BsPlay, BsQuestionLg } from "react-icons/bs";
-import { SPRINT } from "@/constants";
+import { DESKS, SPRINT } from "@/constants";
 import clsx from "clsx";
 import SprintIssueDesk from "./sprintIssue.js";
+import dayjs from "dayjs";
 
 export const SprintIconMap = {
   [SPRINT.ONE]: BsPlay,
@@ -17,13 +16,23 @@ export const SprintIconMap = {
   [SPRINT.BACKLOG]: BsQuestionLg,
 };
 
-const SprintButton = ({ type, value, className, onClick }) => {
+const SprintButton = ({ type, value, className, onClick, date }) => {
   const Icon = SprintIconMap[value];
   return (
     <Button type={type} onClick={onClick} className={clsx("flex-1", className)}>
-      <div className="flex items-center text-default capitalize">
-        <Icon className="text-h1 mr-1" />
-        {value}
+      <div className="flex justify-between items-center">
+        <div className="flex items-center text-default capitalize">
+          <Icon className="text-h1 mr-1" />
+          {value}
+        </div>
+        {
+          date && <div>
+            <p className="text-small">
+              {date.format("DD MMM YYYY")} -{" "}
+              {date.add(1, "week").format("DD MMM YYYY")}
+            </p>
+          </div>
+        }
       </div>
     </Button>
   );
@@ -31,7 +40,7 @@ const SprintButton = ({ type, value, className, onClick }) => {
 
 const SprintDesk = observer(() => {
   const store = useStore();
-  const isOpen = true;
+  const isOpen = store.configs.desks.deskOpen === DESKS.SPRINT_DESK;
 
   const [sprint, setSprint] = useState(SPRINT.ONE);
 
@@ -50,9 +59,6 @@ const SprintDesk = observer(() => {
     [SPRINT.BACKLOG]: backlogIssues,
   };
 
-  console.log("BG", backlogIssues)
-
-
   return (
     isOpen && (
       <div className="h-screen overflow-hidden relative">
@@ -67,12 +73,14 @@ const SprintDesk = observer(() => {
             type={getNNLButtonType(SPRINT.ONE)}
             value={SPRINT.ONE}
             onClick={() => setSprint(SPRINT.ONE)}
+            date={dayjs()}
           />
           <SprintButton
             type={getNNLButtonType(SPRINT.TWO)}
             value={SPRINT.TWO}
             className="mx-5"
             onClick={() => setSprint(SPRINT.TWO)}
+            date={dayjs().add(1, 'week')}
           />
           <SprintButton
             type={getNNLButtonType(SPRINT.BACKLOG)}
@@ -83,10 +91,7 @@ const SprintDesk = observer(() => {
         <div className="px-page-gutter mt-5">
           <Filters
             showSelf={true}
-            filters={[
-              { name: "Stage"},
-              { name: "Date", value: "Yesterday" },
-            ]}
+            filters={[{ name: "Stage" }, { name: "Date", value: "Yesterday" }]}
             sort={[{ name: "Sort" }, { name: "Group" }, { name: "Customize" }]}
           />
         </div>

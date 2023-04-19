@@ -4,7 +4,6 @@ import convertToIssueTableRow from "@/converters/convertToIssueTableRow";
 import { observer } from "mobx-react-lite";
 
 const SprintIssueDesk = observer(({issues}) => {
-  console.log("BG2", issues)
   return (
     <div>
       <Table
@@ -12,7 +11,7 @@ const SprintIssueDesk = observer(({issues}) => {
         data={issues.map((issue) =>
           convertToIssueTableRow(issue)
         )}
-        secondColWidth="30rem"
+        secondColWidth="min-w-[30rem] max-w-[30rem]"
       />
     </div>
   );

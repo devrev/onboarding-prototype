@@ -9,7 +9,7 @@ import convertToPartTableRow from "@/converters/convertToPartsTableRow";
 
 const PartsDesk = observer(() => {
   const store = useStore();
-  const isOpen = true;
+  const isOpen = store.configs.desks.deskOpen === DESKS.SPRINT_DESK;
 
   return (
     isOpen && (

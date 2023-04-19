@@ -26,14 +26,20 @@ const TableCheckBox = ({
 };
 
 const Table = observer(
-  ({ data, headers, len, allowSelect = false, secondColWidth = "30rem",  ...props }) => {
+  ({
+    data,
+    headers,
+    len,
+    allowSelect = false,
+    secondColWidth = "min-w-[30rem] max-w-[30rem]",
+    ...props
+  }) => {
     const isMobile = useMobileScreen();
     const [activeRow, setActiveRow] = useState(-1);
     const [isSelectAll, setIsSelectAll] = useState(false);
-    const secondColWidthClass = `min-w-[${secondColWidth}] max-w-[${secondColWidth}]`;
     return (
       <div
-        className="flex items-start flex-2 mr-20"
+        className="flex items-start flex-2"
         onMouseLeave={() => setActiveRow(-1)}
         {...props}
       >
@@ -83,7 +89,7 @@ const Table = observer(
         </table>
 
         <div className="w-full h-full">
-          <table className="min-w-full overflow-x-scroll block pr-20">
+          <table className="min-w-full overflow-x-scroll block">
             <tbody>
               <tr>
                 {headers.map(
@@ -104,11 +110,7 @@ const Table = observer(
                   {dataItem.map(
                     (item, idx) =>
                       idx > 0 && (
-                        <td
-                          className={clsx(
-                            idx == 1 && secondColWidthClass
-                          )}
-                        >
+                        <td className={clsx(idx == 1 && secondColWidth)}>
                           {item}
                         </td>
                       )

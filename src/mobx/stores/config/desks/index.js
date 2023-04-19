@@ -19,6 +19,8 @@ export class DeskStore {
       openConversationDesk: action,
       openIssueDesk: action,
       openUpdateDesk: action,
+      openSprintDesk: action,
+      openPartsDesk: action,
       openClusteringDesk: action,
     });
   }
@@ -37,5 +39,13 @@ export class DeskStore {
 
   openClusteringDesk = () => {
     this.deskOpen = DESKS.CLUSTERING_DESK;
+  };
+
+  openSprintDesk = () => {
+    this.deskOpen = DESKS.SPRINT_DESK;
+  };
+
+  openPartsDesk = () => {
+    this.deskOpen = DESKS.PARTS_DESK;
   };
 }

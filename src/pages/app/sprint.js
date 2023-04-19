@@ -14,6 +14,7 @@ import Tour from "@/libs/tours";
 import { clusteringTourSteps } from "@/tours/clustering";
 import PartsDesk from "@/libs/desks/parts";
 import SprintDesk from "@/libs/desks/sprint";
+import CreateTicketPane from "@/libs/panes/createTicket";
 
 export default function Playground() {
   const isMobile = useMobileScreen();
@@ -32,6 +33,8 @@ export default function Playground() {
         <div className={clsx(!isMobile && "ml-72")}>
           {/* <PartsDesk /> */}
           <SprintDesk />
+          {/* <ViewEnhPane /> */}
+          <CreateTicketPane />
         </div>
       </main>
     </>

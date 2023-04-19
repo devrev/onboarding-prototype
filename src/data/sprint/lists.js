@@ -53,7 +53,7 @@ export const issues = [
   },
   {
     displayId: "ISS-1412",
-    title: "Fix Back button caching on Brave browser",
+    title: "Fix Back button caching on Brave browser & Chrome",
     owner: {
       name: "Mollie Holland",
     },

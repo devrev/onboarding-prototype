@@ -7,6 +7,10 @@ export const conversation = {
   title: "Payments Issue",
   filters: [
     {
+      name: "type",
+      value: "capability"
+    },
+    {
       name: "Stage",
       value: "New",
     },

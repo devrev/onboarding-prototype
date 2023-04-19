@@ -7,14 +7,12 @@ import {
 } from "mobx";
 import { enableStaticRendering } from "mobx-react-lite";
 import { POSITION } from "@/constants";
-import { WORK_PANES } from "@/constants";
 
 enableStaticRendering(typeof window === "undefined");
 
-export class CreateTicketPaneStore {
+export class ViewEnhancementPane {
   isOpen = false;
   position = POSITION.RIGHT;
-  type = WORK_PANES.TICKET
 
   constructor(root) {
     this.root = root;
@@ -22,7 +20,6 @@ export class CreateTicketPaneStore {
     makeObservable(this, {
       isOpen: observable,
       position: observable,
-      type: observable,
       open: action,
       close: action,
       numberOfPanesOpen: action,

@@ -13,6 +13,8 @@ export const DESKS = {
   CONVERSATION_DESK: "conversation_desk",
   UPDATE_DESK: "update_desk",
   CLUSTERING_DESK: "clustering_desk",
+  SPRINT_DESK: "sprint_desk",
+  PARTS_DESK: "parts_desk"
 };
 
 export const POSITION = {
@@ -39,3 +41,8 @@ export const SPRINT = {
   TWO: "Sprint 2",
   BACKLOG: "Backlog",
 };
+
+export const WORK_PANES = {
+  TICKET: "ticket",
+  ISSUE: "issue"
+}
