@@ -33,3 +33,9 @@ export const NNL = {
   NEXT: "next",
   LATER: "later",
 };
+
+export const SPRINT = {
+  ONE: "Sprint 1",
+  TWO: "Sprint 2",
+  BACKLOG: "Backlog",
+};

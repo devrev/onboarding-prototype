@@ -26,10 +26,11 @@ const TableCheckBox = ({
 };
 
 const Table = observer(
-  ({ data, headers, len, allowSelect = false, ...props }) => {
+  ({ data, headers, len, allowSelect = false, secondColWidth = "30rem",  ...props }) => {
     const isMobile = useMobileScreen();
     const [activeRow, setActiveRow] = useState(-1);
     const [isSelectAll, setIsSelectAll] = useState(false);
+    const secondColWidthClass = `min-w-[${secondColWidth}] max-w-[${secondColWidth}]`;
     return (
       <div
         className="flex items-start flex-2 mr-20"
@@ -105,7 +106,7 @@ const Table = observer(
                       idx > 0 && (
                         <td
                           className={clsx(
-                            idx == 1 && "min-w-[30rem] max-w-[30rem]"
+                            idx == 1 && secondColWidthClass
                           )}
                         >
                           {item}

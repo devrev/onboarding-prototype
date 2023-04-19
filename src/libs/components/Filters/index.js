@@ -13,13 +13,13 @@ import WorkPill from "@/libs/molecules/workPill";
 const FilterField = ({ name, value }) => {
   return (
     <div className="flex mt-1 text-small border w-fit rounded-md cursor-pointer hover:border-gray-400 mr-1 capitalize">
-      <div className="px-2 py-1 border-r">{name}</div>
+      <div className={clsx("px-2 py-1", value && "border-r")}>{name}</div>
       {value && name === "type" ? (
         <div>
           <WorkPill display={value} type={value} useBg={false} />
         </div>
       ) : (
-        <div className="px-2 py-1">{value}</div>
+        value && (<div className="px-2 py-1">{value}</div>)
       )}
     </div>
   );

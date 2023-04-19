@@ -4,6 +4,7 @@ import {
   BiClipboard,
   BiConversation,
   BiEditAlt,
+  BiCube
 } from "react-icons/bi";
 import clsx from "clsx";
 import { EnhancementIcon } from "@/libs/icons";
@@ -13,6 +14,7 @@ export const IconMap = {
   ticket: BiUserVoice,
   conv: BiConversation,
   enh: EnhancementIcon,
+  capability: BiCube
 };
 
 const classMapBg = {
@@ -20,6 +22,7 @@ const classMapBg = {
   ticket: "bg-ticket",
   conv: "bg-conversation",
   enh: "bg-trails-enhancement",
+  capability: "bg-trails-capability bg-opacity-10",
 };
 
 const classMap = {
@@ -27,6 +30,7 @@ const classMap = {
   ticket: "text-color-ticket",
   conv: "text-color-conversation",
   enh: "text-trails-enhancement",
+  capability: "text-trails-capability"
 };
 
 const WorkPill = ({

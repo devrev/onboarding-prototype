@@ -1,11 +1,13 @@
 import { observable, autorun, makeObservable, action, computed } from "mobx";
 import { conversations, issues, tickets } from "@/data/lists";
+import { parts, issues as sprintIssues } from "@/data/sprint/lists";
 
 export class ListStore {
   conversations = [];
   updates = [];
   issues = [];
   tickets = [];
+  parts = [];
 
   constructor() {
     makeObservable(this, {
@@ -13,6 +15,7 @@ export class ListStore {
       updates: observable,
       issues: observable,
       tickets: observable,
+      parts: observable,
       hydrate: action,
     });
   }
@@ -29,6 +32,10 @@ export class ListStore {
     this.issues.push({ item });
   };
 
+  appendToParts = ({item}) => {
+  this.parts.push({item})
+  }
+
   clusterTickets = () => {
     let cluster = {};
     tickets.forEach((tkt) => {
@@ -43,7 +50,8 @@ export class ListStore {
 
   hydrate = () => {
     this.conversations = conversations;
-    this.issues = issues;
+    this.issues = sprintIssues;
     this.tickets = tickets;
+    this.parts = parts;
   };
 }

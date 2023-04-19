@@ -7,15 +7,16 @@ const iconMap = {
 
 const textMap = {
   review: "In Review",
+  default: "Working"
 };
 
 const StagePill = ({ stage }) => {
-  const Icon = iconMap[stage];
+  const Icon = iconMap[stage] || iconMap["review"];
 
   return (
     <div className="flex items-center">
       <Icon />
-      <p className="ml-1 font-medium text-gray-600">{textMap[stage]}</p>
+      <p className="ml-1 font-medium text-gray-600">{textMap[stage] || textMap["default"]}</p>
     </div>
   );
 };
