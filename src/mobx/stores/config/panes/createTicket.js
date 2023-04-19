@@ -14,7 +14,7 @@ enableStaticRendering(typeof window === "undefined");
 export class CreateTicketPaneStore {
   isOpen = false;
   position = POSITION.RIGHT;
-  type = WORK_PANES.TICKET
+  type = WORK_PANES.TICKET;
 
   constructor(root) {
     this.root = root;
@@ -25,6 +25,8 @@ export class CreateTicketPaneStore {
       type: observable,
       open: action,
       close: action,
+      setTicketType: action,
+      setIssueType: action,
       numberOfPanesOpen: action,
     });
   }
@@ -35,6 +37,14 @@ export class CreateTicketPaneStore {
 
   changeNumberOfPanesOpen = (inc) => {
     return (this.root.numberOfPanesOpen += inc);
+  };
+
+  setTicketType = () => {
+    this.type = WORK_PANES.TICKET;
+  };
+
+  setIssueType = () => {
+    this.type = WORK_PANES.ISSUE;
   };
 
   open = () => {

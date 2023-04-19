@@ -84,6 +84,7 @@ export const parts = [
     ],
     tickets: 4,
     issues: 4,
+    id: "discounts_CAPL"
   },
   {
     displayId: "Payment Gateway",

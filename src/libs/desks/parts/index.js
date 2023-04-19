@@ -51,6 +51,7 @@ const PartsDesk = observer(() => {
             data={store.data.lists.parts.map((part) =>
               convertToPartTableRow(part)
             )}
+            secondColWidth="max-w-[22rem] min-w-[22rem]"
           />
         </div>
       </div>

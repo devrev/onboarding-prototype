@@ -12,6 +12,7 @@ const convertToPartTableRow = (item) => {
       type={"capability"}
       display={item.displayId}
       useBg={true}
+      id={item?.id}
     />,
     <p key="stage"> - </p>,
     <div key="tags" className="flex items-center">

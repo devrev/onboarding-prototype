@@ -62,10 +62,6 @@ const CreateTicketPane = observer(() => {
                   name: "owner",
                   value: "Manan Sharma",
                 },
-                {
-                  name: "revOrg",
-                  value: "Google",
-                },
               ]}
             />
             <hr className="mt-4" />

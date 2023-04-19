@@ -11,7 +11,7 @@ import IssueDesk from "@/libs/desks/issues";
 import UpdatesDesk from "@/libs/desks/updates";
 
 import Tour from "@/libs/tours";
-import { clusteringTourSteps } from "@/tours/clustering";
+import { sprintTourSteps } from "@/tours/sprint";
 import PartsDesk from "@/libs/desks/parts";
 import SprintDesk from "@/libs/desks/sprint";
 import CreateTicketPane from "@/libs/panes/createTicket";
@@ -29,12 +29,14 @@ export default function Playground() {
         <title>DevRev</title>
       </Head>
       <main>
+        {isLoad && <Tour tourSteps={sprintTourSteps} />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          {/* <PartsDesk /> */}
+          <PartsDesk />
           <SprintDesk />
-          {/* <ViewEnhPane /> */}
+          <ViewEnhPane />
           <CreateTicketPane />
+          <UpdatesDesk />
         </div>
       </main>
     </>

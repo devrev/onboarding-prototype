@@ -16,11 +16,11 @@ export const SprintIconMap = {
   [SPRINT.BACKLOG]: BsQuestionLg,
 };
 
-const SprintButton = ({ type, value, className, onClick, date }) => {
+const SprintButton = ({ type, value, className, onClick, date, ...props }) => {
   const Icon = SprintIconMap[value];
   return (
     <Button type={type} onClick={onClick} className={clsx("flex-1", className)}>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center" {...props}>
         <div className="flex items-center text-default capitalize">
           <Icon className="text-h1 mr-1" />
           {value}
@@ -74,18 +74,21 @@ const SprintDesk = observer(() => {
             value={SPRINT.ONE}
             onClick={() => setSprint(SPRINT.ONE)}
             date={dayjs()}
+            id="sprint-1__button"
           />
           <SprintButton
             type={getNNLButtonType(SPRINT.TWO)}
             value={SPRINT.TWO}
             className="mx-5"
             onClick={() => setSprint(SPRINT.TWO)}
-            date={dayjs().add(1, 'week')}
+            date={dayjs().add(1, "week")}
+            id="sprint-2__button"
           />
           <SprintButton
             type={getNNLButtonType(SPRINT.BACKLOG)}
             value={SPRINT.BACKLOG}
             onClick={() => setSprint(SPRINT.BACKLOG)}
+            id="backlog__button"
           />
         </div>
         <div className="px-page-gutter mt-5">

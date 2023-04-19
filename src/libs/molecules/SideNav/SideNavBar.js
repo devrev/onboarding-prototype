@@ -51,7 +51,7 @@ const SideNavBar = ({ isMobile = false }) => {
           <ProfilePicture name="MS" color="bg-purple-light" />
           <AiOutlineSetting className="ml-2 text-h2 text-gray-400 cursor-pointer hover:text-gray-500" />
         </div>
-        <div>
+        <div id="side_nav-createWork">
           <Button>
             <AiOutlinePlus className="text-h3" />
           </Button>
@@ -102,7 +102,7 @@ const SideNavBar = ({ isMobile = false }) => {
           iconColor="text-purple-light"
         />
         <SideNavItem name="Trails" />
-        <SideNavItem name="Parts" />
+        <SideNavItem name="Parts" id="side_nav__parts" />
         <SideNavItem name="Now, Next, Later" />
       </div>
       <div className="mb-3">

@@ -12,10 +12,10 @@ import TimelineWidget from "@/libs/components/timelineWidget";
 import { SprintIcon } from "@/libs/icons";
 import clsx from "clsx";
 
-const PartItem = ({ icon, text, stroke }) => {
+const PartItem = ({ icon, text, stroke, ...props }) => {
   const Icon = icon;
   return (
-    <div className="flex items-center mt-6">
+    <div className="flex items-center mt-6" {...props}>
       <div
         className="bg-pill p-2 rounded-full text-gray-400 flex items-center justify-center cursor-pointer"
         style={{ fontSize: "25px" }}
@@ -33,7 +33,7 @@ const ViewEnhPane = observer(() => {
   const data = store.data.panes.conversation;
 
   return (
-    true && (
+    store.configs.panes.viewEnhancementPane.isOpen && (
       <Pane
         isOpen={isOpen}
         position={store.configs.panes.createTicketPane.position}
@@ -70,7 +70,7 @@ const ViewEnhPane = observer(() => {
                   text={"Top Contributors"}
                   stroke={true}
                 />
-                <PartItem icon={SprintIcon} text={"Sprint Boards"} />
+                <PartItem icon={SprintIcon} text={"Sprint Boards"} id="enhPane__sprint-icon" />
               </div>
             </div>
           </div>
