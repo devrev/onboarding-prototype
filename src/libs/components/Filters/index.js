@@ -35,7 +35,6 @@ const FilterFieldIcon = ({ children }) => {
 
 const SortFields = ({ sort }) => {
   const [showOpts, setShowOpts] = useState("");
-  console.log(sort);
 
   return (
     <div className="flex items-center flex-wrap">

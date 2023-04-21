@@ -61,6 +61,7 @@ export const conversationTourSteps = [
     content:
       "A new conversation just arrived! Click here to chat with your customer",
     disableBeacon: true,
+    placement: "left"
   },
   {
     type: "click",

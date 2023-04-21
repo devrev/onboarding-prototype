@@ -91,7 +91,7 @@ export const clusteringTourSteps = [
     content:
       "Create an enhancement to work on all the tickets related to payment issues here",
     disableBeacon: true,
-    placement: "bottom",
+    placement: "left",
   },
   {
     type: "click",
