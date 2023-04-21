@@ -5,7 +5,13 @@ import {
   action,
   extendObservable,
 } from "mobx";
-import { conversation, enhancement } from "@/data/panes";
+import {
+  enhancement as clusteringEnhancement,
+} from "@/data/clustering";
+import {
+  conversation as supportConversation,
+} from "@/data/support";
+import { PATHS } from "@/constants";
 
 export class PaneStore {
   conversation = {};
@@ -24,7 +30,15 @@ export class PaneStore {
   }
 
   hydrate = () => {
-    this.conversation = conversation;
-    this.enhancement = enhancement;
+    if (!(typeof window === "undefined")) {
+      switch (window.location.pathname) {
+        case PATHS.SUPPORT:
+          this.conversation = supportConversation
+          break;
+        case PATHS.CLUSTERING: 
+          this.enhancement = clusteringEnhancement;
+          break;
+      }
+    }
   };
 }

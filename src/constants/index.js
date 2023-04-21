@@ -1,3 +1,9 @@
+export const PATHS = {
+  SPRINT: "/app/sprint",
+  SUPPORT: "/app/support",
+  CLUSTERING: "/app/clustering",
+};
+
 export const bgColors = [
   "bg-gray-500",
   "bg-yellow-light",

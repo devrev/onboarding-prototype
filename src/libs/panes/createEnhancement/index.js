@@ -14,7 +14,7 @@ import Links from "@/libs/components/Links";
 const CreateEnhPane = observer(() => {
   const store = useStore();
   const data = store.data.panes.enhancement;
-  const isOpen = true;
+  const isOpen = store.configs.panes.createEnhancementPane.isOpen;
 
   return (
     true && (

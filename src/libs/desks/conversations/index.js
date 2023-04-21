@@ -39,6 +39,7 @@ const ConversationDesk = observer(() => {
             data={store.data.lists.conversations.map((conv) =>
               convertToConversationTableRow(conv)
             )}
+            secondColWidth="min-w-[20rem] max-w-[20rem]"
           />
         </div>
       </div>
