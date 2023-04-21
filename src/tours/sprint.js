@@ -11,10 +11,81 @@ const revUser = {
 export const sprintTourSteps = [
   {
     type: "point",
+    target: "#side_nav-createWork",
+    content: "Click here to create a new issue to work on.",
+    disableBeacon: true,
+    placement: "auto",
+  },
+  {
+    type: "click",
+    target: "#side_nav-createWork",
+    func: (store) => {
+      store.configs.panes.createTicketPane.setIssueType();
+      store.configs.panes.createTicketPane.open();
+    },
+  },
+  {
+    type: "point",
+    target: "#createTicketPane__title",
+    content: "Fill up the details required.",
+    disableBeacon: true,
+    placement: "left",
+  },
+  {
+    type: "fill",
+    target: "#createTicketPane__title",
+    text: "Add provision to add multiple line items on Cart UI",
+  },
+  {
+    type: "fill",
+    target: "#createTicketPane__description",
+    text: "Currently only single line items are allowed in cart but multiple customer requests indicate a requirement for multiple line items as well.",
+  },
+  {
+    type: "point",
+    target: "#createTicketPane__part_selector",
+    content:
+      "Parts are components of your app, chose a part that is most suitable for this issue.",
+    disableBeacon: true,
+    placement: "left",
+  },
+  {
+    type: "click",
+    target: "#part_selector",
+    func: () => {},
+  },
+  {
+    type: "point",
+    target: "#createTicketPane__attributes",
+    content:
+      "DevRev intelligently fills all the necessary information required for this issue.",
+    disableBeacon: true,
+    placement: "left",
+  },
+  {
+    type: "wait",
+    delay: 8000,
+  },
+  {
+    type: "point",
+    target: "#createTicketPane__create_btn",
+    content: "Create the issue.",
+    disableBeacon: true,
+    placement: "left",
+  },
+  {
+    type: "click",
+    target: "#createTicketPane__create_btn",
+    func: (store) => {
+      store.configs.panes.createTicketPane.close();
+    },
+  },
+  {
+    type: "point",
     target: "#side_nav__parts",
     content: "Click here to view the capabilities of your product.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "right",
   },
   {
     type: "click",
@@ -28,7 +99,7 @@ export const sprintTourSteps = [
     target: "#discounts_CAPL",
     content: "Click here to select a capability.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "right",
   },
   {
     type: "click",
@@ -42,7 +113,7 @@ export const sprintTourSteps = [
     target: "#enhPane__sprint-icon",
     content: "Click here to create a new sprint board.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "left",
   },
   {
     type: "click",

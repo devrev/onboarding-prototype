@@ -14,7 +14,7 @@ export const clusteringTourSteps = [
     target: "#side_nav__tickets",
     content: "Click here to view tickets raised by customer support",
     disableBeacon: true,
-    placement: "auto",
+    placement: "right",
   },
   {
     type: "click",
@@ -28,7 +28,7 @@ export const clusteringTourSteps = [
     target: "#sort_field-Group",
     content: "Click here to group the tickets.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "left",
   },
   {
     type: "click",

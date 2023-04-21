@@ -142,7 +142,7 @@ export const conversationTourSteps = [
     target: "#link_tickets",
     content: "Click here to link a ticket",
     disableBeacon: true,
-    placement: "auto",
+    placement: "left",
   },
   {
     type: "click",
