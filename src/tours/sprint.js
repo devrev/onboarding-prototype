@@ -14,7 +14,11 @@ export const sprintTourSteps = [
     target: "#side_nav-createWork",
     content: "Click here to create a new issue to work on.",
     disableBeacon: true,
-    placement: "auto",
+    placement: "bottom",
+    offset: -10,
+    floaterProps: {
+      disableFlip: true,
+    }
   },
   {
     type: "click",
