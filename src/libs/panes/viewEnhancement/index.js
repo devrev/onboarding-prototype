@@ -30,7 +30,7 @@ const PartItem = ({ icon, text, stroke, ...props }) => {
 const ViewEnhPane = observer(() => {
   const store = useStore();
   const [isOpen, setIsOpen] = useState(true);
-  const data = store.data.panes.conversation;
+  const data = store.data.panes.enhancement;
 
   return (
     store.configs.panes.viewEnhancementPane.isOpen && (

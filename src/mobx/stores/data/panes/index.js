@@ -11,6 +11,9 @@ import {
 import {
   conversation as supportConversation,
 } from "@/data/support";
+import {
+  enhancement as sprintEnhancement,
+} from "@/data/sprint";
 import { PATHS } from "@/constants";
 
 export class PaneStore {
@@ -37,6 +40,9 @@ export class PaneStore {
           break;
         case PATHS.CLUSTERING: 
           this.enhancement = clusteringEnhancement;
+          break;
+        case PATHS.SPRINT:
+          this.enhancement = sprintEnhancement;
           break;
       }
     }
