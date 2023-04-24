@@ -119,3 +119,33 @@ export const parts = [
     issues: 2,
   },
 ];
+
+export const updates = [
+  {
+    type: "issue",
+    display: "ISS-1243",
+    title: "Payments API is returning 503 for valid requests.",
+    owner: {
+      name: "Manan Sharma",
+    },
+    date: "Today",
+  },
+  {
+    type: "issue",
+    display: "ISS-1283",
+    title: "Item images are not loading in cart.",
+    owner: {
+      name: "Deepak Gupta",
+    },
+    date: "Today",
+  },
+  {
+    type: "ticket",
+    display: "TKT-787",
+    title: "HSBC Cards not working for Arihant Capital on Payment Gateway.",
+    owner: {
+      name: "John Snow",
+    },
+    date: "Yesterday",
+  },
+];

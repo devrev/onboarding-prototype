@@ -1,16 +1,16 @@
 import React from "react";
 import {
   BiUserVoice,
-  BiClipboard,
   BiConversation,
   BiEditAlt,
   BiCube
 } from "react-icons/bi";
+import { IssueIcon } from "@/libs/icons";
 import clsx from "clsx";
 import { EnhancementIcon } from "@/libs/icons";
 
 export const IconMap = {
-  issue: BiClipboard,
+  issue: IssueIcon,
   ticket: BiUserVoice,
   conv: BiConversation,
   enh: EnhancementIcon,

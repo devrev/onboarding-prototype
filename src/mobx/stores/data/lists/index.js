@@ -1,10 +1,11 @@
 import { observable, autorun, makeObservable, action, computed } from "mobx";
-import { issues as supportIssues, conversations as supportConversations } from "@/data/support";
+import { issues as supportIssues, conversations as supportConversations, updates as supportUpdates } from "@/data/support";
 import {
   parts as sprintParts,
   issues as sprintIssues,
+  updates as sprintUpdates
 } from "@/data/sprint";
-import { tickets as clusteringTickets } from "@/data/clustering";
+import { tickets as clusteringTickets, updates as clusteringUpdates } from "@/data/clustering";
 import { PATHS } from "@/constants";
 export class ListStore {
   conversations = [];
@@ -12,6 +13,7 @@ export class ListStore {
   issues = [];
   tickets = [];
   parts = [];
+  updates = [];
 
   constructor() {
     makeObservable(this, {
@@ -20,6 +22,7 @@ export class ListStore {
       issues: observable,
       tickets: observable,
       parts: observable,
+      updates: observable,
       hydrate: action,
     });
   }
@@ -58,13 +61,16 @@ export class ListStore {
         case PATHS.SUPPORT:
           this.issues = supportIssues;
           this.conversations = supportConversations;
+          this.updates = supportUpdates
           break;
         case PATHS.CLUSTERING:
-          this.tickets = clusteringTickets
+          this.tickets = clusteringTickets;
+          this.updates = clusteringUpdates;
           break;
         case PATHS.SPRINT:
           this.issues = sprintIssues;
           this.parts = sprintParts;
+          this.updates = sprintUpdates;
           break;
       }
     }

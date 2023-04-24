@@ -12,7 +12,7 @@ export const conversationTourSteps = [
   {
     type: "point",
     target: "#side_nav__inbox",
-    content: "Click here to view all your customer conversations",
+    content: "Click on Inbox to view all your customer conversations",
     disableBeacon: true,
     placement: "auto",
   },

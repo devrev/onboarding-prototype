@@ -44,3 +44,7 @@ th {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.bg-updates {
+  background-color: #f7f7ff;
+}

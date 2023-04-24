@@ -129,7 +129,7 @@ export const sprintTourSteps = [
   },
   {
     type: "point",
-    target: "#sprint-1__button",
+    target: "#sprint-2__button",
     content:
       "DevRev intelligently organizes your issues into sprints of the specified durations.",
     disableBeacon: true,
@@ -137,7 +137,7 @@ export const sprintTourSteps = [
   },
   {
     type: "click",
-    target: "#sprint-1__button",
+    target: "#sprint-2__button",
     func: () => {},
   },
   {

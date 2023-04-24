@@ -15,11 +15,12 @@ import {
 import { RiVipDiamondLine, RiCodeSSlashLine } from "react-icons/ri";
 import Button from "@/libs/atoms/button";
 import clsx from "clsx";
+import { DollarIcon, HeadphonesIcon } from "@/libs/icons";
 
 const SideNavItem = ({
   Icon,
   name,
-  iconSize = "text-h2",
+  iconSize = "w-4 h-4 mr-3",
   iconColor = "text-gray-700",
   ...props
 }) => {
@@ -31,7 +32,7 @@ const SideNavItem = ({
       )}
       {...props}
     >
-      {Icon && <Icon className={clsx("mr-3", iconSize, iconColor)} />}
+      {Icon && <Icon className={clsx(iconSize, iconColor)} />}
       <p>{name}</p>
     </div>
   );
@@ -75,7 +76,8 @@ const SideNavBar = ({ isMobile = false }) => {
       <div>
         <SideNavItem
           name="Support"
-          Icon={FaHeadphonesAlt}
+          Icon={HeadphonesIcon}
+          iconSize="w-5 h-5 mr-2"
           iconColor="text-color-support-vistas"
         />
         <SideNavItem name="Inbox" id="side_nav__inbox" />
@@ -108,7 +110,8 @@ const SideNavBar = ({ isMobile = false }) => {
       <div className="mb-3">
         <SideNavItem
           name="Customers"
-          Icon={FaDollarSign}
+          Icon={DollarIcon}
+          iconSize="w-5 h-5 mr-2"
           iconColor="text-color-customer-vistas"
         />
       </div>
