@@ -12,7 +12,7 @@ export const clusteringTourSteps = [
   {
     type: "point",
     target: "#side_nav__tickets",
-    content: "Click here to view tickets raised by customer support",
+    content: "Click on Tickets to view all tickets raised by customer support",
     disableBeacon: true,
     placement: "right",
   },
@@ -92,6 +92,10 @@ export const clusteringTourSteps = [
       "Create an enhancement to work on all the tickets related to payment issues here",
     disableBeacon: true,
     placement: "left",
+    offset: -10,
+    floaterProps: {
+      disableFlip: true,
+    },
   },
   {
     type: "click",
@@ -121,7 +125,7 @@ export const clusteringTourSteps = [
     type: "point",
     target: "#createEnhPane__part_selector",
     content:
-      "Parts are components of your app, chose a part that is most suitable",
+      "Parts are components of your app, click to select a part that is most suitable.",
     disableBeacon: true,
     placement: "left",
   },

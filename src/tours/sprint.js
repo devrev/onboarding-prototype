@@ -18,7 +18,7 @@ export const sprintTourSteps = [
     offset: -10,
     floaterProps: {
       disableFlip: true,
-    }
+    },
   },
   {
     type: "click",
@@ -49,7 +49,7 @@ export const sprintTourSteps = [
     type: "point",
     target: "#createTicketPane__part_selector",
     content:
-      "Parts are components of your app, chose a part that is most suitable for this issue.",
+      "Parts are components of your app, click to select a part that is most suitable.",
     disableBeacon: true,
     placement: "left",
   },

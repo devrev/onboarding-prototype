@@ -61,7 +61,7 @@ export const conversationTourSteps = [
     content:
       "A new conversation just arrived! Click here to chat with your customer",
     disableBeacon: true,
-    placement: "left"
+    placement: "left",
   },
   {
     type: "click",
@@ -172,7 +172,7 @@ export const conversationTourSteps = [
     type: "point",
     target: "#createTicketPane__part_selector",
     content:
-      "Parts are components of your app, chose a part that is most suitable",
+      "Parts are components of your app, click to select a part that is most suitable.",
     disableBeacon: true,
     placement: "left",
   },
