@@ -1,4 +1,4 @@
-export const enhancement = {
+export const createEnhancement = {
   links: {
     tickets: [
       {
@@ -41,3 +41,26 @@ export const enhancement = {
     ],
   },
 };
+
+export const viewEnhancement = {
+  title: "Revamp payment workflow",
+  subtitle: "This is to make the payment workflow more transparent and robust to help our customers have a more seamless payment experience",
+  filters: [
+    {
+      name: "type",
+      value: "enh",
+    },
+    {
+      name: "Members",
+      value: "1",
+    },
+    {
+      name: "Tags",
+      value: "2",
+    },
+  ],
+  links: {
+    tickets: [],
+  },
+};
+

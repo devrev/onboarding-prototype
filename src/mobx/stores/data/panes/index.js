@@ -6,24 +6,27 @@ import {
   extendObservable,
 } from "mobx";
 import {
-  enhancement as clusteringEnhancement,
+  createEnhancement as clusteringCreateEnhancement,
+  viewEnhancement as clusteringViewEnhancement
 } from "@/data/clustering";
 import {
   conversation as supportConversation,
 } from "@/data/support";
 import {
-  enhancement as sprintEnhancement,
+  viewEnhancement as sprintViewEnhancement,
 } from "@/data/sprint";
 import { PATHS } from "@/constants";
 
 export class PaneStore {
   conversation = {};
-  enhancement = {};
+  createEnhancement = {};
+  viewEnhancement = {};
 
   constructor() {
     makeObservable(this, {
       conversation: observable,
-      enhancement: observable,
+      createEnhancement: observable,
+      viewEnhancement: observable,
       hydrate: action,
     });
     extendObservable(this.conversation, {
@@ -39,10 +42,11 @@ export class PaneStore {
           this.conversation = supportConversation
           break;
         case PATHS.CLUSTERING: 
-          this.enhancement = clusteringEnhancement;
+          this.createEnhancement = clusteringCreateEnhancement;
+          this.viewEnhancement = clusteringViewEnhancement;
           break;
         case PATHS.SPRINT:
-          this.enhancement = sprintEnhancement;
+          this.viewEnhancement = sprintViewEnhancement;
           break;
       }
     }

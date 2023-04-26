@@ -1,12 +1,4 @@
 import { DESKS } from "@/constants";
-const devUser = {
-  name: "Jon Snow",
-};
-
-const revUser = {
-  name: "Guest 4315",
-  revOrg: "Routing",
-};
 
 export const clusteringTourSteps = [
   {
@@ -171,6 +163,7 @@ export const clusteringTourSteps = [
     target: "#createEnhPane__create_btn",
     func: (store) => {
       store.configs.panes.createEnhancementPane.close();
+      store.configs.panes.viewEnhancementPane.open();
     },
   },
   {

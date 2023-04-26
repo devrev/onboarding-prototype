@@ -1298,3 +1298,10 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+.bot-bg {
+  background-image: url('/devrev-bot-image.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}

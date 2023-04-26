@@ -42,7 +42,6 @@ export class ViewEnhancementPane {
 
       this.changeNumberOfPanesOpen(1);
     }
-
     this.isOpen = true;
   };
 

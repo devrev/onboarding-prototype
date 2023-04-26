@@ -29,18 +29,18 @@ const PartItem = ({ icon, text, stroke, ...props }) => {
 
 const ViewEnhPane = observer(() => {
   const store = useStore();
-  const [isOpen, setIsOpen] = useState(true);
-  const data = store.data.panes.enhancement;
+  const isOpen = store.configs.panes.viewEnhancementPane.isOpen;
+  const data = store.data.panes.viewEnhancement;
 
   return (
-    store.configs.panes.viewEnhancementPane.isOpen && (
+    isOpen && (
       <Pane
         isOpen={isOpen}
-        position={store.configs.panes.createTicketPane.position}
+        position={store.configs.panes.viewEnhancementPane.position}
       >
         <div className="px-4 py-6 flex flex-col min-h-full">
           <div className="flex items-center justify-between">
-            <div className="mt-6 text-lg">Discount API</div>
+            <div className="mt-6 text-lg">{data.title}</div>
             <div className="flex items-center text-gray-500">
               <MdOutlineClose className="text-h1 ml-4" />
             </div>
@@ -49,10 +49,7 @@ const ViewEnhPane = observer(() => {
             <Filter filters={data.filters} showCreate={false} />
           </div>
           <div className="mt-4">
-            <Input
-              id="createTicketPane__description"
-              text="One place to track People, Process and KPIs for the discounts team."
-            />
+            <Input id="createTicketPane__description" text={data.subtitle} />
             <hr className="mt-4" />
           </div>
           <div className="px-4 py-4">
@@ -70,7 +67,11 @@ const ViewEnhPane = observer(() => {
                   text={"Top Contributors"}
                   stroke={true}
                 />
-                <PartItem icon={SprintIcon} text={"Sprint Boards"} id="enhPane__sprint-icon" />
+                <PartItem
+                  icon={SprintIcon}
+                  text={"Sprint Boards"}
+                  id="enhPane__sprint-icon"
+                />
               </div>
             </div>
           </div>

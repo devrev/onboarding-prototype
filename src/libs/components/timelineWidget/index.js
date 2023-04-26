@@ -7,7 +7,7 @@ import TextBox from "../TextBox";
 const DISC = "Discussions";
 const EVENTS = "Events";
 
-const Events = () => {
+const Events = ({owner, display, type}) => {
   return (
     <div>
       <div className="flex items-center">
@@ -15,9 +15,8 @@ const Events = () => {
         <p className="text-tiny ml-4 text-gray-500">Today</p>
       </div>
       <div className="flex items-center mt-2">
-        <ProfilePicture size="xxs" name="Susan John" />
-        <p className="mx-1.5">created</p>
-        <WorkPill display="ISS-123" />
+        <ProfilePicture size="xxs" name="bot" />
+        <p className="mx-1.5">updated status</p>
       </div>
     </div>
   );

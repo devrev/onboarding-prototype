@@ -33,6 +33,7 @@ export default function Playground() {
           <IssueDesk />
           <UpdatesDesk />
           <CreateEnhPane />
+          <ViewEnhPane />
         </div>
       </main>
     </>

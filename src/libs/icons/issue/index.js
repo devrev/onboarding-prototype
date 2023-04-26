@@ -5,7 +5,7 @@ export const IssueIcon = ({ className }) => {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      class={className}
+      className={className}
     >
       <g fill="none">
         <path

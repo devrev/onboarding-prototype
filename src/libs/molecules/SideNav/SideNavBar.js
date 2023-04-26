@@ -49,7 +49,7 @@ const SideNavBar = ({ isMobile = false }) => {
     >
       <div className="flex justify-between">
         <div className="flex items-center">
-          <ProfilePicture name="MS" color="bg-purple-light" />
+          <ProfilePicture name="Manan Sharma" color="bg-purple-light" />
           <AiOutlineSetting className="ml-2 text-h2 text-gray-400 cursor-pointer hover:text-gray-500" />
         </div>
         <div id="side_nav-createWork">

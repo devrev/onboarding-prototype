@@ -10,12 +10,15 @@ const sizeMap = {
 };
 
 const ProfilePicture = ({ name, size = "xs", color }) => {
+  let displayName = name;
+  let isBot = name === "bot"
+
   if (name.length > 2) {
     const splitName = name.split(" ");
     if (splitName.length >= 2) {
-      name = splitName[0][0] + splitName[1][0];
+      displayName = splitName[0][0] + splitName[1][0];
     } else {
-      name = name[0] + name[1];
+      displayName = name[0] + name[1];
     }
   }
 
@@ -28,14 +31,15 @@ const ProfilePicture = ({ name, size = "xs", color }) => {
   color = bgColors[6];
 
   return (
-    <div
+   <div
       className={clsx(
         color,
-        "flex flex-shrink-0 justify-center items-center rounded-lg text-white",
-        sizeClass
+        "flex flex-shrink-0 justify-center items-center rounded-lg text-white uppercase",
+        sizeClass,
+        isBot && 'bot-bg'
       )}
     >
-      {name}
+      {!isBot && displayName}
     </div>
   );
 };
