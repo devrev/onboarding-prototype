@@ -5,8 +5,9 @@ import convertToIssueTableRow from "@/converters/convertToIssueTableRow";
 import { useStore } from "@/mobx/providers";
 import { observer } from "mobx-react-lite";
 import { DESKS } from "@/constants";
+import FeatureBar from "@/libs/components/FeatureBar";
 
-const IssueDesk = observer(() => {
+const IssueDesk = observer(({title = "Tickets", showFeatureBar = false}) => {
   const store = useStore();
   const isOpen = store.configs.desks.deskOpen === DESKS.ISSUE_DESK;
 
@@ -17,8 +18,13 @@ const IssueDesk = observer(() => {
           <h2 className="text-gray-600" id="build_app_heading">
             Build /
           </h2>
-          <h2 className="ml-1">Issues</h2>
+          <h2 className="ml-1 capitalize">{title}</h2>
         </div>
+        { showFeatureBar && 
+          <div className="pb-3 px-page-gutter">
+            <FeatureBar />
+          </div>
+        }
         <div className="px-page-gutter">
           <Filters
             showSelf={true}
@@ -30,24 +36,6 @@ const IssueDesk = observer(() => {
               { name: "Sort" },
               {
                 name: "Group",
-                items: [
-                  {
-                    title: "Created Date",
-                  },
-                  {
-                    title: "Owner",
-                  },
-                  {
-                    title: "Similarity",
-                    correct: true,
-                  },
-                  {
-                    title: "Stage",
-                  },
-                  {
-                    title: "Modified Date",
-                  },
-                ],
               },
               { name: "Customize" },
             ]}

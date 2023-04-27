@@ -17,38 +17,21 @@ export const clusteringTourSteps = [
   },
   {
     type: "point",
-    target: "#sort_field-Group",
-    content: "Click here to group the tickets.",
-    disableBeacon: true,
-    placement: "left",
-  },
-  {
-    type: "click",
-    target: "#sort_field-Group",
-    func: () => {},
-  },
-  {
-    type: "wait",
-    delay: 100,
-  },
-  {
-    type: "point",
-    target: "#Similarity",
+    target: "#toggle-btn",
     content:
-      "Our group by similarity feature intelligently scans all tickets and groups similar ones based on context into clusters",
+      "Our Smart Group feature intelligently scans all tickets and groups similar ones based on context into clusters.",
     disableBeacon: true,
-    placement: "left",
+    placement: "right",
+    offset: -10,
   },
   {
     type: "click",
-    target: "#Similarity",
+    target: "#toggle-btn",
     func: (store) => {
-      store.configs.desks.deskOpen = DESKS.CLUSTERING_DESK;
+      setTimeout(() => {
+        store.configs.desks.deskOpen = DESKS.CLUSTERING_DESK;
+      }, 400);
     },
-  },
-  {
-    type: "wait",
-    delay: 100,
   },
   {
     type: "point",

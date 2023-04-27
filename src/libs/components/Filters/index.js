@@ -61,7 +61,7 @@ const SortField = ({ name, onClick, currOpt, onSelect, items }) => {
     <DropDown items={items} showOpts={currOpt === name} onSelect={onSelect}>
       <div
         onClick={onClick}
-        className="p-1 rounded-md text-small text-gray-600 font-semibold leading-loose tracking-tight flex items-center cursor-pointer hover:bg-area-hovered mr-1"
+        className="p-1 rounded-md text-small text-gray-600 leading-loose tracking-tight flex items-center cursor-pointer hover:bg-area-hovered mr-1"
         id={`sort_field-${name}`}
       >
         <div>{name}</div> <BiChevronDown className="text-default" />

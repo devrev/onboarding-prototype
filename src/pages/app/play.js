@@ -10,9 +10,6 @@ import ViewEnhPane from "@/libs/panes/viewEnhancement";
 import IssueDesk from "@/libs/desks/issues";
 import UpdatesDesk from "@/libs/desks/updates";
 
-import Tour from "@/libs/tours";
-import { clusteringTourSteps } from "@/tours/clustering";
-
 export default function Playground() {
   const isMobile = useMobileScreen();
   const [isLoad, setIsLoad] = useState(false);
@@ -26,14 +23,9 @@ export default function Playground() {
         <title>DevRev</title>
       </Head>
       <main>
-        {isLoad && <Tour tourSteps={clusteringTourSteps} />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
-          <ClusteringDesk />
-          <IssueDesk showFeatureBar={true} />
-          <UpdatesDesk />
-          <CreateEnhPane />
-          <ViewEnhPane />
+          
         </div>
       </main>
     </>
