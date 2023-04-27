@@ -1,13 +1,17 @@
 import React from "react";
 import { BsArrowRightCircle } from "react-icons/bs";
+import { BiTimeFive, BiWrench, BiRightArrowCircle } from "react-icons/bi";
+
 
 const iconMap = {
   review: BsArrowRightCircle,
+  new: BiTimeFive,
 };
 
 const textMap = {
   review: "In Review",
-  default: "Working"
+  default: "Working",
+  new: "New"
 };
 
 const StagePill = ({ stage }) => {

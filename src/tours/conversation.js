@@ -40,17 +40,19 @@ export const conversationTourSteps = [
       store.data.lists.conversations.unshift({
         displayId: "CONV-1317",
         member: {
-          name: devUser.name,
-          extra: 1,
+          name: "Guest 4315",
+          revOrg: "Routing",
+          extra: 2,
         },
         source: "plug",
         msg: {
-          name: revUser.name,
-          revOrg: revUser.revOrg,
+          name: "Guest 4315",
+          revOrg: "Routing",
           text: "Hey, The Payments API is continuously giving 403 errors. How can I fix it?",
         },
-        ticket: "TKT-1216",
-        updated: "yesterday",
+        sla: "-",
+        updated: "today",
+        stage: "new",
         id: "conv_1317",
       });
     },
@@ -61,7 +63,8 @@ export const conversationTourSteps = [
     content:
       "A new conversation just arrived! Click here to chat with your customer",
     disableBeacon: true,
-    placement: "left",
+    placement: "bottom",
+    offset: -10,
   },
   {
     type: "click",

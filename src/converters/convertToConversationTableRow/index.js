@@ -3,31 +3,33 @@ import WorkPill from "@/libs/molecules/workPill";
 import ProfilePicture from "@/libs/atoms/profile";
 import SourcePill from "@/libs/molecules/sourcePill";
 import RevUserProfile from "@/libs/molecules/revUserProfile";
+import StageBadge from "@/libs/molecules/stageBadge";
+import StagePill from "@/libs/molecules/stagePill";
 
 const convertToConversationTableRow = (conv) => {
+  console.log("STAGE", conv.stage)
   return [
-    <WorkPill
-      key={conv.displayId}
-      type="conv"
-      display={conv.displayId}
-      id={conv?.id}
-    />,
-    "CourseHero",
-    <div key="members" className="flex items-center">
-      <ProfilePicture
-        size="xs"
+    <div
+      key={`profile-${conv.displayId}`}
+      className="flex items-center"
+      id={conv.id}
+    >
+      <RevUserProfile
+        size="sm"
         name={conv.member.name}
-        color={conv.member?.color}
+        revOrg={conv.member.revOrg}
       />
-      <p className="ml-1">{conv.member.name}</p>
-      <p className="ml-2 text-tiny text-gray-400">+{conv.member.extra}</p>
+      <div className="ml-2">
+        <p>{conv.member.name}</p>
+        <p className="text-small text-gray-500">{conv.member.revOrg}</p>
+      </div>
     </div>,
     <SourcePill
-      key="source"
+      key={`source-${conv.displayId}`}
       name={conv.source}
       id={conv?.id && `${conv.id}__conv-source`}
     />,
-    <div key="last_msg" className="flex items-center">
+    <div key={`last_msg-${conv.displayId}`} className="flex items-center">
       {conv.msg?.revOrg ? (
         <RevUserProfile
           size="xs"
@@ -44,6 +46,8 @@ const convertToConversationTableRow = (conv) => {
       )}
       <p className="ml-1 ellipsis-break">{conv.msg.text}</p>
     </div>,
+    <div key={`sla-${conv.displayId}`}>-</div>,
+    <StagePill stage={conv.stage} key={`stage-${conv.displayId}`} />,
     conv.ticket ? (
       <WorkPill key={conv.ticket} type="ticket" display={conv.ticket} />
     ) : (

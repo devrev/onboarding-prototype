@@ -28,18 +28,18 @@ const ConversationDesk = observer(() => {
         <div className="mt-4">
           <Table
             headers={[
-              "Items",
-              "RevOrg",
               "Members",
               "Source",
               "Last Message",
+              "SLA Target",
+              "Stage",
               "Tickets",
               "Last Updated",
             ]}
             data={store.data.lists.conversations.map((conv) =>
               convertToConversationTableRow(conv)
             )}
-            secondColWidth="min-w-[20rem] max-w-[20rem]"
+            secondColWidth="min-w-[10rem] max-w-[10rem]"
           />
         </div>
       </div>
