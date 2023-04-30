@@ -55,6 +55,7 @@ export const clusteringTourSteps = [
       "Click here to select all tickets grouped under this cluster to perform some bulk actions",
     disableBeacon: true,
     placement: "right",
+    offset: -10,
   },
   {
     type: "click",

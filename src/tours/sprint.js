@@ -10,7 +10,7 @@ const revUser = {
 
 export const sprintTourSteps = [
   {
-    type: "start"
+    type: "start",
   },
   {
     type: "point",
@@ -137,6 +137,10 @@ export const sprintTourSteps = [
       "DevRev intelligently organizes your issues into sprints of the specified durations.",
     disableBeacon: true,
     placement: "auto",
+    offset: -10,
+    floaterProps: {
+      disableFlip: true,
+    },
   },
   {
     type: "click",
@@ -150,6 +154,10 @@ export const sprintTourSteps = [
       "All new issues enter the backlog and can then be moved to the required sprint.",
     disableBeacon: true,
     placement: "auto",
+    offset: -10,
+    floaterProps: {
+      disableFlip: true,
+    },
   },
   {
     type: "click",
