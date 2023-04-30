@@ -19,20 +19,25 @@ export const SprintIconMap = {
 const SprintButton = ({ type, value, className, onClick, date, ...props }) => {
   const Icon = SprintIconMap[value];
   return (
-    <Button type={type} onClick={onClick} className={clsx("flex-1", className)}>
-      <div className="flex justify-between items-center" {...props}>
+    <Button
+      type={type}
+      onClick={onClick}
+      className={clsx("flex-1", className)}
+      {...props}
+    >
+      <div className="flex justify-between items-center">
         <div className="flex items-center text-default capitalize">
           <Icon className="text-h1 mr-1" />
           {value}
         </div>
-        {
-          date && <div>
+        {date && (
+          <div>
             <p className="text-small">
               {date.format("DD MMM YYYY")} -{" "}
               {date.add(1, "week").format("DD MMM YYYY")}
             </p>
           </div>
-        }
+        )}
       </div>
     </Button>
   );

@@ -27,7 +27,7 @@ const MenuTab = ({ name, selected, onClick }) => {
     <div
       className={clsx(
         "text-gray-500 px-2 py-1.5 cursor-pointer",
-        selected === name && "text-gray-900 font-semibold tracking-tight"
+        selected === name && "text-gray-900 font-medium tracking-tight"
       )}
       onClick={onClick}
     >
