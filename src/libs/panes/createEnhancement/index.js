@@ -25,7 +25,7 @@ const CreateEnhPane = observer(() => {
         <div className="px-4 py-6">
           <div className="flex items-center justify-between">
             <WorkPill
-              type="enh"
+              type="enhancement"
               display="New Enhancement"
               isCreate={true}
               useBg={false}
@@ -70,7 +70,7 @@ const CreateEnhPane = observer(() => {
               <Links
                 headers={["docs", "issues", "tickets"]}
                 links={data.links}
-                type="enh"
+                type="enhancement"
                 start="tickets"
               />
             </div>

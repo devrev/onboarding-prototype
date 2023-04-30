@@ -48,7 +48,7 @@ export const viewEnhancement = {
   filters: [
     {
       name: "type",
-      value: "enh",
+      value: "enhancement",
     },
     {
       name: "Members",

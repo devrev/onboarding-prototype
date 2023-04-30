@@ -13,7 +13,7 @@ export const IconMap = {
   issue: IssueIcon,
   ticket: BiUserVoice,
   conv: BiConversation,
-  enh: EnhancementIcon,
+  enhancement: EnhancementIcon,
   capability: BiCube
 };
 
@@ -21,7 +21,7 @@ const classMapBg = {
   issue: "bg-issue",
   ticket: "bg-ticket",
   conv: "bg-conversation",
-  enh: "bg-trails-enhancement",
+  enhancement: "bg-trails-enhancement",
   capability: "bg-trails-capability bg-opacity-10",
 };
 
@@ -29,7 +29,7 @@ const classMap = {
   issue: "text-color-issue",
   ticket: "text-color-ticket",
   conv: "text-color-conversation",
-  enh: "text-trails-enhancement",
+  enhancement: "text-trails-enhancement",
   capability: "text-trails-capability"
 };
 

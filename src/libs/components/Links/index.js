@@ -30,7 +30,7 @@ const LinkItem = ({ item, type }) => {
       className={clsx(
         "h-20 p-3 rounded-lg cursor-pointer",
         type === "work" && "shadow-popover",
-        type === "enh" && "border mt-2"
+        type === "enhancement" && "border mt-2"
       )}
     >
       <div className="flex items-center">
@@ -60,7 +60,7 @@ const Links = observer(({ headers, links, type = "work", start }) => {
         <div
           className={clsx(
             "flex items-center text-small capitalize font-medium",
-            type === "enh" && "bg-pill rounded-md"
+            type === "enhancement" && "bg-pill rounded-md"
           )}
         >
           {headers.map((header) => (
@@ -69,7 +69,7 @@ const Links = observer(({ headers, links, type = "work", start }) => {
                 "w-fit cursor-pointer",
                 type === "work" &&
                   "mr-1 px-2 py-1.5 rounded-full flex items-center",
-                type === "enh" && "px-2 py-1.5 rounded-md flex items-center",
+                type === "enhancement" && "px-2 py-1.5 rounded-md flex items-center",
                 selected === header && "bg-pill-hovered"
               )}
               onClick={() => setSelected(header)}
