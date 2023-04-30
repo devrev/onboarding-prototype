@@ -10,6 +10,9 @@ const revUser = {
 
 export const conversationTourSteps = [
   {
+    type: "start",
+  },
+  {
     type: "point",
     target: "#side_nav__inbox",
     content: "Click on Inbox to view all your customer conversations",
@@ -100,7 +103,8 @@ export const conversationTourSteps = [
   {
     type: "point",
     target: "#chatBox__messages",
-    content: "View all conversation history for max context.",
+    content:
+      "View all conversation history for getting the required context to help your customers.",
     disableBeacon: true,
     placement: "left",
   },
@@ -175,7 +179,7 @@ export const conversationTourSteps = [
     type: "point",
     target: "#createTicketPane__part_selector",
     content:
-      "Parts are components of your app, click to select a part that is most suitable.",
+      "Parts represent components that form your product — user facing parts like features or internal parts like API services. Click here to select a part and link this item with that part of your product.",
     disableBeacon: true,
     placement: "left",
   },
@@ -188,7 +192,7 @@ export const conversationTourSteps = [
     type: "point",
     target: "#createTicketPane__attributes",
     content:
-      "DevRev intelligently fills all the necessary information required.",
+      "DevRev intelligently fills all the necessary information required based on the part you select and the item details.",
     disableBeacon: true,
     placement: "left",
   },

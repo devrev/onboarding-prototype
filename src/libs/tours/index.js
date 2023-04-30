@@ -13,11 +13,16 @@ const Tour = ({ tourSteps }) => {
   useEffect(() => {
     tourSteps.reduce(async (p, tourStep, idx) => {
       await p;
-      if (idx == 0) return Promise.resolve();
+      if (idx == 1) return Promise.resolve();
       return new Promise((resolve) => {
         if (tourStep.type === "end") {
           setRun(false);
+          tourParser.post({ name: "end" });
           return resolve();
+        }
+        if (tourStep.type === "start") {
+          tourParser.post({name: 'start'})
+          resolve();
         }
         tourParser[tourStep.type](tourStep, store, resolve, setStepIndex);
       });

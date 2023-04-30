@@ -10,6 +10,9 @@ const revUser = {
 
 export const sprintTourSteps = [
   {
+    type: "start"
+  },
+  {
     type: "point",
     target: "#side_nav-createWork",
     content: "Click here to create a new issue to work on.",
@@ -49,7 +52,7 @@ export const sprintTourSteps = [
     type: "point",
     target: "#createTicketPane__part_selector",
     content:
-      "Parts are components of your app, click to select a part that is most suitable.",
+      "Parts represent components that form your product — user facing parts like features or internal parts like API services. Click here to select a part and link this item with that part of your product.",
     disableBeacon: true,
     placement: "left",
   },

@@ -2,6 +2,9 @@ import { DESKS } from "@/constants";
 
 export const clusteringTourSteps = [
   {
+    type: "start",
+  },
+  {
     type: "point",
     target: "#side_nav__tickets",
     content: "Click on Tickets to view all tickets raised by customer support",
@@ -100,7 +103,7 @@ export const clusteringTourSteps = [
     type: "point",
     target: "#createEnhPane__part_selector",
     content:
-      "Parts are components of your app, click to select a part that is most suitable.",
+      "Parts represent components that form your product — user facing parts like features or internal parts like API services. Click here to select a part and link this item with that part of your product.",
     disableBeacon: true,
     placement: "left",
   },

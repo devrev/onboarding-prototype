@@ -42,12 +42,23 @@ const execHandler = (step, store, resolve, setStepIndex) => {
   }, step?.delay || 0);
 };
 
+const postMessageHandler = (event) => {
+   window.parent.postMessage(
+     {
+       type: "walkthrough",
+       event: event.name,
+     },
+     "*"
+   );
+}
+
 const tourParser = {
   click: clickHandler,
   point: pointHandler,
   fill: fillHandler,
   wait: waitHandler,
   exec: execHandler,
+  post: postMessageHandler
 };
 
 export default tourParser;
