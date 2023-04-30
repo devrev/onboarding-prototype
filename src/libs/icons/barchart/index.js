@@ -6,9 +6,9 @@ export const BarChartIcon = ({ className }) => {
       viewBox="0 0 16 16"
       fill="none"
       stroke="currentColor"
-      stroke-width="1.25"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="1.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
