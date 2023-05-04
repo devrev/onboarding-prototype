@@ -2,6 +2,7 @@ export const PATHS = {
   SPRINT: "/app/sprint",
   SUPPORT: "/app/support",
   CLUSTERING: "/app/clustering",
+  TRAILS: "/app/trails"
 };
 
 export const bgColors = [
@@ -20,7 +21,8 @@ export const DESKS = {
   UPDATE_DESK: "update_desk",
   CLUSTERING_DESK: "clustering_desk",
   SPRINT_DESK: "sprint_desk",
-  PARTS_DESK: "parts_desk"
+  PARTS_DESK: "parts_desk",
+  TRAILS_DESK: "trails_desk"
 };
 
 export const POSITION = {

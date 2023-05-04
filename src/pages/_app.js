@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "@/styles/react-flow.css";
 import "@/styles/tables.css";
 import { StoreProvider } from "@/mobx/providers";
 

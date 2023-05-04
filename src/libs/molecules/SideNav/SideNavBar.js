@@ -102,7 +102,7 @@ const SideNavBar = ({ isMobile = false }) => {
           Icon={RiVipDiamondLine}
           iconColor="text-purple-light"
         />
-        <SideNavItem name="Trails" />
+        <SideNavItem name="Trails" id="side_nav__trails" />
         <SideNavItem name="Parts" id="side_nav__parts" />
         <SideNavItem name="Now, Next, Later" />
       </div>
