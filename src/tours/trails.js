@@ -22,7 +22,7 @@ export const trailsTourSteps = [
   },
   {
     type: "point",
-    target: "#prod_financify",
+    target: "#side_nav__trails",
     content:
       "Trails showcase the blueprint of your Product architecture. Your Product as viewed by the market would be a collection of Capabilities which in turn are a collection of features. Align all your teams towards delivering the Product & its improvements and view feedback all at one place",
     disableBeacon: true,

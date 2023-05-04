@@ -10,7 +10,7 @@ export default function Document() {
         <meta name="description" content="The DevRev App Onboarding" />
         <Script src="/static/index.js" strategy="lazyOnload"></Script>
       </Head>
-      <body>
+      <body id="body">
         <Main />
         <NextScript />
       </body>

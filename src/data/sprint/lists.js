@@ -141,7 +141,7 @@ export const updates = [
   },
   {
     type: "ticket",
-    display: "TKT-787",
+    display: "TKT-7877",
     title: "HSBC Cards not working for Arihant Capital on Payment Gateway.",
     owner: {
       name: "John Snow",

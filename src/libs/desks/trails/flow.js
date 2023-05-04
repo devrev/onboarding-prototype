@@ -33,8 +33,7 @@ const OverviewFlowBase = observer(() => {
   const [zoom, setZoom] = useState(2);
   const [yPos, setYPos] = useState(0)
   const [xPos, setXPos] = useState(150);
-
-
+  
   const { setViewport } = useReactFlow();
 
   const handleTransform = () => {

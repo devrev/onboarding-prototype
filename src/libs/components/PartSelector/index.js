@@ -62,7 +62,7 @@ const PartItem = ({ type, name, onClick, ...props }) => {
       )}
       {...props}
     >
-      <Icon className="mr-1" />
+      <Icon className="mr-2 w-4 h-4" />
       {name}
     </div>
   );

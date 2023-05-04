@@ -15,7 +15,7 @@ import {
 import { RiVipDiamondLine, RiCodeSSlashLine } from "react-icons/ri";
 import Button from "@/libs/atoms/button";
 import clsx from "clsx";
-import { DollarIcon, HeadphonesIcon } from "@/libs/icons";
+import { BellIcon, DollarIcon, HeadphonesIcon, TasksIcon } from "@/libs/icons";
 
 const SideNavItem = ({
   Icon,
@@ -68,8 +68,8 @@ const SideNavBar = ({ isMobile = false }) => {
         </div>
       </div>
       <div className="my-3">
-        <SideNavItem name="Updates" Icon={FaRegBell} />
-        <SideNavItem name="My Tasks" Icon={FaRegNewspaper} />
+        <SideNavItem name="Updates" Icon={BellIcon} iconSize="w-5 h-5 mr-2" />
+        <SideNavItem name="My Tasks" Icon={TasksIcon} iconSize="w-5 h-5 mr-2" />
       </div>
       <hr />
       <div>
