@@ -69,7 +69,6 @@ const SideNavBar = ({ isMobile = false }) => {
       </div>
       <div className="my-3">
         <SideNavItem name="Updates" Icon={FaRegBell} />
-        <SideNavItem name="Lobby" Icon={FaRegEnvelopeOpen} />
         <SideNavItem name="My Tasks" Icon={FaRegNewspaper} />
       </div>
       <hr />
