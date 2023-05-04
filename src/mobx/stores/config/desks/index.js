@@ -48,4 +48,8 @@ export class DeskStore {
   openPartsDesk = () => {
     this.deskOpen = DESKS.PARTS_DESK;
   };
+  
+  openTrailsDesk = () => {
+    this.deskOpen = DESKS.TRAILS_DESK;
+  }
 }

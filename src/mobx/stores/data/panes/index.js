@@ -15,6 +15,7 @@ import {
 import {
   viewEnhancement as sprintViewEnhancement,
 } from "@/data/sprint";
+import { viewEnhancement as trailsViewEnhancement } from "@/data/trails";
 import { PATHS } from "@/constants";
 
 export class PaneStore {
@@ -48,6 +49,8 @@ export class PaneStore {
         case PATHS.SPRINT:
           this.viewEnhancement = sprintViewEnhancement;
           break;
+        case PATHS.TRAILS:
+          this.viewEnhancement = trailsViewEnhancement;
       }
     }
   };

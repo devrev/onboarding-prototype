@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { RiVipDiamondLine, RiCodeSSlashLine } from "react-icons/ri";
 import { TbCircles } from "react-icons/tb";
 import { BiCube } from "react-icons/bi";
+import { EnhancementIcon, FeatureIcon } from "@/libs/icons";
+
 import clsx from "clsx";
 
 const partsList = [
@@ -23,18 +25,28 @@ const partsList = [
   },
 ];
 
-const IconMap = {
+export const IconMap = {
   product: RiVipDiamondLine,
   runnable: RiCodeSSlashLine,
-  feature: TbCircles,
+  feature: FeatureIcon,
   capability: BiCube,
+  enhancement: EnhancementIcon,
 };
 
-const classMap = {
+export const classMap = {
   product: "text-trails-product",
   runnable: "text-trails-runnable",
   feature: "text-trails-feature",
   capability: "text-trails-capability",
+  enhancement: "text-trails-enhancement",
+};
+
+export const bgClassMap = {
+  enhancement: "bg-trails-enhancement bg-opacity-10",
+  capability: "bg-trails-capability bg-opacity-10",
+  product: "bg-trails-product bg-opacity-10",
+  runnable: "bg-trails-runnable",
+  feature: "bg-trails-feature bg-opacity-10",
 };
 
 const PartItem = ({ type, name, onClick, ...props }) => {
@@ -50,7 +62,7 @@ const PartItem = ({ type, name, onClick, ...props }) => {
       )}
       {...props}
     >
-      <Icon className="mr-1" />
+      <Icon className="mr-2 w-4 h-4" />
       {name}
     </div>
   );

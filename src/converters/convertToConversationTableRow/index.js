@@ -7,7 +7,6 @@ import StageBadge from "@/libs/molecules/stageBadge";
 import StagePill from "@/libs/molecules/stagePill";
 
 const convertToConversationTableRow = (conv) => {
-  console.log("STAGE", conv.stage)
   return [
     <div
       key={`profile-${conv.displayId}`}

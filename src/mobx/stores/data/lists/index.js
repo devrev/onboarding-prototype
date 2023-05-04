@@ -6,6 +6,7 @@ import {
   updates as sprintUpdates
 } from "@/data/sprint";
 import { tickets as clusteringTickets, updates as clusteringUpdates } from "@/data/clustering";
+import { nodes as trailNodes, edges as trailEdges } from "@/data/trails";
 import { PATHS } from "@/constants";
 export class ListStore {
   conversations = [];
@@ -14,6 +15,8 @@ export class ListStore {
   tickets = [];
   parts = [];
   updates = [];
+  trailNodes = [];
+  trailEdges = [];
 
   constructor() {
     makeObservable(this, {
@@ -23,7 +26,12 @@ export class ListStore {
       tickets: observable,
       parts: observable,
       updates: observable,
+      trailEdges: observable,
+      trailNodes: observable,
+
       hydrate: action,
+      appendToTrailEdges: action,
+      appendToTrailNodes: action,
     });
   }
 
@@ -41,6 +49,14 @@ export class ListStore {
 
   appendToParts = ({ item }) => {
     this.parts.push({ item });
+  };
+
+  appendToTrailEdges = (item) => {
+    this.trailEdges.push(item);
+  };
+
+  appendToTrailNodes = (item) => {
+    this.trailNodes.push(item);
   };
 
   clusterTickets = () => {
@@ -61,7 +77,7 @@ export class ListStore {
         case PATHS.SUPPORT:
           this.issues = supportIssues;
           this.conversations = supportConversations;
-          this.updates = supportUpdates
+          this.updates = supportUpdates;
           break;
         case PATHS.CLUSTERING:
           this.tickets = clusteringTickets;
@@ -71,6 +87,11 @@ export class ListStore {
           this.issues = sprintIssues;
           this.parts = sprintParts;
           this.updates = sprintUpdates;
+          break;
+        case PATHS.TRAILS:
+          this.updates = sprintUpdates;
+          this.trailEdges = trailEdges;
+          this.trailNodes = trailNodes;
           break;
       }
     }

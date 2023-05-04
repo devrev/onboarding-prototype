@@ -7,22 +7,22 @@ import {
 } from "react-icons/bi";
 import { IssueIcon } from "@/libs/icons";
 import clsx from "clsx";
-import { EnhancementIcon } from "@/libs/icons";
+import { IconMap as PartIconMap, bgClassMap as PartBgClassMap } from "@/libs/components/PartSelector";
 
 export const IconMap = {
   issue: IssueIcon,
   ticket: BiUserVoice,
   conv: BiConversation,
-  enhancement: EnhancementIcon,
-  capability: BiCube
+  enhancement: PartIconMap.enhancement,
+  capability: PartIconMap.capability
 };
 
-const classMapBg = {
+export const classMapBg = {
   issue: "bg-issue",
   ticket: "bg-ticket",
   conv: "bg-conversation",
-  enhancement: "bg-trails-enhancement",
-  capability: "bg-trails-capability bg-opacity-10",
+  enhancement: PartBgClassMap.enhancement,
+  capability: PartBgClassMap.capability,
 };
 
 const classMap = {

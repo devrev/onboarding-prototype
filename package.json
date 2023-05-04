@@ -23,7 +23,8 @@
     "react-icons": "^4.8.0",
     "react-joyride": "^2.5.3",
     "react-shepherd": "^4.2.0",
-    "react-switch": "^7.0.0"
+    "react-switch": "^7.0.0",
+    "reactflow": "^11.7.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.13",
