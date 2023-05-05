@@ -39,10 +39,13 @@ export class PaneStore {
   hydrate = () => {
     if (!(typeof window === "undefined")) {
       switch (window.location.pathname) {
-        case PATHS.SUPPORT:
-          this.conversation = supportConversation
+        case PATHS.TICKET_LINK || PATHS.CONVERSATION:
+          this.conversation = supportConversation;
           break;
-        case PATHS.CLUSTERING: 
+        case PATHS.CONVERSATION:
+          this.conversation = supportConversation;
+          break;
+        case PATHS.CLUSTERING:
           this.createEnhancement = clusteringCreateEnhancement;
           this.viewEnhancement = clusteringViewEnhancement;
           break;

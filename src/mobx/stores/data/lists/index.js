@@ -74,7 +74,12 @@ export class ListStore {
   hydrate = () => {
     if (!(typeof window === "undefined")) {
       switch (window.location.pathname) {
-        case PATHS.SUPPORT:
+        case PATHS.TICKET_LINK:
+          this.issues = supportIssues;
+          this.conversations = supportConversations;
+          this.updates = supportUpdates;
+          break;
+        case PATHS.CONVERSATION:
           this.issues = supportIssues;
           this.conversations = supportConversations;
           this.updates = supportUpdates;

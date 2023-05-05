@@ -6,11 +6,10 @@ import clsx from "clsx";
 import IssueDesk from "@/libs/desks/issues";
 import CreateTicketPane from "@/libs/panes/createTicket";
 import ConversationDesk from "@/libs/desks/conversations";
-import { useStore } from "@/mobx/providers";
 import ConversationPane from "@/libs/panes/conversation";
 import Tour from "@/libs/tours";
-import { conversationTourSteps } from "@/tours/conversation";
 import UpdatesDesk from "@/libs/desks/updates";
+import { ticketLinkTourSteps } from "@/tours/ticket-link";
 
 export default function Playground() {
   const isMobile = useMobileScreen();
@@ -25,7 +24,7 @@ export default function Playground() {
         <title>DevRev</title>
       </Head>
       <main>
-        {isLoad && <Tour tourSteps={conversationTourSteps} />}
+        {isLoad && <Tour tourSteps={ticketLinkTourSteps} />}
         <SideNav />
         <div className={clsx(!isMobile && "ml-72")}>
           <IssueDesk />

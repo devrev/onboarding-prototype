@@ -35,7 +35,7 @@ export const conversationTourSteps = [
   },
   {
     type: "wait",
-    delay: "4000",
+    delay: 4000,
   },
   {
     type: "exec",
@@ -104,31 +104,31 @@ export const conversationTourSteps = [
     type: "point",
     target: "#chatBox__messages",
     content:
-      "View all conversation history for getting the required context to help your customers.",
+      "Type in your reply and just hit enter. The message is sent on the original channel where the conversation originated from.",
     disableBeacon: true,
     placement: "left",
   },
   {
     type: "exec",
-    delay: 2000,
+    delay: 5000,
     func: (store) => {
       store.data.panes.conversation.chat.push({
         type: "rev",
         name: revUser.name,
         revOrg: revUser.revOrg,
-        text: "Yes the Bearer Token is present. And seems like the GET requests work fine but the POST requests are failing.",
+        text: "Oops! Seems like I missed that. Yup on a second run the request succeeds with the bearer token. Thanks for all the help!",
       });
     },
   },
   {
     type: "fill",
     target: "#textBox__textarea",
-    text: "Sure, let me quickly open a ticket for the same!",
+    text: "Sure no issues, have a nice day!",
   },
   {
     type: "point",
     target: "#textBox__send-btn",
-    content: "Notify them of any updates to follow.",
+    content: "Click to send and build stronger customer relations!",
     disableBeacon: true,
     placement: "left",
   },
@@ -139,100 +139,40 @@ export const conversationTourSteps = [
       store.data.panes.conversation.chat.push({
         type: "dev",
         name: devUser.name,
-        text: "Sure, let me quickly open a ticket for the same!",
+        text: "Sure, have a nice day!",
       });
       document.getElementById("textBox__textarea").innerHTML = "";
     },
   },
   {
     type: "point",
-    target: "#link_tickets",
-    content: "Click here to link a ticket",
+    target: "#filter-Stage",
+    content: "Click to mark this conversation as resolved.",
     disableBeacon: true,
     placement: "left",
   },
   {
     type: "click",
-    target: "#link_tickets",
+    target: "#filter-Stage",
     func: (store) => {
-      return store.configs.panes.createTicketPane.open();
+      store.data.panes.conversation.filters[0] = {
+        name: "Stage",
+        value: "Resolved",
+      };
+      store.data.lists.conversations.shift();
     },
   },
   {
     type: "point",
-    target: "#createTicketPane__title",
-    content: "Fill all the details",
-    disableBeacon: true,
-    placement: "left",
-  },
-  {
-    type: "fill",
-    target: "#createTicketPane__title",
-    text: "Payments API failing with 403",
-  },
-  {
-    type: "fill",
-    target: "#createTicketPane__description",
-    text: "Multiple reports of Payments API failing on POST with 403. Customer reports GET requests work fine. Bearer token is attached all basic debugging has been attempted.",
-  },
-  {
-    type: "point",
-    target: "#createTicketPane__part_selector",
+    target: "#conv_1318__conv-source",
     content:
-      "Parts represent components that form your product — user facing parts like features or internal parts like API services. Click here to select a part and link this item with that part of your product.",
+      "The resolved conversation is archived and moved away from the active inbox.",
     disableBeacon: true,
-    placement: "left",
-  },
-  {
-    type: "click",
-    target: "#part_selector",
-    func: () => {},
-  },
-  {
-    type: "point",
-    target: "#createTicketPane__attributes",
-    content:
-      "DevRev intelligently fills all the necessary information required based on the part you select and the item details.",
-    disableBeacon: true,
-    placement: "left",
+    placement: "bottom",
   },
   {
     type: "wait",
-    delay: 8000,
-  },
-  {
-    type: "point",
-    target: "#createTicketPane__create_btn",
-    content: "Create the ticket",
-    disableBeacon: true,
-    placement: "left",
-  },
-  {
-    type: "click",
-    target: "#createTicketPane__create_btn",
-    func: (store) => {
-      store.configs.panes.createTicketPane.close();
-      store.data.panes.conversation.links.tickets.push({
-        type: "ticket",
-        display: "TKT-1216",
-        title: "Payments API failing with 403",
-        f1: "Awaiting Product Assist",
-        f2: "High",
-        owner: devUser.name,
-      });
-    },
-  },
-  {
-    type: "point",
-    target: "#links__items",
-    content:
-      "The ticket stays attached with this conversation for all references!",
-    disableBeacon: true,
-    placement: "left",
-  },
-  {
-    type: "wait",
-    delay: 8000,
+    delay: 6000,
   },
   {
     type: "end",
