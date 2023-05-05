@@ -6,7 +6,6 @@ import clsx from "clsx";
 import IssueDesk from "@/libs/desks/issues";
 import CreateTicketPane from "@/libs/panes/createTicket";
 import ConversationDesk from "@/libs/desks/conversations";
-import { useStore } from "@/mobx/providers";
 import ConversationPane from "@/libs/panes/conversation";
 import Tour from "@/libs/tours";
 import { conversationTourSteps } from "@/tours/conversation";

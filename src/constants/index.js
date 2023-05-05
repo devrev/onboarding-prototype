@@ -1,8 +1,9 @@
 export const PATHS = {
   SPRINT: "/app/sprint",
-  SUPPORT: "/app/support",
+  CONVERSATION: "/app/conversation",
+  TICKET_LINK: "/app/ticket-link",
   CLUSTERING: "/app/clustering",
-  TRAILS: "/app/trails"
+  TRAILS: "/app/trails",
 };
 
 export const bgColors = [

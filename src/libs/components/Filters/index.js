@@ -9,10 +9,11 @@ import useMobileScreen from "@/hooks/useMobileScreen";
 import clsx from "clsx";
 import DropDown from "@/libs/atoms/dropdown";
 import WorkPill from "@/libs/molecules/workPill";
+import { observer } from "mobx-react-lite";
 
 const FilterField = ({ name, value }) => {
   return (
-    <div className="flex mt-1 text-small border w-fit rounded-md cursor-pointer hover:border-gray-400 mr-1 capitalize">
+    <div className="flex mt-1 text-small border w-fit rounded-md cursor-pointer hover:border-gray-400 mr-1 capitalize" id={`filter-${name}`}>
       <div className={clsx("px-2 py-1", value && "border-r")}>{name}</div>
       {value && name === "type" ? (
         <div>
@@ -70,7 +71,7 @@ const SortField = ({ name, onClick, currOpt, onSelect, items }) => {
   );
 };
 
-const Filter = ({ filters, sort, showSelf = false, showCreate = true }) => {
+const Filter = observer(({ filters, sort, showSelf = false, showCreate = true }) => {
   const isMobile = useMobileScreen();
   return (
     <div className="flex items-center justify-between">
@@ -102,6 +103,6 @@ const Filter = ({ filters, sort, showSelf = false, showCreate = true }) => {
       <SortFields sort={sort} />
     </div>
   );
-};
+});
 
 export default Filter;
