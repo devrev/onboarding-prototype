@@ -67,6 +67,33 @@ export const ticketLinkTourSteps = [
   },
   {
     type: "point",
+    target: "#chatBox__messages",
+    content:
+      "View the conversation for collecting all context required for filing support tickets.",
+    disableBeacon: true,
+    placement: "left",
+  },
+  {
+    type: "wait",
+    delay: 3000,
+  },
+  {
+    type: "exec",
+    func: (store) => {
+      store.data.panes.conversation.chat.push({
+        type: "rev",
+        name: revUser.name,
+        revOrg: revUser.revOrg,
+        text: "GET requests seem to work fine but POST requests are failing continuously.",
+      });
+    },
+  },
+  {
+    type: "wait",
+    delay: 2000,
+  },
+  {
+    type: "point",
     target: "#link_tickets",
     content: "Click here to link a ticket",
     disableBeacon: true,
