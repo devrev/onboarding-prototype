@@ -82,9 +82,9 @@ const SideNavBar = ({ isMobile = false }) => {
         <SideNavItem name="Inbox" id="side_nav__inbox" />
         <SideNavItem name="Insights" />
         <SideNavItem name="Tickets" id="side_nav__tickets" />
-        <SideNavItem name="Team Activity" />
-        <SideNavItem name="Active Ticket Tracker" />
-        <SideNavItem name="Product Assist Tracker" />
+        <SideNavItem name="Team Activity" id="side_nav__team_activity" />
+        <SideNavItem name="Active Ticket Tracker" id="side_nav__active_ticket_tracker" />
+        <SideNavItem name="Product Assist Tracker" id="side_nav__product_assist_tracker" />
       </div>
       <div>
         <SideNavItem
