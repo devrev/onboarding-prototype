@@ -7,7 +7,7 @@ import { observer } from "mobx-react-lite";
 import { DESKS } from "@/constants";
 import FeatureBar from "@/libs/components/FeatureBar";
 
-const IssueDesk = observer(({title = "Tickets", showFeatureBar = false}) => {
+const IssueDesk = observer(({section = 'Build', title = "Tickets", showFeatureBar = false}) => {
   const store = useStore();
   const isOpen = store.configs.desks.deskOpen === DESKS.ISSUE_DESK;
 
@@ -16,11 +16,11 @@ const IssueDesk = observer(({title = "Tickets", showFeatureBar = false}) => {
       <div>
         <div className="py-5 px-page-gutter flex">
           <h2 className="text-gray-600" id="build_app_heading">
-            Build /
+            {section} /
           </h2>
           <h2 className="ml-1 capitalize">{title}</h2>
         </div>
-        { showFeatureBar && 
+        { showFeatureBar &&
           <div className="pb-3 px-page-gutter">
             <FeatureBar />
           </div>
@@ -44,7 +44,7 @@ const IssueDesk = observer(({title = "Tickets", showFeatureBar = false}) => {
         <div className="mt-6">
           <Table
             headers={["Items", "Title", "Owner", "Stage", "Tags", "Priority"]}
-            data={store.data.lists.tickets.map((issue) =>
+            data={store.data.lists[section === 'Build' ? 'tickets' : 'issues'].map((issue) =>
               convertToIssueTableRow(issue)
             )}
           />

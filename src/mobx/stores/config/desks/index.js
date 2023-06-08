@@ -12,9 +12,11 @@ enableStaticRendering(typeof window === "undefined");
 
 export class DeskStore {
   deskOpen = DESKS.UPDATE_DESK;
+  filtered = false;
 
   constructor() {
     makeObservable(this, {
+      filtered: observable,
       deskOpen: observable,
       openConversationDesk: action,
       openIssueDesk: action,
@@ -48,7 +50,7 @@ export class DeskStore {
   openPartsDesk = () => {
     this.deskOpen = DESKS.PARTS_DESK;
   };
-  
+
   openTrailsDesk = () => {
     this.deskOpen = DESKS.TRAILS_DESK;
   }

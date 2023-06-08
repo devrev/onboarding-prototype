@@ -26,9 +26,9 @@ const FilterField = ({ name, value }) => {
   );
 };
 
-const FilterFieldIcon = ({ children }) => {
+const FilterFieldIcon = ({ children, ...props }) => {
   return (
-    <div className="flex mt-1 text-small border w-fit p-2 rounded-3xl cursor-pointer hover:border-gray-400 mr-1">
+    <div {...props} className="flex mt-1 text-small border w-fit p-2 rounded-3xl cursor-pointer hover:border-gray-400 mr-1">
       <div className="text-gray-700">{children}</div>
     </div>
   );
@@ -78,7 +78,7 @@ const Filter = observer(({ filters, sort, showSelf = false, showCreate = true })
       <div className={clsx("flex", isMobile && "flex-col")}>
         {showSelf && (
           <div className="flex items-center mr-2">
-            <FilterFieldIcon>
+            <FilterFieldIcon id="filter__assigned_to_me">
               <GoMention />
             </FilterFieldIcon>
             <FilterFieldIcon>

@@ -5,6 +5,10 @@ import {
   issues as sprintIssues,
   updates as sprintUpdates
 } from "@/data/sprint";
+import {
+  issues as vistasIssues,
+  users as vistasUsers,
+} from "@/data/vistas";
 import { tickets as clusteringTickets, updates as clusteringUpdates } from "@/data/clustering";
 import { nodes as trailNodes, edges as trailEdges } from "@/data/trails";
 import { PATHS } from "@/constants";
@@ -97,6 +101,10 @@ export class ListStore {
           this.updates = sprintUpdates;
           this.trailEdges = trailEdges;
           this.trailNodes = trailNodes;
+          break;
+        case PATHS.VISTAS:
+          this.issues = vistasIssues;
+          this.users = vistasUsers;
           break;
       }
     }
