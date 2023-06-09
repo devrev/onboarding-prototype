@@ -19,6 +19,7 @@ export class DeskStore {
       filtered: observable,
       deskOpen: observable,
       openConversationDesk: action,
+      openSupportDesk: action,
       openIssueDesk: action,
       openUpdateDesk: action,
       openSprintDesk: action,
@@ -29,6 +30,10 @@ export class DeskStore {
 
   openConversationDesk = () => {
     this.deskOpen = DESKS.CONVERSATION_DESK;
+  };
+
+  openSupportDesk = () => {
+    this.deskOpen = DESKS.SUPPORT_DESK;
   };
 
   openIssueDesk = () => {

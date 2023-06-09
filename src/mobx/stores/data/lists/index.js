@@ -88,6 +88,11 @@ export class ListStore {
           this.conversations = supportConversations;
           this.updates = supportUpdates;
           break;
+        case PATHS.SUPPORT:
+          this.issues = supportIssues;
+          this.conversations = supportConversations;
+          this.updates = supportUpdates;
+          break;
         case PATHS.CLUSTERING:
           this.tickets = clusteringTickets;
           this.updates = clusteringUpdates;

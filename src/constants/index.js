@@ -1,6 +1,7 @@
 export const PATHS = {
   SPRINT: "/app/sprint",
   CONVERSATION: "/app/conversation",
+  SUPPORT: "/app/support",
   TICKET_LINK: "/app/ticket-link",
   CLUSTERING: "/app/clustering",
   TRAILS: "/app/trails",
@@ -20,6 +21,7 @@ export const bgColors = [
 export const DESKS = {
   ISSUE_DESK: "issue_desk",
   CONVERSATION_DESK: "conversation_desk",
+  SUPPORT_DESK: "support_desk",
   UPDATE_DESK: "update_desk",
   CLUSTERING_DESK: "clustering_desk",
   SPRINT_DESK: "sprint_desk",

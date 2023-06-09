@@ -45,6 +45,9 @@ export class PaneStore {
         case PATHS.CONVERSATION:
           this.conversation = supportConversation;
           break;
+        case PATHS.SUPPORT:
+          this.conversation = supportConversation;
+          break;
         case PATHS.CLUSTERING:
           this.createEnhancement = clusteringCreateEnhancement;
           this.viewEnhancement = clusteringViewEnhancement;
