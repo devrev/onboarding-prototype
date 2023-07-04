@@ -46,7 +46,7 @@ const WorkPill = ({
     <div
       className={clsx(
         colorClasses,
-        "flex items-center text-small font-medium rounded-md py-1 px-2 min-w-fit max-w-[30rem] cursor-pointer capitalize"
+        "flex items-center text-small font-medium rounded-md py-1 px-2 min-w-fit w-fit max-w-[30rem] cursor-pointer capitalize"
       )}
       {...props}
     >
